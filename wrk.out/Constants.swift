@@ -32,4 +32,11 @@ struct Constants {
         static let ckRecordIDKey = "ckRecordID"
         static let liftReference = "liftReference"
     }
+    
+    struct CloudKitConstants {
+        static let creatorUserRecordIDKey = "creatorUserRecordID"
+        static let lastModifiedUserRecordIDKey = "creatorUserRecordID"
+        static let creationDateKey = "creationDate"
+        static let modificationDateKey = "modificationDate"
+    }
 }

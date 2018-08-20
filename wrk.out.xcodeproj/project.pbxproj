@@ -14,6 +14,8 @@
 		3CB69464212B7DD000E9F2B1 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69461212B7DCF00E9F2B1 /* Set.swift */; };
 		3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69462212B7DCF00E9F2B1 /* Workout.swift */; };
 		3CB69468212B7DF900E9F2B1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69467212B7DF900E9F2B1 /* Constants.swift */; };
+		3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69469212B816A00E9F2B1 /* CloudKitManager.swift */; };
+		3CB6946F212B817C00E9F2B1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB6946E212B817C00E9F2B1 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		3CB69461212B7DCF00E9F2B1 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		3CB69462212B7DCF00E9F2B1 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		3CB69467212B7DF900E9F2B1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3CB69469212B816A00E9F2B1 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		3CB6946C212B817A00E9F2B1 /* wrk.out.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wrk.out.entitlements; sourceTree = "<group>"; };
+		3CB6946E212B817C00E9F2B1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CB6946F212B817C00E9F2B1 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +50,7 @@
 			children = (
 				3CB6944C212B75E600E9F2B1 /* wrk.out */,
 				3CB6944B212B75E600E9F2B1 /* Products */,
+				3CB6946D212B817C00E9F2B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +65,10 @@
 		3CB6944C212B75E600E9F2B1 /* wrk.out */ = {
 			isa = PBXGroup;
 			children = (
+				3CB6946C212B817A00E9F2B1 /* wrk.out.entitlements */,
 				3CB6944D212B75E600E9F2B1 /* AppDelegate.swift */,
 				3CB69467212B7DF900E9F2B1 /* Constants.swift */,
+				3CB6946B212B817000E9F2B1 /* CloudKit */,
 				3CB69466212B7DD300E9F2B1 /* Models */,
 				3CB6945F212B761D00E9F2B1 /* Resources */,
 			);
@@ -84,6 +93,22 @@
 				3CB69460212B7DCF00E9F2B1 /* Lift.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3CB6946B212B817000E9F2B1 /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				3CB69469212B816A00E9F2B1 /* CloudKitManager.swift */,
+			);
+			path = CloudKit;
+			sourceTree = "<group>";
+		};
+		3CB6946D212B817C00E9F2B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CB6946E212B817C00E9F2B1 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +143,14 @@
 				TargetAttributes = {
 					3CB69449212B75E600E9F2B1 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -158,6 +191,7 @@
 			files = (
 				3CB69468212B7DF900E9F2B1 /* Constants.swift in Sources */,
 				3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */,
+				3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */,
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
 				3CB69464212B7DD000E9F2B1 /* Set.swift in Sources */,
 				3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */,
@@ -296,6 +330,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = wrk.out/wrk.out.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LWP4U374KN;
 				INFOPLIST_FILE = "$(SRCROOT)/wrk.out/Resources/Info.plist";
@@ -314,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = wrk.out/wrk.out.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LWP4U374KN;
 				INFOPLIST_FILE = "$(SRCROOT)/wrk.out/Resources/Info.plist";
