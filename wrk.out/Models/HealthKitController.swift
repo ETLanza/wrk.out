@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import HealthKit
+
+struct HealthKitController {
+    var startWorkout: Date
+    var endWorkout: Date
+    
+    init(startWorkout: Date, endWorkout: Date) {
+        self.startWorkout = startWorkout
+        self.endWorkout = endWorkout
+    }
+}

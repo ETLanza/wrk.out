@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import HealthKit
+
+class HealthKitModels {
+    static let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth)
+    static let gender = HKObjectType.characteristicType(forIdentifier: .biologicalSex)
+    static let height = HKObjectType.quantityType(forIdentifier: .height)
+    static let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass)
+    
+}
