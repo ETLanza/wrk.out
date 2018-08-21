@@ -25,9 +25,9 @@ class Sets: Equatable {
     }
     
     convenience init?(ckRecord: CKRecord) {
-        guard let weight = ckRecord[Constants.SetConstants.weightKey] as? Double,
-        let reps = ckRecord[Constants.SetConstants.repsKey] as? Int,
-            let liftReference = ckRecord[Constants.SetConstants.liftReference] as? CKReference else { return nil }
+        guard let weight = ckRecord[Keys.SetsKeys.weightKey] as? Double,
+        let reps = ckRecord[Keys.SetsKeys.repsKey] as? Int,
+            let liftReference = ckRecord[Keys.SetsKeys.liftReference] as? CKReference else { return nil }
         self.init(weight: weight, reps: reps, liftReference: liftReference)
         self.ckRecordID = ckRecord.recordID
     }
@@ -41,9 +41,9 @@ class Sets: Equatable {
 //MARK: - CKRecord Init for Set
 extension CKRecord {
     convenience init(set: Sets) {
-        self.init(recordType: Constants.SetConstants.setTypeKey, recordID: set.ckRecordID)
-        self.setValue(set.weight, forKey: Constants.SetConstants.weightKey)
-        self.setValue(set.reps, forKey: Constants.SetConstants.weightKey)
-        self.setValue(set.liftReference, forKey: Constants.SetConstants.liftReference)
+        self.init(recordType: Keys.SetsKeys.setTypeKey, recordID: set.ckRecordID)
+        self.setValue(set.weight, forKey: Keys.SetsKeys.weightKey)
+        self.setValue(set.reps, forKey: Keys.SetsKeys.weightKey)
+        self.setValue(set.liftReference, forKey: Keys.SetsKeys.liftReference)
     }
 }

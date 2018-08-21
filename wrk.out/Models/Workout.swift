@@ -21,8 +21,8 @@ class Workout: Equatable {
     }
     
     convenience init?(ckRecord: CKRecord) {
-        guard let duration = ckRecord[Constants.WorkoutConstants.durationKey] as? TimeInterval else { return nil }
-         let note = ckRecord[Constants.WorkoutConstants.noteKey] as? String
+        guard let duration = ckRecord[Keys.WorkoutKeys.durationKey] as? TimeInterval else { return nil }
+         let note = ckRecord[Keys.WorkoutKeys.noteKey] as? String
         self.init(duration: duration)
         self.ckRecordID = ckRecord.recordID
         self.note = note
@@ -36,8 +36,8 @@ class Workout: Equatable {
 
 extension CKRecord {
     convenience init(workout: Workout) {
-        self.init(recordType: Constants.WorkoutConstants.workoutTypeKey, recordID: workout.ckRecordID)
-        self.setValue(workout.duration, forKey: Constants.WorkoutConstants.durationKey)
-        self.setValue(workout.note, forKey: Constants.WorkoutConstants.noteKey)
+        self.init(recordType: Keys.WorkoutKeys.workoutTypeKey, recordID: workout.ckRecordID)
+        self.setValue(workout.duration, forKey: Keys.WorkoutKeys.durationKey)
+        self.setValue(workout.note, forKey: Keys.WorkoutKeys.noteKey)
     }
 }

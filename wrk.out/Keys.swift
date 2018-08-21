@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Constants {
-    struct WorkoutConstants {
+struct Keys {
+    struct WorkoutKeys {
         static let workoutTypeKey = "Workout"
         static let liftsKey = "lifts"
         static let durationKey = "duration"
@@ -17,7 +17,7 @@ struct Constants {
         static let ckRecordIDKey = "ckRecordID"
     }
     
-    struct LiftConstants {
+    struct LiftKeys {
         static let liftTypeKey = "Lift"
         static let nameKey = "name"
         static let setsKey = "sets"
@@ -25,7 +25,7 @@ struct Constants {
         static let workoutReferenceKey = "workoutReference"
     }
     
-    struct SetConstants {
+    struct SetsKeys {
         static let setTypeKey = "Set"
         static let weightKey = "weight"
         static let repsKey = "reps"
@@ -33,7 +33,7 @@ struct Constants {
         static let liftReference = "liftReference"
     }
     
-    struct CloudKitConstants {
+    struct CloudKitKeys {
         static let creatorUserRecordIDKey = "creatorUserRecordID"
         static let lastModifiedUserRecordIDKey = "creatorUserRecordID"
         static let creationDateKey = "creationDate"
