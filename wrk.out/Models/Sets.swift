@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-class Set: Equatable {
+class Sets: Equatable {
     
     var weight: Double
     var reps: Int
@@ -33,14 +33,14 @@ class Set: Equatable {
     }
     
     //MARK: - Equatable
-    static func == (lhs: Set, rhs: Set) -> Bool {
+    static func == (lhs: Sets, rhs: Sets) -> Bool {
         return lhs.ckRecordID == rhs.ckRecordID
     }
 }
 
 //MARK: - CKRecord Init for Set
 extension CKRecord {
-    convenience init(set: Set) {
+    convenience init(set: Sets) {
         self.init(recordType: Constants.SetConstants.setTypeKey, recordID: set.ckRecordID)
         self.setValue(set.weight, forKey: Constants.SetConstants.weightKey)
         self.setValue(set.reps, forKey: Constants.SetConstants.weightKey)
