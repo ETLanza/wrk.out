@@ -13,7 +13,7 @@ class Lift: Equatable {
     
     //MARK: - Properties
     var name: String
-    var sets: [Set] = []
+    var sets: [Sets] = []
     var ckRecordID: CKRecordID
     var workoutReference: CKReference
     
