@@ -25,6 +25,7 @@ struct HealthKitController {
         let startTime = startWorkout
         let endTime = endWorkout
         let predicate: NSPredicate? = HKQuery.predicateForSamples(withStart: startTime, end: endTime, options: HKQueryOptions.strictEndDate)
+        // strict end disallows for start time to be later than the end time and vice versa
         
         let squery = HKStatisticsQuery(quantityType: heartRate!, quantitySamplePredicate: predicate, options: .discreteAverage, completionHandler: {(query: HKStatisticsQuery,result: HKStatistics?, error: Error?) -> Void in
             DispatchQueue.main.async(execute: {() -> Void in
@@ -45,7 +46,7 @@ struct HealthKitController {
             _ = "male"
         }
         return value ?? 0
-        // this is grabbing the raw value of gender, 1 for male, 2 for female, if its 3 it means its not set. Possibly display an alert controller asking them for their gender if it = 0
+        // this is grabbing the raw value of gender from healthstore (which stores all the data that the user inputted in the health app), 1 for male, 2 for female, if its 3 it means its not set. Possibly display an alert controller asking them for their gender if it = 0
     }
     
 }

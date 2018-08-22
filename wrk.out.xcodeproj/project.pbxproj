@@ -90,6 +90,7 @@
 				3C9E34C6212DF359006B1759 /* Settings.swift */,
 				3C9E34C8212DF3A2006B1759 /* RestTimer.swift */,
 				3CB69466212B7DD300E9F2B1 /* Models */,
+				90291BC4212E28B500AD893E /* HealthKit */,
 				3CB69475212B836D00E9F2B1 /* Controllers */,
 				3CB6946B212B817000E9F2B1 /* CloudKit */,
 				3CB6945F212B761D00E9F2B1 /* Resources */,
@@ -113,9 +114,6 @@
 				3CB69462212B7DCF00E9F2B1 /* Workout.swift */,
 				3CB69460212B7DCF00E9F2B1 /* Lift.swift */,
 				3CB69461212B7DCF00E9F2B1 /* LiftSet.swift */,
-				908357AC212BA883007AA946 /* HealthKitModels.swift */,
-				908357B0212BB2BB007AA946 /* HealthKitController.swift */,
-				908357AE212BAC15007AA946 /* HealthKitSetup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,6 +151,16 @@
 				3CB69474212B835900E9F2B1 /* Model Controllers */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		90291BC4212E28B500AD893E /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				908357AC212BA883007AA946 /* HealthKitModels.swift */,
+				908357B0212BB2BB007AA946 /* HealthKitController.swift */,
+				908357AE212BAC15007AA946 /* HealthKitSetup.swift */,
+			);
+			path = HealthKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
