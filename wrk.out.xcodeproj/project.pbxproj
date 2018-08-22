@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C9E34C3212DCAA6006B1759 /* LiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9E34C2212DCAA6006B1759 /* LiftController.swift */; };
+		3C9E34C5212DD90B006B1759 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9E34C4212DD90B006B1759 /* WorkoutController.swift */; };
 		3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB6944D212B75E600E9F2B1 /* AppDelegate.swift */; };
 		3CB69455212B75E600E9F2B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CB69454212B75E600E9F2B1 /* Assets.xcassets */; };
 		3CB69458212B75E600E9F2B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB69456212B75E600E9F2B1 /* LaunchScreen.storyboard */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C9E34C2212DCAA6006B1759 /* LiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftController.swift; sourceTree = "<group>"; };
+		3C9E34C4212DD90B006B1759 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
 		3CB6944A212B75E600E9F2B1 /* wrk.out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wrk.out.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB6944D212B75E600E9F2B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CB69454212B75E600E9F2B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 		3CB69474212B835900E9F2B1 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C9E34C4212DD90B006B1759 /* WorkoutController.swift */,
+				3C9E34C2212DCAA6006B1759 /* LiftController.swift */,
 				3CB69472212B835400E9F2B1 /* LiftSetController.swift */,
 			);
 			path = "Model Controllers";
@@ -224,6 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C9E34C3212DCAA6006B1759 /* LiftController.swift in Sources */,
+				3C9E34C5212DD90B006B1759 /* WorkoutController.swift in Sources */,
 				3CB69468212B7DF900E9F2B1 /* Keys.swift in Sources */,
 				3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */,
 				908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */,

@@ -12,10 +12,12 @@ import CloudKit
 class LiftSetController {
     
     //MARK: - CRUD Functions
-    func addLiftset(toLift lift: Lift, weight: Double, reps: Int, liftReference: CKReference) {
+    func addLiftset(toLift lift: Lift, weight: Double, reps: Int) {
+        let liftRecord = CKRecord(lift: lift)
+        let liftReference = CKReference(record: liftRecord, action: .deleteSelf)
         let newLiftset = LiftSet(weight: weight, reps: reps, liftReference: liftReference)
-        let setAsRecord = CKRecord(liftset: newLiftset)
-        CloudKitManager.shared.saveRecord(setAsRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
+        let liftsetRecord = CKRecord(liftset: newLiftset)
+        CloudKitManager.shared.saveRecord(liftsetRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {
                 NSLog("Error saving LiftSet to CloudKit: %@", error.localizedDescription)
             }
@@ -59,12 +61,15 @@ class LiftSetController {
         
         CloudKitManager.shared.fetchRecordsOfType(Keys.LiftsetKeys.liftsetTypeKey, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
             if let error = error {
-                NSLog("Error Fetching LiftSets from CloudKit: %@", error.localizedDescription)
+                NSLog("Error Fetching LiftSets for %@ from CloudKit: %@", [lift.name, error.localizedDescription])
                 completion(false)
                 return
             }
             
-            guard let records = records else { completion(false); return }
+            guard let records = records else {
+                NSLog("Error finding records for lift: %@", lift.name)
+                completion(false)
+                return }
             
             let sets = records.compactMap { LiftSet(ckRecord: $0) }
             
