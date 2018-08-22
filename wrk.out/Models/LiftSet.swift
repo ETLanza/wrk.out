@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-class Sets: Equatable {
+class LiftSet: Equatable {
     
     var weight: Double
     var reps: Int
@@ -25,25 +25,25 @@ class Sets: Equatable {
     }
     
     convenience init?(ckRecord: CKRecord) {
-        guard let weight = ckRecord[Keys.SetsKeys.weightKey] as? Double,
-        let reps = ckRecord[Keys.SetsKeys.repsKey] as? Int,
-            let liftReference = ckRecord[Keys.SetsKeys.liftReference] as? CKReference else { return nil }
+        guard let weight = ckRecord[Keys.LiftsetKeys.weightKey] as? Double,
+        let reps = ckRecord[Keys.LiftsetKeys.repsKey] as? Int,
+            let liftReference = ckRecord[Keys.LiftsetKeys.liftReference] as? CKReference else { return nil }
         self.init(weight: weight, reps: reps, liftReference: liftReference)
         self.ckRecordID = ckRecord.recordID
     }
     
     //MARK: - Equatable
-    static func == (lhs: Sets, rhs: Sets) -> Bool {
+    static func == (lhs: LiftSet, rhs: LiftSet) -> Bool {
         return lhs.ckRecordID == rhs.ckRecordID
     }
 }
 
 //MARK: - CKRecord Init for Set
 extension CKRecord {
-    convenience init(set: Sets) {
-        self.init(recordType: Keys.SetsKeys.setTypeKey, recordID: set.ckRecordID)
-        self.setValue(set.weight, forKey: Keys.SetsKeys.weightKey)
-        self.setValue(set.reps, forKey: Keys.SetsKeys.weightKey)
-        self.setValue(set.liftReference, forKey: Keys.SetsKeys.liftReference)
+    convenience init(liftset: LiftSet) {
+        self.init(recordType: Keys.LiftsetKeys.liftsetTypeKey, recordID: liftset.ckRecordID)
+        self.setValue(liftset.weight, forKey: Keys.LiftsetKeys.weightKey)
+        self.setValue(liftset.reps, forKey: Keys.LiftsetKeys.weightKey)
+        self.setValue(liftset.liftReference, forKey: Keys.LiftsetKeys.liftReference)
     }
 }

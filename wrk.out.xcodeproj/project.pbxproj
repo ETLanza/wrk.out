@@ -11,12 +11,12 @@
 		3CB69455212B75E600E9F2B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CB69454212B75E600E9F2B1 /* Assets.xcassets */; };
 		3CB69458212B75E600E9F2B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB69456212B75E600E9F2B1 /* LaunchScreen.storyboard */; };
 		3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69460212B7DCF00E9F2B1 /* Lift.swift */; };
-		3CB69464212B7DD000E9F2B1 /* Sets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69461212B7DCF00E9F2B1 /* Sets.swift */; };
+		3CB69464212B7DD000E9F2B1 /* LiftSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69461212B7DCF00E9F2B1 /* LiftSet.swift */; };
 		3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69462212B7DCF00E9F2B1 /* Workout.swift */; };
 		3CB69468212B7DF900E9F2B1 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69467212B7DF900E9F2B1 /* Keys.swift */; };
 		3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69469212B816A00E9F2B1 /* CloudKitManager.swift */; };
 		3CB6946F212B817C00E9F2B1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB6946E212B817C00E9F2B1 /* CloudKit.framework */; };
-		3CB69473212B835400E9F2B1 /* SetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69472212B835400E9F2B1 /* SetController.swift */; };
+		3CB69473212B835400E9F2B1 /* LiftSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69472212B835400E9F2B1 /* LiftSetController.swift */; };
 		908357AB212BA6F1007AA946 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908357AA212BA6F1007AA946 /* HealthKit.framework */; };
 		908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AC212BA883007AA946 /* HealthKitModels.swift */; };
 		908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AE212BAC15007AA946 /* HealthKitSetup.swift */; };
@@ -30,13 +30,13 @@
 		3CB69457212B75E600E9F2B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CB69459212B75E600E9F2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CB69460212B7DCF00E9F2B1 /* Lift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lift.swift; sourceTree = "<group>"; };
-		3CB69461212B7DCF00E9F2B1 /* Sets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sets.swift; sourceTree = "<group>"; };
+		3CB69461212B7DCF00E9F2B1 /* LiftSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftSet.swift; sourceTree = "<group>"; };
 		3CB69462212B7DCF00E9F2B1 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		3CB69467212B7DF900E9F2B1 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		3CB69469212B816A00E9F2B1 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		3CB6946C212B817A00E9F2B1 /* wrk.out.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wrk.out.entitlements; sourceTree = "<group>"; };
 		3CB6946E212B817C00E9F2B1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		3CB69472212B835400E9F2B1 /* SetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetController.swift; sourceTree = "<group>"; };
+		3CB69472212B835400E9F2B1 /* LiftSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftSetController.swift; sourceTree = "<group>"; };
 		908357AA212BA6F1007AA946 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		908357AC212BA883007AA946 /* HealthKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModels.swift; sourceTree = "<group>"; };
 		908357AE212BAC15007AA946 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				3CB69462212B7DCF00E9F2B1 /* Workout.swift */,
-				3CB69461212B7DCF00E9F2B1 /* Sets.swift */,
+				3CB69461212B7DCF00E9F2B1 /* LiftSet.swift */,
 				3CB69460212B7DCF00E9F2B1 /* Lift.swift */,
 				908357AC212BA883007AA946 /* HealthKitModels.swift */,
 				908357B0212BB2BB007AA946 /* HealthKitController.swift */,
@@ -130,7 +130,7 @@
 		3CB69474212B835900E9F2B1 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3CB69472212B835400E9F2B1 /* SetController.swift */,
+				3CB69472212B835400E9F2B1 /* LiftSetController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -229,9 +229,9 @@
 				908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */,
 				3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */,
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
-				3CB69464212B7DD000E9F2B1 /* Sets.swift in Sources */,
+				3CB69464212B7DD000E9F2B1 /* LiftSet.swift in Sources */,
 				908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */,
-				3CB69473212B835400E9F2B1 /* SetController.swift in Sources */,
+				3CB69473212B835400E9F2B1 /* LiftSetController.swift in Sources */,
 				3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */,
 				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
 			);
