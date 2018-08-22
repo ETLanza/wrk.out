@@ -13,10 +13,13 @@ struct HealthKitController {
     var startWorkout: Date
     var endWorkout: Date
     
+    
     init(startWorkout: Date, endWorkout: Date) {
         self.startWorkout = startWorkout
         self.endWorkout = endWorkout
     }
+    
+    
     func averageHeartRate() {
         let heartRate = HealthKitModels.heartRate
         let startTime = startWorkout
@@ -32,4 +35,18 @@ struct HealthKitController {
         })
         HealthKitModels.healthStore.execute(squery)
     }
+    
+    func findingGender() -> Int {
+        let value = try? HealthKitModels.healthStore.biologicalSex().biologicalSex.rawValue
+        if value == 1 {
+            _ = "male"
+        }
+        if value == 2 {
+            _ = "male"
+        }
+        return value ?? 0
+        // this is grabbing the raw value of gender, 1 for male, 2 for female, if its 3 it means its not set. Possibly display an alert controller asking them for their gender if it = 0
+    }
+    
 }
+
