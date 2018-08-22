@@ -17,4 +17,5 @@ struct HealthKitController {
         self.startWorkout = startWorkout
         self.endWorkout = endWorkout
     }
+    
 }

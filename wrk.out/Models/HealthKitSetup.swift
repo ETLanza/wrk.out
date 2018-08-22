@@ -8,33 +8,48 @@
 
 import Foundation
 import HealthKit
-
 class HealthKitSetup {
+    // call this function when a user connects an apple watch
     func authorizeHealthKit(completion: @escaping (Bool)->Void) {
         // if this device is capable of using healthkit...
         if HKHealthStore.isHealthDataAvailable() {
             // initialize the only healthstore needed
             let healthStore = HKHealthStore()
             
-            // changes: set up healthKitModels, healthKitSetup (both do as they sound), requested access to health kit, changed info plist with request (description is 100% needed)
-            
-            let allTypes = Set([
+    
+            // This data is solely for computing calories burned as accurately as possible
+            let allTypesToRead = Set([
+                
                 HKObjectType.workoutType(),
-//                HKObjectType.characteristicType(forIdentifier: .biologicalSex)!,
-//                HKObjectType.characteristicType(forIdentifier: .dateOfBirth)!,
-                HKObjectType.quantityType(forIdentifier: .height)!,
-                HKObjectType.quantityType(forIdentifier: .bodyMass)!
+                HKObjectType.characteristicType(forIdentifier: .biologicalSex)!,
+                HKObjectType.characteristicType(forIdentifier: .dateOfBirth)!,
+                HKObjectType.quantityType(forIdentifier: .bodyMass)!,
+                HKObjectType.quantityType(forIdentifier: .heartRate)!
+                
                 ])
             
-            healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+            // workout activity type will be HKWorkoutActivityType.functionalStrengthTraining :D
+            // need to write and read the heartRate in order to calculate calories burned
+            let allTypesToWrite = Set([
+                
+                HKObjectType.workoutType(),
+                HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!
+                
+                ])
+            
+            healthStore.requestAuthorization(toShare: allTypesToWrite, read: allTypesToRead) { (success, error) in
                 if let error = error {
                     print("Access denied, restricted, or error due to \(error.localizedDescription)")
                     completion (false) ; return
-                    // possibly display an alert telling them that its essential for the app, or allow them to input the data themselves in the profile page, dont know yet
-                    // call whenever it logically makes sense to request health kit permission
+                    
                 }
+                
                 if success {
-                    // segue into the app
+                   completion(true)
+                    // could use work i believe,
+                    // FIXME: - Or simply revisit at another time, could possibly pop back into the app, dont know yet. 
+                    print("apple watch succcessfully paired and allowed permissions")
                 }
             }
         }

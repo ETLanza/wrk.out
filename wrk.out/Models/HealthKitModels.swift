@@ -10,9 +10,12 @@ import Foundation
 import HealthKit
 
 class HealthKitModels {
-    static let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth)
+    // not sure if necessary, outdated tutorial from raywonderlich showed it this way for mvc
+    static let age = HKObjectType.characteristicType(forIdentifier: .dateOfBirth)
     static let gender = HKObjectType.characteristicType(forIdentifier: .biologicalSex)
-    static let height = HKObjectType.quantityType(forIdentifier: .height)
     static let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass)
+    static let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate)
+    static let energyBurned = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)
+    
     
 }
