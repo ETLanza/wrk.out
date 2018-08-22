@@ -14,7 +14,7 @@ class HealthKitSetup {
         // if this device is capable of using healthkit...
         if HKHealthStore.isHealthDataAvailable() {
             // initialize the only healthstore needed
-            let healthStore = HKHealthStore()
+            let healthStore = HealthKitModels.healthStore
             
     
             // This data is solely for computing calories burned as accurately as possible
