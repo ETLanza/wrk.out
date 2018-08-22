@@ -12,13 +12,12 @@ import CloudKit
 class Workout: Equatable {
     var name: String
     var lifts: [Lift] = []
-    var duration: TimeInterval
+    var duration: TimeInterval?
     var note: String?
     var ckRecordID: CKRecordID
     
-    init(name: String, duration: TimeInterval) {
+    init(name: String) {
         self.name = name
-        self.duration = duration
         self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
     
@@ -26,8 +25,9 @@ class Workout: Equatable {
         guard let name = ckRecord[Keys.WorkoutKeys.nameKey] as? String,
             let duration = ckRecord[Keys.WorkoutKeys.durationKey] as? TimeInterval else { return nil }
          let note = ckRecord[Keys.WorkoutKeys.noteKey] as? String
-        self.init(name: name, duration: duration)
+        self.init(name: name)
         self.ckRecordID = ckRecord.recordID
+        self.duration = duration
         self.note = note
     }
     
