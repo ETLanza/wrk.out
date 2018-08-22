@@ -40,6 +40,7 @@ class Workout: Equatable {
 extension CKRecord {
     convenience init(workout: Workout) {
         self.init(recordType: Keys.WorkoutKeys.workoutTypeKey, recordID: workout.ckRecordID)
+        self.setValue(workout.name, forKey: Keys.WorkoutKeys.nameKey)
         self.setValue(workout.duration, forKey: Keys.WorkoutKeys.durationKey)
         self.setValue(workout.note, forKey: Keys.WorkoutKeys.noteKey)
     }
