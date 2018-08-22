@@ -11,6 +11,7 @@ import Foundation
 struct Keys {
     struct WorkoutKeys {
         static let workoutTypeKey = "Workout"
+        static let nameKey = "name"
         static let liftsKey = "lifts"
         static let durationKey = "duration"
         static let noteKey = "note"
