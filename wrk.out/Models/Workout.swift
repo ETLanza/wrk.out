@@ -10,20 +10,23 @@ import Foundation
 import CloudKit
 
 class Workout: Equatable {
+    var name: String
     var lifts: [Lift] = []
     var duration: TimeInterval
     var note: String?
     var ckRecordID: CKRecordID
     
-    init(duration: TimeInterval) {
+    init(name: String, duration: TimeInterval) {
+        self.name = name
         self.duration = duration
         self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
     
     convenience init?(ckRecord: CKRecord) {
-        guard let duration = ckRecord[Keys.WorkoutKeys.durationKey] as? TimeInterval else { return nil }
+        guard let name = ckRecord[Keys.WorkoutKeys.nameKey] as? String,
+            let duration = ckRecord[Keys.WorkoutKeys.durationKey] as? TimeInterval else { return nil }
          let note = ckRecord[Keys.WorkoutKeys.noteKey] as? String
-        self.init(duration: duration)
+        self.init(name: name, duration: duration)
         self.ckRecordID = ckRecord.recordID
         self.note = note
     }
