@@ -18,7 +18,7 @@ struct HealthKitController {
         self.startWorkout = startWorkout
         self.endWorkout = endWorkout
     }
-    
+    let healthStore = HKHealthStore()
     
     func averageHeartRate() {
         let heartRate = HealthKitModels.heartRate
@@ -37,6 +37,21 @@ struct HealthKitController {
         HealthKitModels.healthStore.execute(squery)
     }
     
+    func gettingAge()-> Int? {
+        
+        let birthDate = try? HealthKitModels.healthStore.dateOfBirthComponents()
+        
+        let birthDateAsDate = NSCalendar.current.date(from: birthDate!)
+        let currentDate = Date()
+        let calendarTest = NSCalendar(calendarIdentifier: .gregorian)
+        
+        let differenceBetween = calendarTest?.compare(currentDate, to: birthDateAsDate!, toUnitGranularity: .year)
+        
+        let age = differenceBetween
+        return age?.rawValue
+        
+    }
+    
     func findingGender() -> Int {
         let value = try? HealthKitModels.healthStore.biologicalSex().biologicalSex.rawValue
         if value == 1 {
@@ -48,6 +63,5 @@ struct HealthKitController {
         return value ?? 0
         // this is grabbing the raw value of gender from healthstore (which stores all the data that the user inputted in the health app), 1 for male, 2 for female, if its 3 it means its not set. Possibly display an alert controller asking them for their gender if it = 0
     }
-    
 }
 
