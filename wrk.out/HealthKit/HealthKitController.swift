@@ -40,27 +40,14 @@ struct HealthKitController {
     func findingGender() -> Int {
         let value = try? HealthKitModels.healthStore.biologicalSex().biologicalSex.rawValue
         if value == 1 {
-            _ = "female"
+            _ = "male"
         }
         if value == 2 {
             _ = "male"
         }
         return value ?? 0
-        // this is grabbing the raw value of gender from healthstore (which stores all the data that the user inputted in the health app), 1 for female, 2 for male, if its 0 it means its not set. Possibly display an alert controller asking them for their gender if it = 0
+        // this is grabbing the raw value of gender from healthstore (which stores all the data that the user inputted in the health app), 1 for male, 2 for female, if its 3 it means its not set. Possibly display an alert controller asking them for their gender if it = 0
     }
-    func caloriesBurned() -> Double {
-        var workoutDuration = (endWorkout - startWorkout)
-        // possibly from the timer when the workout button is pressed
-        if findingGender() == 1 {
-            // calories = (0.4472 x average heart rate) -- (0.05741 x weight) + (0.074 x age) -- 20.4022] x time / 4.18
-        }
-        if findingGender() == 2 {
-            //calories = (0.6309 x average heart rate) -- (0.09036 x weight) + (0.2017 x age) -- 55.0969] x time / 4.184
-        }
-        if findingGender() == 0 {
-            
-        }
-        
-    }
+    
 }
 

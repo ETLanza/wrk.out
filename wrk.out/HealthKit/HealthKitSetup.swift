@@ -9,14 +9,14 @@
 import Foundation
 import HealthKit
 class HealthKitSetup {
+    static let shared = HealthKitSetup()
     // call this function when a user connects an apple watch
+   
     func authorizeHealthKit(completion: @escaping (Bool)->Void) {
         // if this device is capable of using healthkit...
         if HKHealthStore.isHealthDataAvailable() {
-            // initialize the only healthstore needed
             let healthStore = HealthKitModels.healthStore
             
-    
             // This data is solely for computing calories burned as accurately as possible
             let allTypesToRead = Set([
                 
@@ -33,6 +33,7 @@ class HealthKitSetup {
             let allTypesToWrite = Set([
                 
                 HKObjectType.workoutType(),
+                HKObjectType.quantityType(forIdentifier: .heartRate)!,
                 HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!
                 
                 ])
@@ -43,7 +44,6 @@ class HealthKitSetup {
                     completion (false) ; return
                     
                 }
-                
                 if success {
                    completion(true)
                     // could use work i believe,
