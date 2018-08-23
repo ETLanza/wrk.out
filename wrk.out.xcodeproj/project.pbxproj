@@ -17,6 +17,17 @@
 		3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69469212B816A00E9F2B1 /* CloudKitManager.swift */; };
 		3CB6946F212B817C00E9F2B1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB6946E212B817C00E9F2B1 /* CloudKit.framework */; };
 		3CB69473212B835400E9F2B1 /* SetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69472212B835400E9F2B1 /* SetController.swift */; };
+		7D0D3860212DCD700039ACA0 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D385F212DCD700039ACA0 /* TabBar.storyboard */; };
+		7D0D3863212DCF580039ACA0 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D3862212DCF580039ACA0 /* CustomTabBar.swift */; };
+		7D0D3865212DEC0D0039ACA0 /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D3864212DEC0D0039ACA0 /* profile.storyboard */; };
+		7D0D3867212DEC260039ACA0 /* routines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D3866212DEC260039ACA0 /* routines.storyboard */; };
+		7D0D3869212DEC340039ACA0 /* workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D3868212DEC340039ACA0 /* workouts.storyboard */; };
+		7D0D386B212DEC560039ACA0 /* exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D386A212DEC560039ACA0 /* exercises.storyboard */; };
+		7D0D386D212DEC690039ACA0 /* more.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D386C212DEC690039ACA0 /* more.storyboard */; };
+		7D856346212F4AF200E63E30 /* RoutineSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D856345212F4AF200E63E30 /* RoutineSectionHeader.swift */; };
+		7D856348212F55EB00E63E30 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D856347212F55EB00E63E30 /* Person.swift */; };
+		7D85634A212F5E3300E63E30 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D856349212F5E3300E63E30 /* PersonController.swift */; };
+		7D856350212F61D700E63E30 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D85634F212F61D700E63E30 /* profileViewController.swift */; };
 		908357AB212BA6F1007AA946 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908357AA212BA6F1007AA946 /* HealthKit.framework */; };
 		908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AC212BA883007AA946 /* HealthKitModels.swift */; };
 		908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AE212BAC15007AA946 /* HealthKitSetup.swift */; };
@@ -37,6 +48,17 @@
 		3CB6946C212B817A00E9F2B1 /* wrk.out.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wrk.out.entitlements; sourceTree = "<group>"; };
 		3CB6946E212B817C00E9F2B1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3CB69472212B835400E9F2B1 /* SetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetController.swift; sourceTree = "<group>"; };
+		7D0D385F212DCD700039ACA0 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		7D0D3862212DCF580039ACA0 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		7D0D3864212DEC0D0039ACA0 /* profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = profile.storyboard; sourceTree = "<group>"; };
+		7D0D3866212DEC260039ACA0 /* routines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = routines.storyboard; sourceTree = "<group>"; };
+		7D0D3868212DEC340039ACA0 /* workouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = workouts.storyboard; sourceTree = "<group>"; };
+		7D0D386A212DEC560039ACA0 /* exercises.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = exercises.storyboard; sourceTree = "<group>"; };
+		7D0D386C212DEC690039ACA0 /* more.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = more.storyboard; sourceTree = "<group>"; };
+		7D856345212F4AF200E63E30 /* RoutineSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineSectionHeader.swift; sourceTree = "<group>"; };
+		7D856347212F55EB00E63E30 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		7D856349212F5E3300E63E30 /* PersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
+		7D85634F212F61D700E63E30 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		908357AA212BA6F1007AA946 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		908357AC212BA883007AA946 /* HealthKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModels.swift; sourceTree = "<group>"; };
 		908357AE212BAC15007AA946 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
@@ -82,6 +104,7 @@
 				3CB69466212B7DD300E9F2B1 /* Models */,
 				3CB69475212B836D00E9F2B1 /* Controllers */,
 				3CB6946B212B817000E9F2B1 /* CloudKit */,
+				7DBF6461212C80A900D0CBA8 /* Storyboards */,
 				3CB6945F212B761D00E9F2B1 /* Resources */,
 			);
 			path = wrk.out;
@@ -100,6 +123,7 @@
 		3CB69466212B7DD300E9F2B1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7D856347212F55EB00E63E30 /* Person.swift */,
 				3CB69462212B7DCF00E9F2B1 /* Workout.swift */,
 				3CB69461212B7DCF00E9F2B1 /* Sets.swift */,
 				3CB69460212B7DCF00E9F2B1 /* Lift.swift */,
@@ -131,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				3CB69472212B835400E9F2B1 /* SetController.swift */,
+				7D856349212F5E3300E63E30 /* PersonController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -138,9 +163,41 @@
 		3CB69475212B836D00E9F2B1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7D856345212F4AF200E63E30 /* RoutineSectionHeader.swift */,
+				7D0D3870212DF1300039ACA0 /* View Controllers */,
+				7D0D3861212DCEEE0039ACA0 /* TabBar Controller */,
 				3CB69474212B835900E9F2B1 /* Model Controllers */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7D0D3861212DCEEE0039ACA0 /* TabBar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7D0D3862212DCF580039ACA0 /* CustomTabBar.swift */,
+			);
+			path = "TabBar Controller";
+			sourceTree = "<group>";
+		};
+		7D0D3870212DF1300039ACA0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D85634F212F61D700E63E30 /* profileViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7DBF6461212C80A900D0CBA8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7D0D385F212DCD700039ACA0 /* TabBar.storyboard */,
+				7D0D386C212DEC690039ACA0 /* more.storyboard */,
+				7D0D386A212DEC560039ACA0 /* exercises.storyboard */,
+				7D0D3868212DEC340039ACA0 /* workouts.storyboard */,
+				7D0D3866212DEC260039ACA0 /* routines.storyboard */,
+				7D0D3864212DEC0D0039ACA0 /* profile.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +232,7 @@
 				TargetAttributes = {
 					3CB69449212B75E600E9F2B1 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -212,7 +270,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D0D3869212DEC340039ACA0 /* workouts.storyboard in Resources */,
+				7D0D386D212DEC690039ACA0 /* more.storyboard in Resources */,
+				7D0D3860212DCD700039ACA0 /* TabBar.storyboard in Resources */,
 				3CB69458212B75E600E9F2B1 /* LaunchScreen.storyboard in Resources */,
+				7D0D386B212DEC560039ACA0 /* exercises.storyboard in Resources */,
+				7D0D3867212DEC260039ACA0 /* routines.storyboard in Resources */,
+				7D0D3865212DEC0D0039ACA0 /* profile.storyboard in Resources */,
 				3CB69455212B75E600E9F2B1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,12 +291,17 @@
 				3CB69468212B7DF900E9F2B1 /* Constants.swift in Sources */,
 				3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */,
 				908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */,
+				7D0D3863212DCF580039ACA0 /* CustomTabBar.swift in Sources */,
 				3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */,
+				7D856346212F4AF200E63E30 /* RoutineSectionHeader.swift in Sources */,
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
 				3CB69464212B7DD000E9F2B1 /* Sets.swift in Sources */,
+				7D856350212F61D700E63E30 /* profileViewController.swift in Sources */,
 				908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */,
 				3CB69473212B835400E9F2B1 /* SetController.swift in Sources */,
+				7D856348212F55EB00E63E30 /* Person.swift in Sources */,
 				3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */,
+				7D85634A212F5E3300E63E30 /* PersonController.swift in Sources */,
 				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,8 +439,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = wrk.out/wrk.out.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96XK4QDZ27;
+				DEVELOPMENT_TEAM = 886L28466N;
 				INFOPLIST_FILE = "$(SRCROOT)/wrk.out/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,6 +449,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.Lanza.wrk-out";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -389,8 +460,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = wrk.out/wrk.out.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96XK4QDZ27;
+				DEVELOPMENT_TEAM = 886L28466N;
 				INFOPLIST_FILE = "$(SRCROOT)/wrk.out/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -398,6 +470,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.Lanza.wrk-out";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

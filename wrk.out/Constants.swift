@@ -39,4 +39,13 @@ struct Constants {
         static let creationDateKey = "creationDate"
         static let modificationDateKey = "modificationDate"
     }
+    
+    struct PersonConstants {
+        static let personTypeKey = "person"
+        static let nameTypeKey = "name"
+        static let ageTypeKey = "age"
+        static let weightTypKey = "weight"
+        static let heightTypeKey = "height"
+        static let genderTypekey = "gender"
+    }
 }
