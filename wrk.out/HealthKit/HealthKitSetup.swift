@@ -33,7 +33,6 @@ class HealthKitSetup {
             let allTypesToWrite = Set([
                 
                 HKObjectType.workoutType(),
-                HKObjectType.quantityType(forIdentifier: .heartRate)!,
                 HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!
                 
                 ])
