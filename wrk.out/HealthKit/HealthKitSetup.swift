@@ -15,7 +15,8 @@ class HealthKitSetup {
     func authorizeHealthKit(completion: @escaping (Bool)->Void) {
         // if this device is capable of using healthkit...
         if HKHealthStore.isHealthDataAvailable() {
-            let healthStore = HealthKitModels.healthStore
+            
+//            let healthStore = HealthKitModels.healthStore
             
             // This data is solely for computing calories burned as accurately as possible
             let allTypesToRead = Set([
@@ -38,7 +39,7 @@ class HealthKitSetup {
                 
                 ])
             
-            healthStore.requestAuthorization(toShare: allTypesToWrite, read: allTypesToRead) { (success, error) in
+            HealthKitModels.healthStore.requestAuthorization(toShare: allTypesToWrite, read: allTypesToRead) { (success, error) in
                 if let error = error {
                     print("Access denied, restricted, or error due to \(error.localizedDescription)")
                     completion (false) ; return

@@ -11,7 +11,7 @@ import HealthKit
 
 class HealthKitModels {
     // not sure if necessary, outdated tutorial from raywonderlich showed it this way for mvc
-    static let age = HKObjectType.characteristicType(forIdentifier: .dateOfBirth)
+    static let age = HKObjectType.characteristicType(forIdentifier: .dateOfBirth) 
     static let gender = HKObjectType.characteristicType(forIdentifier: .biologicalSex)
     static let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass)
     static let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate)
