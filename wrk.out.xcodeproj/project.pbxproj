@@ -11,7 +11,6 @@
 		3C161EDC212F6C37006BD941 /* routines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED5212F6C37006BD941 /* routines.storyboard */; };
 		3C161EDD212F6C37006BD941 /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED6212F6C37006BD941 /* profile.storyboard */; };
 		3C161EDE212F6C37006BD941 /* workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED7212F6C37006BD941 /* workouts.storyboard */; };
-		3C161EDF212F6C37006BD941 /* Main.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED8212F6C37006BD941 /* Main.Storyboard */; };
 		3C161EE0212F6C37006BD941 /* exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED9212F6C37006BD941 /* exercises.storyboard */; };
 		3C161EE1212F6C37006BD941 /* more.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161EDA212F6C37006BD941 /* more.storyboard */; };
 		3C161EE2212F6C37006BD941 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161EDB212F6C37006BD941 /* TabBar.storyboard */; };
@@ -44,7 +43,6 @@
 		3C161ED5212F6C37006BD941 /* routines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = routines.storyboard; sourceTree = "<group>"; };
 		3C161ED6212F6C37006BD941 /* profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = profile.storyboard; sourceTree = "<group>"; };
 		3C161ED7212F6C37006BD941 /* workouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = workouts.storyboard; sourceTree = "<group>"; };
-		3C161ED8212F6C37006BD941 /* Main.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.Storyboard; sourceTree = "<group>"; };
 		3C161ED9212F6C37006BD941 /* exercises.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = exercises.storyboard; sourceTree = "<group>"; };
 		3C161EDA212F6C37006BD941 /* more.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = more.storyboard; sourceTree = "<group>"; };
 		3C161EDB212F6C37006BD941 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 				3C161ED5212F6C37006BD941 /* routines.storyboard */,
 				3C161ED6212F6C37006BD941 /* profile.storyboard */,
 				3C161ED7212F6C37006BD941 /* workouts.storyboard */,
-				3C161ED8212F6C37006BD941 /* Main.Storyboard */,
 				3C161ED9212F6C37006BD941 /* exercises.storyboard */,
 				3C161EDA212F6C37006BD941 /* more.storyboard */,
 				3C161EDB212F6C37006BD941 /* TabBar.storyboard */,
@@ -299,7 +296,6 @@
 				3C161EDE212F6C37006BD941 /* workouts.storyboard in Resources */,
 				3CB69455212B75E600E9F2B1 /* Assets.xcassets in Resources */,
 				3C161EE0212F6C37006BD941 /* exercises.storyboard in Resources */,
-				3C161EDF212F6C37006BD941 /* Main.Storyboard in Resources */,
 				3C161EDD212F6C37006BD941 /* profile.storyboard in Resources */,
 				3C161EDC212F6C37006BD941 /* routines.storyboard in Resources */,
 			);

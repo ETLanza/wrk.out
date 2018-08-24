@@ -17,5 +17,5 @@ class HealthKitModels {
     static let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate)
     static let energyBurned = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)
     static let healthStore = HKHealthStore()
-    
+
 }
