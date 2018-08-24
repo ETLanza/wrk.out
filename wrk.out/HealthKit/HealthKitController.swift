@@ -63,7 +63,7 @@ struct HealthKitController {
     func findingGender() -> Int {
         let value = try? HealthKitModels.healthStore.biologicalSex().biologicalSex.rawValue
         if value == 1 {
-            _ = "male"
+            _ = "female"
         }
         if value == 2 {
             _ = "male"
