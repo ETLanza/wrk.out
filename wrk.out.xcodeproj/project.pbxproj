@@ -15,14 +15,8 @@
 		3C161EE0212F6C37006BD941 /* exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED9212F6C37006BD941 /* exercises.storyboard */; };
 		3C161EE1212F6C37006BD941 /* more.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161EDA212F6C37006BD941 /* more.storyboard */; };
 		3C161EE2212F6C37006BD941 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161EDB212F6C37006BD941 /* TabBar.storyboard */; };
-		3C161EE6212F6C46006BD941 /* profileTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EE4212F6C46006BD941 /* profileTabController.swift */; };
 		3C161EE7212F6C46006BD941 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EE5212F6C46006BD941 /* CustomTabBar.swift */; };
-		3C161EED212F6C4F006BD941 /* profileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EE9212F6C4E006BD941 /* profileVC.swift */; };
-		3C161EEE212F6C4F006BD941 /* routinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EEA212F6C4E006BD941 /* routinesViewController.swift */; };
-		3C161EEF212F6C4F006BD941 /* profiuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EEB212F6C4E006BD941 /* profiuleViewController.swift */; };
 		3C161EF0212F6C4F006BD941 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EEC212F6C4E006BD941 /* profileViewController.swift */; };
-		3C161EF3212F6C70006BD941 /* routinesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EF1212F6C70006BD941 /* routinesHeaderCell.swift */; };
-		3C161EF4212F6C70006BD941 /* RoutineSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EF2212F6C70006BD941 /* RoutineSectionHeader.swift */; };
 		3C161EF6212F6C8B006BD941 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EF5212F6C8B006BD941 /* PersonController.swift */; };
 		3C9E34C3212DCAA6006B1759 /* LiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9E34C2212DCAA6006B1759 /* LiftController.swift */; };
 		3C9E34C5212DD90B006B1759 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9E34C4212DD90B006B1759 /* WorkoutController.swift */; };
@@ -54,14 +48,8 @@
 		3C161ED9212F6C37006BD941 /* exercises.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = exercises.storyboard; sourceTree = "<group>"; };
 		3C161EDA212F6C37006BD941 /* more.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = more.storyboard; sourceTree = "<group>"; };
 		3C161EDB212F6C37006BD941 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
-		3C161EE4212F6C46006BD941 /* profileTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileTabController.swift; sourceTree = "<group>"; };
 		3C161EE5212F6C46006BD941 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		3C161EE9212F6C4E006BD941 /* profileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileVC.swift; sourceTree = "<group>"; };
-		3C161EEA212F6C4E006BD941 /* routinesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = routinesViewController.swift; sourceTree = "<group>"; };
-		3C161EEB212F6C4E006BD941 /* profiuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profiuleViewController.swift; sourceTree = "<group>"; };
 		3C161EEC212F6C4E006BD941 /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
-		3C161EF1212F6C70006BD941 /* routinesHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = routinesHeaderCell.swift; sourceTree = "<group>"; };
-		3C161EF2212F6C70006BD941 /* RoutineSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineSectionHeader.swift; sourceTree = "<group>"; };
 		3C161EF5212F6C8B006BD941 /* PersonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
 		3C9E34C2212DCAA6006B1759 /* LiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftController.swift; sourceTree = "<group>"; };
 		3C9E34C4212DD90B006B1759 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
@@ -117,7 +105,6 @@
 		3C161EE3212F6C46006BD941 /* TabBar Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3C161EE4212F6C46006BD941 /* profileTabController.swift */,
 				3C161EE5212F6C46006BD941 /* CustomTabBar.swift */,
 			);
 			path = "TabBar Controller";
@@ -126,9 +113,6 @@
 		3C161EE8212F6C4E006BD941 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3C161EE9212F6C4E006BD941 /* profileVC.swift */,
-				3C161EEA212F6C4E006BD941 /* routinesViewController.swift */,
-				3C161EEB212F6C4E006BD941 /* profiuleViewController.swift */,
 				3C161EEC212F6C4E006BD941 /* profileViewController.swift */,
 			);
 			path = "View Controllers";
@@ -163,8 +147,6 @@
 				90291BC4212E28B500AD893E /* HealthKit */,
 				3C161ED4212F6C37006BD941 /* Storyboards */,
 				3CB69475212B836D00E9F2B1 /* Controllers */,
-				3C161EF2212F6C70006BD941 /* RoutineSectionHeader.swift */,
-				3C161EF1212F6C70006BD941 /* routinesHeaderCell.swift */,
 				3CB6946B212B817000E9F2B1 /* CloudKit */,
 				3CB6945F212B761D00E9F2B1 /* Resources */,
 			);
@@ -273,6 +255,7 @@
 				TargetAttributes = {
 					3CB69449212B75E600E9F2B1 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -336,24 +319,18 @@
 				3C161EE7212F6C46006BD941 /* CustomTabBar.swift in Sources */,
 				3CB69468212B7DF900E9F2B1 /* Keys.swift in Sources */,
 				3C161EF0212F6C4F006BD941 /* profileViewController.swift in Sources */,
-				3C161EE6212F6C46006BD941 /* profileTabController.swift in Sources */,
 				3C161EF6212F6C8B006BD941 /* PersonController.swift in Sources */,
 				3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */,
-				3C161EF3212F6C70006BD941 /* routinesHeaderCell.swift in Sources */,
 				908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */,
 				3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */,
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
-				3C161EEE212F6C4F006BD941 /* routinesViewController.swift in Sources */,
 				3CB69464212B7DD000E9F2B1 /* LiftSet.swift in Sources */,
 				908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */,
 				3CB69473212B835400E9F2B1 /* LiftSetController.swift in Sources */,
-				3C161EF4212F6C70006BD941 /* RoutineSectionHeader.swift in Sources */,
 				90291BC6212E3E4300AD893E /* Search.swift in Sources */,
 				3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */,
 				3C161ED3212F6C2C006BD941 /* Person.swift in Sources */,
-				3C161EEF212F6C4F006BD941 /* profiuleViewController.swift in Sources */,
 				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
-				3C161EED212F6C4F006BD941 /* profileVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

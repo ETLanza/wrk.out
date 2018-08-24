@@ -35,17 +35,19 @@ class Person: Equatable {
 
 extension CKRecord {
     convenience init(person: Person) {
-        self.init(recordType: Constants.PersonConstants.personTypeKey,
+        self.init(recordType: Keys.PersonKeys.personTypeKey,
                   recordID: person.ckRecordID)
         self.setValue(person.age,
-                      forKey: Constants.PersonConstants.ageTypeKey)
+                      forKey: Keys.PersonKeys.ageTypeKey)
         self.setValue(person.name,
-                      forKey: Constants.PersonConstants.nameTypeKey)
+                      forKey: Keys.PersonKeys.nameTypeKey)
         self.setValue(person.height,
-                      forKey: Constants.PersonConstants.heightTypeKey)
+                      forKey: Keys.PersonKeys.heightTypeKey)
         self.setValue(person.weight,
-                      forKey: Constants.PersonConstants.weightTypKey)
+                      forKey: Keys.PersonKeys.weightTypKey)
         self.setValue(person.gender,
-                      forKey: Constants.PersonConstants.genderTypekey)
+                      forKey: Keys.PersonKeys.genderTypekey)
     }
 }
+
+

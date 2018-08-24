@@ -24,9 +24,8 @@ class profileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
 
+    }
     /*
     // MARK: - Navigation
 
