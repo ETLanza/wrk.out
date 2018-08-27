@@ -8,11 +8,15 @@
 
 import Foundation
 class SearchController {
+    
+    var excercises: [Exercise] = []
+    var category: [Category] = []
+    
     static let shared = SearchController()
     
-    static let baseURL = URL(string: "https://wger.de/api/v2/exercise/")
+    static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?format=json&language=2&status=2")
     
-    static func getWorkouts (completion: @escaping (Results?) -> Void) {
+    static func getWorkouts (completion: @escaping ([Exercise]?) -> Void) {
         
         guard let aurl = baseURL else {completion(nil) ; return}
         var request = URLRequest(url: aurl)
@@ -28,8 +32,9 @@ class SearchController {
             guard let data = data else { completion (nil) ; return }
             let jsonDecoder = JSONDecoder()
             do {
-                let workouts = try jsonDecoder.decode(Results.self, from: data)
-                completion(workouts)
+                let exercises = try jsonDecoder.decode(TopLevelDictionary.self, from: data)
+                SearchController.shared.excercises = exercises.results
+                completion(exercises.results)
             } catch {
                 print("there was an error decoding workouts from json")
             }

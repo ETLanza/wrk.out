@@ -7,19 +7,19 @@
 //
 
 import Foundation
-struct topLevelDictionary: Decodable {
-    let results: [Results]
+
+struct TopLevelDictionary: Decodable {
+    let results: [Exercise]
     
 }
 
-struct Results: Decodable {
+struct Exercise: Decodable {
     let name: String
     let description: String
-    let category: [Category]
+    let category: Category
     
 }
 
 struct Category: Decodable {
     let name: String
-    
 }

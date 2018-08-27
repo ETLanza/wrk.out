@@ -7,35 +7,44 @@
 //
 import UIKit
 
-class ExcercisesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ExcercisesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var results: Exercise?
+    var category: Category?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath)
+        let excercises = SearchController.shared.excercises[indexPath.row]
+//        let categoryName = SearchController.shared.category[indexPath.row]
+        
+        cell.textLabel?.text = excercises.name
+//        cell.detailTextLabel?.text = categoryName.name
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return SearchController.shared.excercises.count
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
         
+        
+        SearchController.getWorkouts { (exercises) in
+            guard let exercises = exercises else { return }
+            exercises.forEach { print($0.name) }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     /*
      // MARK: - Navigation
@@ -47,4 +56,10 @@ class ExcercisesViewController: UIViewController, UITableViewDelegate, UITableVi
      }
      */
     
+}
+extension ExcercisesViewController : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
+        
+    }
 }
