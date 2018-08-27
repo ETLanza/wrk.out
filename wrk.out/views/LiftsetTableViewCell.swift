@@ -1,6 +1,6 @@
 //
 //  LiftsetTableViewCell.swift
-//  TestTimer
+//  wrk.out
 //
 //  Created by Eric Lanza on 8/23/18.
 //  Copyright © 2018 ETLanza. All rights reserved.
@@ -11,7 +11,7 @@ import UIKit
 class LiftsetTableViewCell: UITableViewCell {
     
     var liftset: LiftSet?
-
+    
     @IBOutlet weak var setNumberLabel: UILabel!
     @IBOutlet weak var liftNameCell: UILabel!
     @IBOutlet weak var weightTextField: UITextField!
