@@ -13,7 +13,7 @@
         <scene sceneID="d76-dr-XQM">
             <objects>
                 <tabBarController id="QbW-dc-6ZC" customClass="CustomTabBar" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tpv-e8-sny">
+                    <tabBar key="tabBar" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tpv-e8-sny">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,7 +54,7 @@
         <scene sceneID="P6U-b5-25Z">
             <objects>
                 <viewControllerPlaceholder storyboardName="workouts" id="ufO-jz-FLc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="lIE-kS-goB"/>
+                    <tabBarItem key="tabBarItem" title="Workouts" id="lIE-kS-goB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3e9-na-gMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -210,11 +210,11 @@
             </objects>
             <point key="canvasLocation" x="-360.86956521739131" y="135.32608695652175"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="GUv-d9-cmY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XuY-oS-E4c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="ProfileIcon" selectedImage="ProfileIconSelected" id="IyF-cm-ZNT"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileIcon" selectedImage="ProfileIconSelected" id="IyF-cm-ZNT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Y5s-PP-bjj">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
