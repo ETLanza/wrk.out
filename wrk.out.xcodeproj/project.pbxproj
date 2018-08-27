@@ -42,6 +42,8 @@
 		908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AC212BA883007AA946 /* HealthKitModels.swift */; };
 		908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AE212BAC15007AA946 /* HealthKitSetup.swift */; };
 		908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357B0212BB2BB007AA946 /* HealthKitController.swift */; };
+		90A6A8532134632F0047A559 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8522134632F0047A559 /* SearchController.swift */; };
+		90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8542134637F0047A559 /* ExcerciseViewController.swift */; };
 		90C908312130678B003363DB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C908302130678B003363DB /* MoreViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		908357AC212BA883007AA946 /* HealthKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModels.swift; sourceTree = "<group>"; };
 		908357AE212BAC15007AA946 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
 		908357B0212BB2BB007AA946 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
+		90A6A8522134632F0047A559 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		90A6A8542134637F0047A559 /* ExcerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewController.swift; sourceTree = "<group>"; };
 		90C908302130678B003363DB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +131,7 @@
 				90C908302130678B003363DB /* MoreViewController.swift */,
 				3C161EEC212F6C4E006BD941 /* profileViewController.swift */,
 				7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */,
+				90A6A8542134637F0047A559 /* ExcerciseViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				3C9E34C4212DD90B006B1759 /* WorkoutController.swift */,
 				3C9E34C2212DCAA6006B1759 /* LiftController.swift */,
 				3CB69472212B835400E9F2B1 /* LiftSetController.swift */,
+				90A6A8522134632F0047A559 /* SearchController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -359,10 +365,12 @@
 				3CB69473212B835400E9F2B1 /* LiftSetController.swift in Sources */,
 				90291BC6212E3E4300AD893E /* Search.swift in Sources */,
 				3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */,
+				90A6A8532134632F0047A559 /* SearchController.swift in Sources */,
 				3C161ED3212F6C2C006BD941 /* Person.swift in Sources */,
 				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
 				7D80C6212134649F00F1CD19 /* FooterTableViewCell.swift in Sources */,
 				7D80C6202134649F00F1CD19 /* LiftsetTableViewCell.swift in Sources */,
+				90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
