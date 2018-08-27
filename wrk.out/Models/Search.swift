@@ -8,5 +8,18 @@
 
 import Foundation
 struct topLevelDictionary: Decodable {
+    let results: [Results]
+    
+}
+
+struct Results: Decodable {
+    let name: String
+    let description: String
+    let category: [Category]
+    
+}
+
+struct Category: Decodable {
+    let name: String
     
 }
