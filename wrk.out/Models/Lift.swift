@@ -13,7 +13,7 @@ class Lift: Equatable {
     
     //MARK: - Properties
     var name: String
-    var sets: [LiftSet] = []
+    var liftsets: [LiftSet] = []
     var ckRecordID: CKRecordID
     var workoutReference: CKReference
     
@@ -28,7 +28,7 @@ class Lift: Equatable {
         guard let name = ckRecord[Keys.LiftKeys.nameKey] as? String,
             let workoutReference = ckRecord[Keys.LiftKeys.workoutReferenceKey] as? CKReference else { return nil }
         self.init(name: name, workoutReference: workoutReference)
-        self.sets = []
+        self.liftsets = []
     }
     
     //MARK: - Equatable
@@ -43,5 +43,6 @@ extension CKRecord {
         self.init(recordType: Keys.LiftKeys.liftTypeKey, recordID: lift.ckRecordID)
         self.setValue(lift.name, forKey: Keys.LiftKeys.nameKey)
         self.setValue(lift.workoutReference, forKey: Keys.LiftKeys.workoutReferenceKey)
+        //        self.setValue(lift.liftsets, forKey: Keys.LiftKeys.setsKey)
     }
 }

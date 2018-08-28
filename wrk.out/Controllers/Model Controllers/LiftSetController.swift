@@ -11,21 +11,28 @@ import CloudKit
 
 class LiftSetController {
     
+    static let shared = LiftSetController()
+    
     //MARK: - CRUD Functions
-    func addLiftset(toLift lift: Lift, weight: Double, reps: Int) {
-        let liftRecord = CKRecord(lift: lift)
-        let liftReference = CKReference(record: liftRecord, action: .deleteSelf)
+    func addLiftset(toLift lift: Lift, weight: Double, reps: Int, completion: @escaping ((Bool) -> Void)) {
+        let liftReference = CKReference(recordID: lift.ckRecordID, action: .deleteSelf)
         let newLiftset = LiftSet(weight: weight, reps: reps, liftReference: liftReference)
         let liftsetRecord = CKRecord(liftset: newLiftset)
         CloudKitManager.shared.saveRecord(liftsetRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {
                 NSLog("Error saving LiftSet to CloudKit: %@", error.localizedDescription)
+                completion(false)
+                return
             }
             
             guard let record = record,
-                let liftsetFromRecord = LiftSet(ckRecord: record) else { return }
-            
-            lift.sets.append(liftsetFromRecord)
+                let liftsetFromRecord = LiftSet(ckRecord: record) else {
+                    NSLog("Error creating liftset from CKRecord for: %@", lift.name)
+                    completion(false)
+                    return
+            }
+            lift.liftsets.append(liftsetFromRecord)
+            completion(true)
         }
     }
     
@@ -35,8 +42,8 @@ class LiftSetController {
                 NSLog("Error deleting LiftSet from CloudKit: %@", error.localizedDescription)
             }
             if let _ = recordID {
-                guard let index = lift.sets.index(of: liftset) else { return }
-                lift.sets.remove(at: index)
+                guard let index = lift.liftsets.index(of: liftset) else { return }
+                lift.liftsets.remove(at: index)
             }
         }
     }
@@ -73,7 +80,7 @@ class LiftSetController {
             
             let sets = records.compactMap { LiftSet(ckRecord: $0) }
             
-            lift.sets = sets
+            lift.liftsets = sets
             completion(true)
         }
     }

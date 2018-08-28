@@ -19,15 +19,18 @@ class Workout: Equatable {
     init(name: String) {
         self.name = name
         self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
+        self.duration = 0
+        self.note = ""
     }
     
     convenience init?(ckRecord: CKRecord) {
-        guard let name = ckRecord[Keys.WorkoutKeys.nameKey] as? String,
-            let duration = ckRecord[Keys.WorkoutKeys.durationKey] as? TimeInterval else { return nil }
-         let note = ckRecord[Keys.WorkoutKeys.noteKey] as? String
+        guard let name = ckRecord[Keys.WorkoutKeys.nameKey] as? String
+            //            let duration = ckRecord[Keys.WorkoutKeys.durationKey] as? TimeInterval
+            else { return nil }
+        let note = ckRecord[Keys.WorkoutKeys.noteKey] as? String
         self.init(name: name)
         self.ckRecordID = ckRecord.recordID
-        self.duration = duration
+        self.duration = 0
         self.note = note
     }
     
