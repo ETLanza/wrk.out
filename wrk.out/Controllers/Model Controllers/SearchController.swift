@@ -14,12 +14,22 @@ class SearchController {
     
     static let shared = SearchController()
     
-    static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?format=json&language=2&status=2")
+    static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?formate=json")
+    
+    
+    //  static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?format=json&language=2&status=2")
     
     static func getWorkouts (completion: @escaping ([Exercise]?) -> Void) {
-        
         guard let aurl = baseURL else {completion(nil) ; return}
-        var request = URLRequest(url: aurl)
+        var components = URLComponents(url: aurl, resolvingAgainstBaseURL: true)
+        let languageQuery = URLQueryItem(name: "language", value: "2")
+        // TODO: Make this a variable which changes after each iteration until 10
+        let pageQuery = URLQueryItem(name: "page", value: "1")
+        let statusQuery = URLQueryItem(name: "status", value: "2")
+        components?.queryItems = [languageQuery, pageQuery, statusQuery]
+        guard let dataTaskURL = components?.url else { completion(nil) ; return }
+
+        var request = URLRequest(url: dataTaskURL)
         
         request.httpBody = nil
         request.httpMethod = "GET"

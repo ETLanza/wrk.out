@@ -22,7 +22,6 @@ class ExcercisesViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.textLabel?.text = excercises.name
         cell.detailTextLabel?.text = categoryName
-        
         return cell
     }
     
