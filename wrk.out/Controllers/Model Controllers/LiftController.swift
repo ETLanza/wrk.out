@@ -11,24 +11,29 @@ import CloudKit
 
 class LiftController {
     
+    static let shared = LiftController()
+    
     //MARK: - CRUD Functions
-    func addLiftTo(workout: Workout, name: String) {
-        let workoutRecord = CKRecord(workout: workout)
-        let workoutReference = CKReference(record: workoutRecord, action: .deleteSelf)
+    func addLiftTo(workout: Workout, name: String, completion: @escaping ((Bool) -> Void)) {
+        let workoutReference = CKReference(recordID: workout.ckRecordID, action: .deleteSelf)
         let newLift = Lift(name: name, workoutReference: workoutReference)
         let liftRecord = CKRecord(lift: newLift)
         
         CloudKitManager.shared.saveRecord(liftRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {
                 NSLog("Error saving lift to CloudKit", error.localizedDescription)
+                completion(false)
+                return
             }
             
             guard let record = record,
                 let liftFromRecord = Lift(ckRecord: record) else {
                     NSLog("Error creating lift from CKRecord: %@", name)
+                    completion(false)
                     return
             }
             workout.lifts.append(liftFromRecord)
+            completion(true)
         }
     }
     

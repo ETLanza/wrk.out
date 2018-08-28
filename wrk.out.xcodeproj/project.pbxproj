@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C087425213472B40025FBD8 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C087424213472B40025FBD8 /* HeaderTableViewCell.swift */; };
+		3C087427213472CF0025FBD8 /* LiftHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C087426213472CF0025FBD8 /* LiftHeaderTableViewCell.swift */; };
+		3C087429213472E70025FBD8 /* AddSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */; };
+		3C08742B2134733D0025FBD8 /* LiftsetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C08742A2134733D0025FBD8 /* LiftsetTableViewCell.swift */; };
 		3C161ED3212F6C2C006BD941 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161ED2212F6C2C006BD941 /* Person.swift */; };
 		3C161EDC212F6C37006BD941 /* routines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED5212F6C37006BD941 /* routines.storyboard */; };
 		3C161EDD212F6C37006BD941 /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED6212F6C37006BD941 /* profile.storyboard */; };
-		3C161EDE212F6C37006BD941 /* workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED7212F6C37006BD941 /* workouts.storyboard */; };
+		3C161EDE212F6C37006BD941 /* Workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED7212F6C37006BD941 /* Workouts.storyboard */; };
 		3C161EE0212F6C37006BD941 /* exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED9212F6C37006BD941 /* exercises.storyboard */; };
 		3C161EE1212F6C37006BD941 /* more.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161EDA212F6C37006BD941 /* more.storyboard */; };
 		3C161EE2212F6C37006BD941 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161EDB212F6C37006BD941 /* TabBar.storyboard */; };
@@ -44,14 +48,20 @@
 		908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AC212BA883007AA946 /* HealthKitModels.swift */; };
 		908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AE212BAC15007AA946 /* HealthKitSetup.swift */; };
 		908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357B0212BB2BB007AA946 /* HealthKitController.swift */; };
+		90A6A8532134632F0047A559 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8522134632F0047A559 /* SearchController.swift */; };
+		90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8542134637F0047A559 /* ExcerciseViewController.swift */; };
 		90C908312130678B003363DB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C908302130678B003363DB /* MoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C087424213472B40025FBD8 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		3C087426213472CF0025FBD8 /* LiftHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetTableViewCell.swift; sourceTree = "<group>"; };
+		3C08742A2134733D0025FBD8 /* LiftsetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftsetTableViewCell.swift; sourceTree = "<group>"; };
 		3C161ED2212F6C2C006BD941 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		3C161ED5212F6C37006BD941 /* routines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = routines.storyboard; sourceTree = "<group>"; };
 		3C161ED6212F6C37006BD941 /* profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = profile.storyboard; sourceTree = "<group>"; };
-		3C161ED7212F6C37006BD941 /* workouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = workouts.storyboard; sourceTree = "<group>"; };
+		3C161ED7212F6C37006BD941 /* Workouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Workouts.storyboard; sourceTree = "<group>"; };
 		3C161ED9212F6C37006BD941 /* exercises.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = exercises.storyboard; sourceTree = "<group>"; };
 		3C161EDA212F6C37006BD941 /* more.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = more.storyboard; sourceTree = "<group>"; };
 		3C161EDB212F6C37006BD941 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
@@ -88,6 +98,8 @@
 		908357AC212BA883007AA946 /* HealthKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModels.swift; sourceTree = "<group>"; };
 		908357AE212BAC15007AA946 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
 		908357B0212BB2BB007AA946 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
+		90A6A8522134632F0047A559 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		90A6A8542134637F0047A559 /* ExcerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewController.swift; sourceTree = "<group>"; };
 		90C908302130678B003363DB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +121,7 @@
 			children = (
 				3C161ED5212F6C37006BD941 /* routines.storyboard */,
 				3C161ED6212F6C37006BD941 /* profile.storyboard */,
-				3C161ED7212F6C37006BD941 /* workouts.storyboard */,
+				3C161ED7212F6C37006BD941 /* Workouts.storyboard */,
 				3C161ED9212F6C37006BD941 /* exercises.storyboard */,
 				3C161EDA212F6C37006BD941 /* more.storyboard */,
 				3C161EDB212F6C37006BD941 /* TabBar.storyboard */,
@@ -133,6 +145,7 @@
 				7D80C6262134C1F000F1CD19 /* editInfoPopupViewController.swift */,
 				7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */,
 				7D80C6242134989F00F1CD19 /* privacyPolicyPopupViewController.swift */,
+				90A6A8542134637F0047A559 /* ExcerciseViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -219,6 +232,7 @@
 				3C9E34C4212DD90B006B1759 /* WorkoutController.swift */,
 				3C9E34C2212DCAA6006B1759 /* LiftController.swift */,
 				3CB69472212B835400E9F2B1 /* LiftSetController.swift */,
+				90A6A8522134632F0047A559 /* SearchController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -236,11 +250,10 @@
 		7D80C60F21345D9F00F1CD19 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				7D80C61A2134649F00F1CD19 /* AddSetTableViewCell.swift */,
-				7D80C61C2134649F00F1CD19 /* FooterTableViewCell.swift */,
-				7D80C61D2134649F00F1CD19 /* HeaderTableViewCell.swift */,
-				7D80C61E2134649F00F1CD19 /* LiftHeaderTableViewCell.swift */,
-				7D80C61B2134649F00F1CD19 /* LiftsetTableViewCell.swift */,
+				3C087424213472B40025FBD8 /* HeaderTableViewCell.swift */,
+				3C087426213472CF0025FBD8 /* LiftHeaderTableViewCell.swift */,
+				3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */,
+				3C08742A2134733D0025FBD8 /* LiftsetTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -328,7 +341,7 @@
 				3CB69458212B75E600E9F2B1 /* LaunchScreen.storyboard in Resources */,
 				3C161EE2212F6C37006BD941 /* TabBar.storyboard in Resources */,
 				3C161EE1212F6C37006BD941 /* more.storyboard in Resources */,
-				3C161EDE212F6C37006BD941 /* workouts.storyboard in Resources */,
+				3C161EDE212F6C37006BD941 /* Workouts.storyboard in Resources */,
 				3CB69455212B75E600E9F2B1 /* Assets.xcassets in Resources */,
 				3C161EE0212F6C37006BD941 /* exercises.storyboard in Resources */,
 				3C161EDD212F6C37006BD941 /* profile.storyboard in Resources */,
@@ -363,14 +376,17 @@
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
 				7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */,
 				3CB69464212B7DD000E9F2B1 /* LiftSet.swift in Sources */,
+				3C087429213472E70025FBD8 /* AddSetTableViewCell.swift in Sources */,
 				908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */,
+				3C087425213472B40025FBD8 /* HeaderTableViewCell.swift in Sources */,
 				3CB69473212B835400E9F2B1 /* LiftSetController.swift in Sources */,
+				3C08742B2134733D0025FBD8 /* LiftsetTableViewCell.swift in Sources */,
 				90291BC6212E3E4300AD893E /* Search.swift in Sources */,
 				3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */,
+				90A6A8532134632F0047A559 /* SearchController.swift in Sources */,
 				3C161ED3212F6C2C006BD941 /* Person.swift in Sources */,
 				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
-				7D80C6212134649F00F1CD19 /* FooterTableViewCell.swift in Sources */,
-				7D80C6202134649F00F1CD19 /* LiftsetTableViewCell.swift in Sources */,
+				90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
