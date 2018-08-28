@@ -18,10 +18,10 @@ class ExcercisesViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath)
         let excercises = SearchController.shared.excercises[indexPath.row]
-//        let categoryName = SearchController.shared.category[indexPath.row]
+        let categoryName = SearchController.shared.excercises[indexPath.row].category.name
         
         cell.textLabel?.text = excercises.name
-//        cell.detailTextLabel?.text = categoryName.name
+        cell.detailTextLabel?.text = categoryName
         
         return cell
     }
@@ -36,10 +36,10 @@ class ExcercisesViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         searchBar.delegate = self
         
-        
         SearchController.getWorkouts { (exercises) in
             guard let exercises = exercises else { return }
             exercises.forEach { print($0.name) }
+            exercises.forEach { print($0.category.name)}
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

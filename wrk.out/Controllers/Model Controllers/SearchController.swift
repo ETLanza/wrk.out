@@ -10,7 +10,7 @@ import Foundation
 class SearchController {
     
     var excercises: [Exercise] = []
-    var category: [Category] = []
+    var categories: [Category] = []
     
     static let shared = SearchController()
     

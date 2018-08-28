@@ -10,7 +10,6 @@ import Foundation
 
 struct TopLevelDictionary: Decodable {
     let results: [Exercise]
-    
 }
 
 struct Exercise: Decodable {
@@ -22,4 +21,5 @@ struct Exercise: Decodable {
 
 struct Category: Decodable {
     let name: String
+    
 }
