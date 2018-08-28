@@ -26,7 +26,7 @@ class LiftSet: Equatable {
     
     convenience init?(ckRecord: CKRecord) {
         guard let weight = ckRecord[Keys.LiftsetKeys.weightKey] as? Double,
-        let reps = ckRecord[Keys.LiftsetKeys.repsKey] as? Int,
+            let reps = ckRecord[Keys.LiftsetKeys.repsKey] as? Int,
             let liftReference = ckRecord[Keys.LiftsetKeys.liftReference] as? CKReference else { return nil }
         self.init(weight: weight, reps: reps, liftReference: liftReference)
         self.ckRecordID = ckRecord.recordID
@@ -43,7 +43,7 @@ extension CKRecord {
     convenience init(liftset: LiftSet) {
         self.init(recordType: Keys.LiftsetKeys.liftsetTypeKey, recordID: liftset.ckRecordID)
         self.setValue(liftset.weight, forKey: Keys.LiftsetKeys.weightKey)
-        self.setValue(liftset.reps, forKey: Keys.LiftsetKeys.weightKey)
+        self.setValue(liftset.reps, forKey: Keys.LiftsetKeys.repsKey)
         self.setValue(liftset.liftReference, forKey: Keys.LiftsetKeys.liftReference)
     }
 }

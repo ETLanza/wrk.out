@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbW-dc-6ZC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbW-dc-6ZC">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="-1687" y="1216"/>
         </scene>
-        <!--workouts-->
+        <!--Workouts-->
         <scene sceneID="P6U-b5-25Z">
             <objects>
-                <viewControllerPlaceholder storyboardName="workouts" id="ufO-jz-FLc" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Workouts" id="ufO-jz-FLc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Workouts" id="lIE-kS-goB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3e9-na-gMk" userLabel="First Responder" sceneMemberID="firstResponder"/>

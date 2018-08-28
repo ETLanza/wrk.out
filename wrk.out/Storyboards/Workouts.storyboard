@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A3g-x7-tTJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A3g-x7-tTJ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,16 +69,16 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="Ek3-Ww-fzQ">
-                                        <rect key="frame" x="21.000000000000007" y="223.00000000000003" width="125.66666666666667" height="61.333333333333336"/>
+                                        <rect key="frame" x="21.000000000000007" y="223" width="125.66666666666667" height="61.333333333333336"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhb-Lc-av5">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Previous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhb-Lc-av5">
                                                 <rect key="frame" x="0.0" y="0.0" width="125.66666666666667" height="33.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                 <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workouts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijz-sJ-xBz">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Workouts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijz-sJ-xBz">
                                                 <rect key="frame" x="0.0" y="27.666666666666668" width="125.66666666666667" height="33.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                 <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -104,8 +106,56 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="519"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <view key="tableFooterView" contentMode="scaleToFill" id="WrR-Yz-ufT">
+                                                            <rect key="frame" x="0.0" y="176" width="414" height="120"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XCZ-TL-VBq">
+                                                                    <rect key="frame" x="8" y="8" width="398" height="104"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB9-ap-cEq">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="398" height="30.666666666666668"/>
+                                                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title="End Workout">
+                                                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="endWorkoutButtonTapped:" destination="7rf-yI-gKN" eventType="touchUpInside" id="ATd-SB-vQd"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-uR-w4b">
+                                                                            <rect key="frame" x="0.0" y="36.666666666666664" width="398" height="30.666666666666664"/>
+                                                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title="Add Exercise">
+                                                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="addExerciseButtonTapped:" destination="7rf-yI-gKN" eventType="touchUpInside" id="Dj9-Py-90c"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqb-iz-6DO">
+                                                                            <rect key="frame" x="0.0" y="73.333333333333329" width="398" height="30.666666666666671"/>
+                                                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title="Cancel Workout">
+                                                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="cancelWorkoutButtonTapped:" destination="7rf-yI-gKN" eventType="touchUpInside" id="7Tg-qY-8Q3"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.0078431372549019607" green="0.0078431372549019607" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="XCZ-TL-VBq" secondAttribute="bottom" id="4GP-jQ-6WG"/>
+                                                                <constraint firstItem="XCZ-TL-VBq" firstAttribute="leading" secondItem="WrR-Yz-ufT" secondAttribute="leadingMargin" id="S3p-iJ-JSh"/>
+                                                                <constraint firstItem="XCZ-TL-VBq" firstAttribute="top" secondItem="WrR-Yz-ufT" secondAttribute="topMargin" id="Zxs-Ld-AMI"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="XCZ-TL-VBq" secondAttribute="trailing" id="eht-gF-s69"/>
+                                                            </constraints>
+                                                        </view>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="55" id="rds-IU-lxM" customClass="HeaderTableViewCell" customModule="TestTimer" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="55" id="rds-IU-lxM" customClass="HeaderTableViewCell" customModule="wrk_out" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="414" height="55"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rds-IU-lxM" id="MHi-NW-7JH">
@@ -134,7 +184,7 @@
                                                                     <outlet property="workoutNameTextField" destination="FfH-Wk-zxd" id="cD3-om-4Wz"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liftHeaderCell" rowHeight="26" id="DcY-tH-xxi" customClass="LiftHeaderTableViewCell" customModule="TestTimer" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liftHeaderCell" rowHeight="26" id="DcY-tH-xxi" customClass="LiftHeaderTableViewCell" customModule="wrk_out" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="83" width="414" height="26"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DcY-tH-xxi" id="rH7-Jz-N3D">
@@ -205,7 +255,7 @@
                                                                 </tableViewCellContentView>
                                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liftsetCell" rowHeight="35" id="UIz-t8-PaF" customClass="LiftsetTableViewCell" customModule="TestTimer" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liftsetCell" rowHeight="35" id="UIz-t8-PaF" customClass="LiftsetTableViewCell" customModule="wrk_out" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="109" width="414" height="35"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UIz-t8-PaF" id="I7d-Xa-4Ky">
@@ -213,7 +263,7 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-5I-El6">
-                                                                            <rect key="frame" x="6" y="2.3333333333333286" width="402" height="30"/>
+                                                                            <rect key="frame" x="6" y="2.6666666666666679" width="402" height="30.000000000000004"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(#)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H9d-oX-xTp">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="30"/>
@@ -233,7 +283,7 @@
                                                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight" textAlignment="center" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="OfT-aW-eZg">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="50.666666666666664" height="30"/>
                                                                                             <nil key="textColor"/>
-                                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                                         </textField>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-AF-wZT">
@@ -245,7 +295,7 @@
                                                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reps" textAlignment="center" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="pDi-5s-l4U">
                                                                                             <rect key="frame" x="70" y="0.0" width="50.666666666666657" height="30"/>
                                                                                             <nil key="textColor"/>
-                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                         </textField>
                                                                                     </subviews>
@@ -254,7 +304,7 @@
                                                                                         <constraint firstItem="pDi-5s-l4U" firstAttribute="width" secondItem="8do-dH-ywb" secondAttribute="width" multiplier="0.42" id="mTw-Jb-0Fs"/>
                                                                                     </constraints>
                                                                                 </stackView>
-                                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85n-eJ-gWc">
+                                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85n-eJ-gWc">
                                                                                     <rect key="frame" x="353.66666666666669" y="0.0" width="48.333333333333314" height="30"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                     <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
@@ -283,14 +333,14 @@
                                                                     <outlet property="weightTextField" destination="OfT-aW-eZg" id="nnc-ps-udl"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addSetCell" rowHeight="32" id="1T6-M9-Vam" customClass="AddSetTableViewCell" customModule="TestTimer" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addSetCell" rowHeight="32" id="1T6-M9-Vam" customClass="AddSetTableViewCell" customModule="wrk_out" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="144" width="414" height="32"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1T6-M9-Vam" id="NHa-Kd-7jN">
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="31.666666666666668"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8n9-qL-CPa">
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8n9-qL-CPa">
                                                                             <rect key="frame" x="20" y="3" width="374" height="25.666666666666668"/>
                                                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <state key="normal" title="Add Set">
@@ -314,59 +364,11 @@
                                                                     <outlet property="addSetButton" destination="8n9-qL-CPa" id="dR6-uu-qHL"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="footerCell" rowHeight="120" id="R6h-Sl-jb3" customClass="FooterTableViewCell" customModule="TestTimer" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="176" width="414" height="120"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R6h-Sl-jb3" id="qRx-Uc-vGK">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XCZ-TL-VBq">
-                                                                            <rect key="frame" x="20" y="11" width="374" height="98"/>
-                                                                            <subviews>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB9-ap-cEq">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="28.666666666666668"/>
-                                                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <state key="normal" title="End Workout">
-                                                                                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    </state>
-                                                                                    <connections>
-                                                                                        <action selector="endWorkoutButtonPressed:" destination="R6h-Sl-jb3" eventType="touchUpInside" id="yhr-AA-Rr4"/>
-                                                                                    </connections>
-                                                                                </button>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-uR-w4b">
-                                                                                    <rect key="frame" x="0.0" y="34.666666666666664" width="374" height="28.666666666666664"/>
-                                                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <state key="normal" title="Add Exercise">
-                                                                                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    </state>
-                                                                                    <connections>
-                                                                                        <action selector="addExerciseButtonPressed:" destination="R6h-Sl-jb3" eventType="touchUpInside" id="t6R-cS-ZE3"/>
-                                                                                    </connections>
-                                                                                </button>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqb-iz-6DO">
-                                                                                    <rect key="frame" x="0.0" y="69.333333333333329" width="374" height="28.666666666666671"/>
-                                                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <state key="normal" title="Cancel Workout">
-                                                                                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    </state>
-                                                                                    <connections>
-                                                                                        <action selector="cancelWorkoutButtonPressed:" destination="R6h-Sl-jb3" eventType="touchUpInside" id="5Cy-6q-UOq"/>
-                                                                                    </connections>
-                                                                                </button>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="trailingMargin" secondItem="XCZ-TL-VBq" secondAttribute="trailing" id="Fx8-qV-Pu1"/>
-                                                                        <constraint firstItem="XCZ-TL-VBq" firstAttribute="leading" secondItem="qRx-Uc-vGK" secondAttribute="leadingMargin" id="ecA-rz-dD4"/>
-                                                                        <constraint firstItem="XCZ-TL-VBq" firstAttribute="top" secondItem="qRx-Uc-vGK" secondAttribute="topMargin" id="vEi-UQ-fyF"/>
-                                                                        <constraint firstAttribute="bottomMargin" secondItem="XCZ-TL-VBq" secondAttribute="bottom" id="zDD-sc-vvV"/>
-                                                                    </constraints>
-                                                                </tableViewCellContentView>
-                                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </tableViewCell>
                                                         </prototypes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="7rf-yI-gKN" id="lcd-cR-fVO"/>
+                                                            <outlet property="delegate" destination="7rf-yI-gKN" id="baJ-lk-k83"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
@@ -426,6 +428,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="Fs0-IW-id8" id="oAv-Pb-BwQ"/>
+                        <outlet property="popupTableView" destination="DIS-yD-ErJ" id="Bt8-PV-dMR"/>
                         <outlet property="popupView" destination="kQB-sS-MNp" id="IR0-AH-fo6"/>
                     </connections>
                 </viewController>
@@ -471,7 +474,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WorkoutsIcon" width="75" height="42"/>
-        <image name="WorkoutsIconSelected" width="75" height="42"/>
+        <image name="WorkoutsIcon" width="25" height="14"/>
+        <image name="WorkoutsIconSelected" width="37" height="21"/>
     </resources>
 </document>

@@ -18,21 +18,25 @@ class WorkoutController {
     var workouts: [Workout] = []
     
     //MARK: - CRUD Functions
-    func createNewWorkoutWith(name: String) {
+    func createNewWorkoutWith(name: String, completion: @escaping (Workout?) -> Void) {
         let newWorkout = Workout(name: name)
-        let workoutRecord = CKRecord(recordType: Keys.WorkoutKeys.workoutTypeKey, recordID: newWorkout.ckRecordID)
+        self.workouts.append(newWorkout)
+        let workoutRecord = CKRecord(workout: newWorkout)
         CloudKitManager.shared.saveRecord(workoutRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {
                 NSLog("Error saving new workout: %@", error.localizedDescription)
+                completion(nil)
                 return
             }
             
             guard let record = record,
                 let workoutFromRecord = Workout(ckRecord: record) else {
                     NSLog("Error creating workout from record: %@", name)
+                    completion(nil)
                     return
             }
             self.workouts.append(workoutFromRecord)
+            completion(workoutFromRecord)
         }
     }
     

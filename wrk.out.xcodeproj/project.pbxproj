@@ -11,11 +11,10 @@
 		3C087427213472CF0025FBD8 /* LiftHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C087426213472CF0025FBD8 /* LiftHeaderTableViewCell.swift */; };
 		3C087429213472E70025FBD8 /* AddSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */; };
 		3C08742B2134733D0025FBD8 /* LiftsetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C08742A2134733D0025FBD8 /* LiftsetTableViewCell.swift */; };
-		3C08742D213473520025FBD8 /* FooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C08742C213473510025FBD8 /* FooterTableViewCell.swift */; };
 		3C161ED3212F6C2C006BD941 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161ED2212F6C2C006BD941 /* Person.swift */; };
 		3C161EDC212F6C37006BD941 /* routines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED5212F6C37006BD941 /* routines.storyboard */; };
 		3C161EDD212F6C37006BD941 /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED6212F6C37006BD941 /* profile.storyboard */; };
-		3C161EDE212F6C37006BD941 /* workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED7212F6C37006BD941 /* workouts.storyboard */; };
+		3C161EDE212F6C37006BD941 /* Workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED7212F6C37006BD941 /* Workouts.storyboard */; };
 		3C161EE0212F6C37006BD941 /* exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161ED9212F6C37006BD941 /* exercises.storyboard */; };
 		3C161EE1212F6C37006BD941 /* more.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161EDA212F6C37006BD941 /* more.storyboard */; };
 		3C161EE2212F6C37006BD941 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C161EDB212F6C37006BD941 /* TabBar.storyboard */; };
@@ -52,11 +51,10 @@
 		3C087426213472CF0025FBD8 /* LiftHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetTableViewCell.swift; sourceTree = "<group>"; };
 		3C08742A2134733D0025FBD8 /* LiftsetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftsetTableViewCell.swift; sourceTree = "<group>"; };
-		3C08742C213473510025FBD8 /* FooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTableViewCell.swift; sourceTree = "<group>"; };
 		3C161ED2212F6C2C006BD941 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		3C161ED5212F6C37006BD941 /* routines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = routines.storyboard; sourceTree = "<group>"; };
 		3C161ED6212F6C37006BD941 /* profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = profile.storyboard; sourceTree = "<group>"; };
-		3C161ED7212F6C37006BD941 /* workouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = workouts.storyboard; sourceTree = "<group>"; };
+		3C161ED7212F6C37006BD941 /* Workouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Workouts.storyboard; sourceTree = "<group>"; };
 		3C161ED9212F6C37006BD941 /* exercises.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = exercises.storyboard; sourceTree = "<group>"; };
 		3C161EDA212F6C37006BD941 /* more.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = more.storyboard; sourceTree = "<group>"; };
 		3C161EDB212F6C37006BD941 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
@@ -109,7 +107,7 @@
 			children = (
 				3C161ED5212F6C37006BD941 /* routines.storyboard */,
 				3C161ED6212F6C37006BD941 /* profile.storyboard */,
-				3C161ED7212F6C37006BD941 /* workouts.storyboard */,
+				3C161ED7212F6C37006BD941 /* Workouts.storyboard */,
 				3C161ED9212F6C37006BD941 /* exercises.storyboard */,
 				3C161EDA212F6C37006BD941 /* more.storyboard */,
 				3C161EDB212F6C37006BD941 /* TabBar.storyboard */,
@@ -240,7 +238,6 @@
 				3C087426213472CF0025FBD8 /* LiftHeaderTableViewCell.swift */,
 				3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */,
 				3C08742A2134733D0025FBD8 /* LiftsetTableViewCell.swift */,
-				3C08742C213473510025FBD8 /* FooterTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -328,7 +325,7 @@
 				3CB69458212B75E600E9F2B1 /* LaunchScreen.storyboard in Resources */,
 				3C161EE2212F6C37006BD941 /* TabBar.storyboard in Resources */,
 				3C161EE1212F6C37006BD941 /* more.storyboard in Resources */,
-				3C161EDE212F6C37006BD941 /* workouts.storyboard in Resources */,
+				3C161EDE212F6C37006BD941 /* Workouts.storyboard in Resources */,
 				3CB69455212B75E600E9F2B1 /* Assets.xcassets in Resources */,
 				3C161EE0212F6C37006BD941 /* exercises.storyboard in Resources */,
 				3C161EDD212F6C37006BD941 /* profile.storyboard in Resources */,
@@ -345,7 +342,6 @@
 			files = (
 				3C9E34C3212DCAA6006B1759 /* LiftController.swift in Sources */,
 				3C9E34C9212DF3A2006B1759 /* RestTimer.swift in Sources */,
-				3C08742D213473520025FBD8 /* FooterTableViewCell.swift in Sources */,
 				3C9E34C5212DD90B006B1759 /* WorkoutController.swift in Sources */,
 				3C9E34C7212DF359006B1759 /* Settings.swift in Sources */,
 				3C161EE7212F6C46006BD941 /* CustomTabBar.swift in Sources */,
