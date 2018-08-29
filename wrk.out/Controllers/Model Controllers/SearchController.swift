@@ -14,7 +14,7 @@ class SearchController {
     
     static let shared = SearchController()
     
-    static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?formate=json")
+    static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?format=json")
     
     
     //  static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?format=json&language=2&status=2")

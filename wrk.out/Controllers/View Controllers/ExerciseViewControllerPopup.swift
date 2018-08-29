@@ -24,10 +24,25 @@ class ExerciseViewControllerPopup: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+//        func testingTrimming(_: String)->String {
+//            let newString = testText?.replacingOccurrences(of: "[</p>, <p>, <ul>, </ul>, <li>, </li>, <em>, </em>]",  with: "")
+//
+//        }
+
+    // TODO: 
+    
     func TrimmingHTMLFromLabel(_: String)->String {
         let trimString1 = testText?.replacingOccurrences(of: "<p>", with: "")
         let trimString2 = trimString1?.replacingOccurrences(of: "</p>", with: "")
-        return trimString2!
+        let trimString3 = trimString2?.replacingOccurrences(of: "<ul>", with: "")
+        let trimString4 = trimString3?.replacingOccurrences(of: "<li>", with: "")
+        let trimString5 = trimString4?.replacingOccurrences(of: "</li>", with: "")
+        let trimString6 = trimString5?.replacingOccurrences(of: "</ul>", with: "")
+        let trimString7 = trimString6?.replacingOccurrences(of: "<em>", with: "")
+        let trimString8 = trimString7?.replacingOccurrences(of: "</em>", with: "")
+        let trimString9 = trimString8?.replacingOccurrences(of: "<ol>", with: "")
+        let trimString10 = trimString9?.replacingOccurrences(of: "</ol>", with: "")
+        return trimString10!
     }
     
     override func viewDidLoad() {
