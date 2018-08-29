@@ -13,6 +13,7 @@ class Workout: Equatable {
     var name: String
     var lifts: [Lift] = []
     var duration: TimeInterval?
+    var startTime = Date()
     var note: String?
     var ckRecordID: CKRecordID
     
