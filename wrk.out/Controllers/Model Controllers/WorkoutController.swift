@@ -56,7 +56,7 @@ class WorkoutController {
         }
     }
     
-    func modify(workout: Workout, withName name: String, note: String) {
+    func modify(workout: Workout, withName name: String, note: String, completion: @escaping (Bool)->Void) {
         workout.name = name
         workout.note = note
         
@@ -64,7 +64,10 @@ class WorkoutController {
         CloudKitManager.shared.modifyRecords([workoutRecord], database: CloudKitManager.shared.privateDatabase, perRecordCompletion: nil) { (_, error) in
             if let error = error {
                 NSLog("Error modifying workout in CloudKit", error.localizedDescription)
+                completion(false)
+                return
             }
+            completion(true)
         }
     }
     
