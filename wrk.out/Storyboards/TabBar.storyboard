@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6kQ-ST-gye">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6kQ-ST-gye">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="-2775" y="1695"/>
         </scene>
-        <!--profile-->
+        <!--Profile-->
         <scene sceneID="hW0-qb-6oD">
             <objects>
-                <viewControllerPlaceholder storyboardName="profile" id="Eqg-h0-UOp" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Profile" id="Eqg-h0-UOp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="hXW-S6-73V"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gT8-h8-yQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,6 +118,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchScreenimage" width="1302" height="843"/>
+        <image name="launchScreenimage" width="434" height="281"/>
     </resources>
 </document>

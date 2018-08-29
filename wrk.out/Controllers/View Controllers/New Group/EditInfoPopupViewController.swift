@@ -58,12 +58,16 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func updateViews() {
-        guard let loggedInUser = user else { return }
-        self.nameTF.text = loggedInUser.name
-        self.ageTF.text = String(loggedInUser.age)
-        self.heightTF.text = String(loggedInUser.height)
-        self.weightTF.text = String(loggedInUser.weight)
-        self.genderTF.text = loggedInUser.gender
+        if let loggedInUser = user {
+            self.nameTF.text = loggedInUser.name
+            self.ageTF.text = String(loggedInUser.age)
+            self.heightTF.text = String(loggedInUser.height)
+            self.weightTF.text = String(loggedInUser.weight)
+            self.genderTF.text = loggedInUser.gender
+            cancelButton.isHidden = false
+        } else {
+            cancelButton.isHidden = true
+        }
     }
     
     @IBAction func changePhoto(_ sender: Any) {

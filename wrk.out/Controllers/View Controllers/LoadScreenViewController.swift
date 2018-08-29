@@ -23,7 +23,12 @@ class LoadScreenViewController: UIViewController {
                 let tabBarController = sb.instantiateViewController(withIdentifier: "TabBarController")
                 self.present(tabBarController, animated: true, completion: nil)
             } else {
-                self.present(EditInfoPopupViewController(), animated: true, completion: nil)
+                let sb = UIStoryboard(name: "Profile", bundle: nil)
+                let editInfoPopupViewController = sb.instantiateViewController(withIdentifier: "EditInfoPopupViewController")
+                editInfoPopupViewController.modalTransitionStyle = .crossDissolve
+                editInfoPopupViewController.modalPresentationStyle = .fullScreen
+                editInfoPopupViewController.view.backgroundColor = UIColor(named: "wrkoutBlue")
+                self.present(editInfoPopupViewController, animated: true, completion: nil)
                 }
             }
         }
