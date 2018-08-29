@@ -8,13 +8,68 @@
 
 import UIKit
 
-class editInfoPopupViewController: UIViewController {
-
+class editInfoPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    //TF Outlets
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var ageTF: UITextField!
+    @IBOutlet weak var weightTF: UITextField!
+    @IBOutlet weak var hieghtTF: UITextField!
+    @IBOutlet weak var genderTF: UITextField!
+    
+    //pop
     @IBOutlet var EditInfoPopupVIew: UIView!
     @IBOutlet weak var saveChangesButton: UIButton!
     
+    //push
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
+        NotificationCenter.default.post(name: .saveUserInfo, object: self)
+        
         dismiss(animated: true)
     }
     
+    //Change Photo
+    @IBOutlet weak var profilePopupImageView: UIImageView!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
+    @IBAction func changePhoto(_ sender: Any) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+    
+        let actionSheet = UIAlertController(title: "Where From?", message: nil, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+        self.present(actionSheet, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        profilePopupImageView.image = image
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

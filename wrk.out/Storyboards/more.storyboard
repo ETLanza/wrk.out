@@ -66,7 +66,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="restTimerSwitchedOn:" destination="Us6-R7-giL" eventType="valueChanged" id="b2M-vB-cdR"/>
+                                            <action selector="restTimerSwitchedON:" destination="Us6-R7-giL" eventType="valueChanged" id="wek-Tc-C0r"/>
                                         </connections>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zqx-On-uQ5">
@@ -86,8 +86,8 @@
                     <navigationItem key="navigationItem" title="More" id="SEh-pG-dx0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="restTimerSwitch" destination="gze-Xu-hce" id="MJd-JO-6Ed"/>
-                        <outlet property="secondsTF" destination="gFM-Ma-YjQ" id="BaW-qt-T4N"/>
+                        <outlet property="numberOfSecondsTextField" destination="gFM-Ma-YjQ" id="v8c-AN-4QM"/>
+                        <outlet property="restTimerSwitch" destination="gze-Xu-hce" id="MtX-Pf-srN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZn-o8-YFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,7 +129,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="exitButtonTapped:" destination="Cfr-aV-0Nm" eventType="touchUpInside" id="TLg-R5-YBJ"/>
+                                            <action selector="exitButtonTapped:" destination="Cfr-aV-0Nm" eventType="touchUpInside" id="jug-uh-dNu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -140,8 +140,8 @@
                         <viewLayoutGuide key="safeArea" id="SgY-2O-AMF"/>
                     </view>
                     <connections>
-                        <outlet property="exitButton" destination="9o7-OB-hqi" id="LnX-6X-5fE"/>
-                        <outlet property="popupView" destination="PNP-m4-6IS" id="2wm-hd-Ejc"/>
+                        <outlet property="exitButton" destination="9o7-OB-hqi" id="Qtm-Md-Vru"/>
+                        <outlet property="popupView" destination="PNP-m4-6IS" id="bnN-Mo-s8X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOi-fX-EB5" userLabel="First Responder" sceneMemberID="firstResponder"/>

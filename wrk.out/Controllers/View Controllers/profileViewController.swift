@@ -20,20 +20,32 @@ class profileViewController: UIViewController {
     
     @IBOutlet weak var genderLabel: UILabel!
     
+    @IBOutlet weak var profileImage: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var observer: NSObjectProtocol?
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+  
         
-
+        observer = NotificationCenter.default.addObserver(forName: .saveUserInfo, object: nil, queue: OperationQueue.main) { (notification) in
+            let editInfoVC = notification.object as! editInfoPopupViewController
+            self.nameLabel.text = editInfoVC.nameTF.text
+            self.ageLabel.text = editInfoVC.ageTF.text
+            self.weightLabel.text = editInfoVC.weightTF.text
+            self.heightLabel.text = editInfoVC.hieghtTF.text
+            self.genderLabel.text = editInfoVC.genderTF.text
+            self.profileImage.image = editInfoVC.profilePopupImageView.image
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if let observer = observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
-    */
-
 }
