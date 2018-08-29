@@ -37,18 +37,22 @@ class LiftController {
         }
     }
     
-    func delete(lift: Lift, fromWorkout workout: Workout) {
+    func delete(lift: Lift, fromWorkout workout: Workout, completion: @escaping (Bool)-> Void) {
         CloudKitManager.shared.deleteRecordWithID(lift.ckRecordID, database: CloudKitManager.shared.privateDatabase) { (recordID, error) in
             if let error = error {
                 NSLog("Error deleting lift from CloudKit", error.localizedDescription)
+                completion(false)
+                return
             }
             
             if let _ = recordID {
                 guard let index = workout.lifts.index(of: lift) else {
                     NSLog("Error finding local index of lift: %@", lift.ckRecordID)
+                    completion(false)
                     return
                 }
                 workout.lifts.remove(at: index)
+                completion(true)
             }
         }
     }

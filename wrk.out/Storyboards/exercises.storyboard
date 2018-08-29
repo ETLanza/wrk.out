@@ -13,7 +13,7 @@
         <!--Exercises-->
         <scene sceneID="28T-zh-Qco">
             <objects>
-                <viewController id="mjb-G8-qOh" customClass="ExcercisesViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mjb-G8-qOh" customClass="ExerciseViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nul-nH-mqf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,6 +60,9 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.34999999999999998"/>
+                                                <connections>
+                                                    <segue destination="O7R-71-OGR" kind="presentation" identifier="toExercisePopup" modalPresentationStyle="overCurrentContext" id="H7B-LV-hAY"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -81,6 +84,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhd-OB-nIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-117.39130434782609" y="1797.554347826087"/>
+        </scene>
+        <!--Exercise View Controller Popup-->
+        <scene sceneID="u1s-LF-SMx">
+            <objects>
+                <viewController id="O7R-71-OGR" customClass="ExerciseViewControllerPopup" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g3G-zh-GfO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88U-bI-sGe">
+                                <rect key="frame" x="87" y="208" width="240" height="224"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4r8-nJ-sjS">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="224"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4r8-nJ-sjS" secondAttribute="bottom" id="2aY-dq-sal"/>
+                                    <constraint firstAttribute="trailing" secondItem="4r8-nJ-sjS" secondAttribute="trailing" id="7rc-2z-KHS"/>
+                                    <constraint firstItem="4r8-nJ-sjS" firstAttribute="leading" secondItem="88U-bI-sGe" secondAttribute="leading" id="UBt-JB-agz"/>
+                                    <constraint firstItem="4r8-nJ-sjS" firstAttribute="top" secondItem="88U-bI-sGe" secondAttribute="top" id="cpd-35-gO7"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWL-8T-ytD">
+                                <rect key="frame" x="0.0" y="20" width="414" height="667"/>
+                                <connections>
+                                    <action selector="backgroundButtonTapped:" destination="O7R-71-OGR" eventType="touchUpInside" id="y90-gl-lqg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.53218642979452058" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="88U-bI-sGe" firstAttribute="leading" secondItem="9zB-W8-0ny" secondAttribute="leading" constant="87" id="Ca1-vJ-1qN"/>
+                            <constraint firstItem="sWL-8T-ytD" firstAttribute="top" secondItem="9zB-W8-0ny" secondAttribute="top" id="dAr-Qh-O21"/>
+                            <constraint firstItem="sWL-8T-ytD" firstAttribute="bottom" secondItem="9zB-W8-0ny" secondAttribute="bottom" id="gQI-tG-1CQ"/>
+                            <constraint firstItem="sWL-8T-ytD" firstAttribute="trailing" secondItem="9zB-W8-0ny" secondAttribute="trailing" id="kKO-4J-EFv"/>
+                            <constraint firstItem="88U-bI-sGe" firstAttribute="top" secondItem="9zB-W8-0ny" secondAttribute="top" constant="188" id="ojT-db-KUa"/>
+                            <constraint firstItem="9zB-W8-0ny" firstAttribute="bottom" secondItem="88U-bI-sGe" secondAttribute="bottom" constant="255" id="qDs-cW-lfp"/>
+                            <constraint firstItem="sWL-8T-ytD" firstAttribute="leading" secondItem="9zB-W8-0ny" secondAttribute="leading" id="uja-gv-449"/>
+                            <constraint firstItem="9zB-W8-0ny" firstAttribute="trailing" secondItem="88U-bI-sGe" secondAttribute="trailing" constant="87" id="wWU-28-Bh6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9zB-W8-0ny"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="g3G-zh-GfO" id="YkV-XR-ZZf"/>
+                        <outlet property="descriptionLabel" destination="4r8-nJ-sjS" id="bvZ-JR-9q9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DfC-P8-eDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712" y="1798"/>
         </scene>
         <!--Exercises-->
         <scene sceneID="E8d-AL-Wm2">

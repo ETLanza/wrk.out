@@ -36,14 +36,17 @@ class LiftSetController {
         }
     }
     
-    func delete(liftset: LiftSet, fromLift lift: Lift) {
+    func delete(liftset: LiftSet, fromLift lift: Lift, completion: @escaping (Bool) -> Void) {
         CloudKitManager.shared.deleteRecordWithID(liftset.ckRecordID, database: CloudKitManager.shared.privateDatabase) { (recordID, error) in
             if let error = error {
                 NSLog("Error deleting LiftSet from CloudKit: %@", error.localizedDescription)
+                completion(false)
+                return
             }
             if let _ = recordID {
-                guard let index = lift.liftsets.index(of: liftset) else { return }
+                guard let index = lift.liftsets.index(of: liftset) else { completion(false); return }
                 lift.liftsets.remove(at: index)
+                completion(true)
             }
         }
     }

@@ -47,6 +47,7 @@
 		90A6A8532134632F0047A559 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8522134632F0047A559 /* SearchController.swift */; };
 		90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8542134637F0047A559 /* ExcerciseViewController.swift */; };
 		90C908312130678B003363DB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C908302130678B003363DB /* MoreViewController.swift */; };
+		90EDE6C8213607BE0057D3AB /* ExerciseViewControllerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDE6C7213607BE0057D3AB /* ExerciseViewControllerPopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		90A6A8522134632F0047A559 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		90A6A8542134637F0047A559 /* ExcerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewController.swift; sourceTree = "<group>"; };
 		90C908302130678B003363DB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		90EDE6C7213607BE0057D3AB /* ExerciseViewControllerPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewControllerPopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				90C908302130678B003363DB /* MoreViewController.swift */,
 				3CBF73E72135B8EC00D99292 /* editInfoPopupViewController.swift */,
 				3CBF73E62135B8EB00D99292 /* privacyPolicyPopupViewController.swift */,
+				90EDE6C7213607BE0057D3AB /* ExerciseViewControllerPopup.swift */,
 				3C161EEC212F6C4E006BD941 /* profileViewController.swift */,
 				7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */,
 				90A6A8542134637F0047A559 /* ExcerciseViewController.swift */,
@@ -368,6 +371,7 @@
 				3CB69468212B7DF900E9F2B1 /* Keys.swift in Sources */,
 				3C161EF0212F6C4F006BD941 /* profileViewController.swift in Sources */,
 				3C161EF6212F6C8B006BD941 /* UserController.swift in Sources */,
+				90EDE6C8213607BE0057D3AB /* ExerciseViewControllerPopup.swift in Sources */,
 				3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */,
 				3C087427213472CF0025FBD8 /* LiftHeaderTableViewCell.swift in Sources */,
 				908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */,
