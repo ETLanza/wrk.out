@@ -12,26 +12,27 @@ import CloudKit
 class WorkoutViewController: UIViewController {
     
     var workout: Workout?
+    var timer: Timer?
     
     @IBOutlet weak var popupTableView: UITableView!
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var workoutDurationLabel: UILabel!
     
-    var popupVisible = false
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    //    var popupVisible = false
     
     @IBAction func newWorkoutButtonTapped(_ sender: Any) {
-        bottomConstraint.constant = 0
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-        })
-        
         WorkoutController.shared.createNewWorkoutWith(name: "New Workout") { (workout) in
             if let workout = workout {
                 self.workout = workout
+                DispatchQueue.main.async {
+                    self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
+                    self.workoutDurationLabel.text = "0"
+                    self.bottomConstraint.constant = 0
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.view.layoutIfNeeded()
+                    })
+                }
             }
         }
     }
@@ -51,7 +52,8 @@ class WorkoutViewController: UIViewController {
     }
     
     @IBAction func endWorkoutButtonTapped(_ sender: UIButton) {
-        
+        timer?.invalidate()
+        endWorkoutDisplay()
     }
     
     @IBAction func addExerciseButtonTapped(_ sender: UIButton) {
@@ -66,7 +68,38 @@ class WorkoutViewController: UIViewController {
     }
     
     @IBAction func cancelWorkoutButtonTapped(_ sender: UIButton) {
+        WorkoutController.shared.workouts.removeLast()
+        endWorkoutDisplay()
+    }
+    
+    //MARK: - Helper Functions
+    func endWorkout() {
+        bottomConstraint.constant = -612
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+            self.workout = nil
+            self.popupTableView.reloadData()
+        }
+        self.workoutDurationLabel.text = "0"
+    }
+    
+    @objc func increaseTimer() {
+        guard let workout = workout else { return }
+        workout.duration = workout.duration! + 1
+        self.workoutDurationLabel.text = "\(workout.duration!)"
+    }
+    
+    func endWorkoutDisplay() {
+        let alertController = UIAlertController(title: "Are you sure you want to end your current workout?", message: nil, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .cancel) { (_) in
+            self.endWorkout()
+        }
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
         
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -84,6 +117,10 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "liftHeaderCell") as? LiftHeaderTableViewCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        cell.tag = section
+        
         return cell
     }
     
@@ -116,6 +153,8 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         guard let workout = workout else { return UITableViewCell() }
         let lift = workout.lifts[indexPath.section]
         cell.liftNameCell.text = lift.name
+        cell.repTextField.text = "\(lift.liftsets[indexPath.row].reps)"
+        cell.weightTextField.text = "\(lift.liftsets[indexPath.row].weight)"
         
         return cell
     }
@@ -126,13 +165,19 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+            if let workout = workout {
+                let lift = workout.lifts[indexPath.section]
+                let liftset = lift.liftsets[indexPath.row]
+                LiftSetController.shared.delete(liftset: liftset, fromLift: lift) { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            tableView.deleteRows(at: [indexPath], with: .fade)
+                            self.popupTableView.reloadData()
+                        }
+                    }
+                }
+            }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
 }
 
@@ -151,5 +196,33 @@ extension WorkoutViewController: AddSetTableViewCellDelegate {
             }
         }
     }
+}
+
+extension WorkoutViewController: LiftHeaderTableViewCellDelegate {
+    func moreButtonPressed(_ sender: LiftHeaderTableViewCell) {
+        let section = sender.tag
+        let alertController = UIAlertController(title: "HELLO", message: nil, preferredStyle: .alert)
+        
+        let cancelExercise = UIAlertAction(title: "Remove Exercise", style: .destructive) { (alertAction) in
+            guard let workout = self.workout else { return }
+            let lift = workout.lifts[section]
+            LiftController.shared.delete(lift: lift, fromWorkout: workout, completion: { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.popupTableView.reloadData()
+                    }
+                }
+            })
+        }
+        
+        let returnAction = UIAlertAction(title: "Return", style: .default, handler: nil)
+        
+        alertController.addAction(cancelExercise)
+        alertController.addAction(returnAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    
 }
 
