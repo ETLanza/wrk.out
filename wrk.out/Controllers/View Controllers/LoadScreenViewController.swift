@@ -10,9 +10,11 @@ import UIKit
 
 class LoadScreenViewController: UIViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        activityIndicator.startAnimating()
 
         UserController.shared.fetchUserFromCloudKit { (success) in
             DispatchQueue.main.async {
