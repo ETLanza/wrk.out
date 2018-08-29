@@ -13,13 +13,13 @@ struct TopLevelDictionary: Decodable {
 }
 
 struct Exercise: Decodable {
-    let name: String
+    var name: String
     let description: String
-    let category: Category
+    var category: Category
     
 }
 
 struct Category: Decodable {
-    let name: String
+    var name: String
     
 }
