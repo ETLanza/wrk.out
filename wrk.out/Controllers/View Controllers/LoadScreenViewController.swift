@@ -15,7 +15,7 @@ class LoadScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
-
+      
         UserController.shared.fetchUserFromCloudKit { (success) in
             DispatchQueue.main.async {
             if success == true {

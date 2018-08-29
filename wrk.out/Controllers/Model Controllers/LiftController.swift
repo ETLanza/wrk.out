@@ -57,7 +57,7 @@ class LiftController {
         }
     }
     
-    func modify(lift: Lift, withName name: String) {
+    func modify(lift: Lift, withName name: String, completion: @escaping (Bool)->Void) {
         lift.name = name
         
         let recordToModify = CKRecord(lift: lift)
@@ -65,7 +65,10 @@ class LiftController {
         CloudKitManager.shared.modifyRecords([recordToModify], database: CloudKitManager.shared.privateDatabase, perRecordCompletion: nil) { (_, error) in
             if let error = error {
                 NSLog("Error modifying lift in CloudKit", error.localizedDescription)
+                completion(false)
+                return
             }
+            completion(true)
         }
     }
     
