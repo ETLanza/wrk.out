@@ -22,6 +22,8 @@ class LoadScreenViewController: UIViewController {
                 let sb = UIStoryboard(name: "TabBar", bundle: nil)
                 let tabBarController = sb.instantiateViewController(withIdentifier: "TabBarController")
                 self.present(tabBarController, animated: true, completion: nil)
+            } else {
+                self.present(EditInfoPopupViewController(), animated: true, completion: nil)
                 }
             }
         }
