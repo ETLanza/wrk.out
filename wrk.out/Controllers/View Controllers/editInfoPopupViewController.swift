@@ -10,6 +10,8 @@ import UIKit
 
 class editInfoPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    
     //TF Outlets
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var ageTF: UITextField!
@@ -17,14 +19,18 @@ class editInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var hieghtTF: UITextField!
     @IBOutlet weak var genderTF: UITextField!
     
-    //pop
+    //popup outlets
     @IBOutlet var EditInfoPopupVIew: UIView!
     @IBOutlet weak var saveChangesButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
-    //push
+    //actions
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
         NotificationCenter.default.post(name: .saveUserInfo, object: self)
         
+        dismiss(animated: true)
+    }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
     
@@ -34,8 +40,18 @@ class editInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
     
+    func updateViews() {
+        guard let loggedInUser = UserController.shared.loggedInUser else { return }
+        self.nameTF.text = loggedInUser.name
+        self.ageTF.text = String(loggedInUser.age)
+        self.hieghtTF.text = String(loggedInUser.height)
+        self.weightTF.text = String(loggedInUser.weight)
+        self.genderTF.text = loggedInUser.gender
+        
+    }
     
     @IBAction func changePhoto(_ sender: Any) {
         

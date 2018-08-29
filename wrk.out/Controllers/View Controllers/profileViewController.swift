@@ -30,17 +30,29 @@ class profileViewController: UIViewController {
         super.viewDidAppear(animated)
   
         
-        observer = NotificationCenter.default.addObserver(forName: .saveUserInfo, object: nil, queue: OperationQueue.main) { (notification) in
+        observer = NotificationCenter.default.addObserver(forName: .saveUserInfo,
+                                                          object: nil,
+                                                          queue: OperationQueue.main) { (notification) in
             let editInfoVC = notification.object as! editInfoPopupViewController
             self.nameLabel.text = editInfoVC.nameTF.text
             self.ageLabel.text = editInfoVC.ageTF.text
             self.weightLabel.text = editInfoVC.weightTF.text
             self.heightLabel.text = editInfoVC.hieghtTF.text
             self.genderLabel.text = editInfoVC.genderTF.text
-            self.profileImage.image = editInfoVC.profilePopupImageView.image
+//            self.profileImage.image = editInfoVC.profilePopupImageView.image
         }
+        
+        updateViews()
     }
+    func updateViews() {
+        guard let loggedInUser = UserController.shared.loggedInUser else { return }
+        self.nameLabel.text = loggedInUser.name
+        self.ageLabel.text = String(loggedInUser.age)
+        self.heightLabel.text = String(loggedInUser.height)
+        self.weightLabel.text = String(loggedInUser.weight)
+        self.genderLabel.text = loggedInUser.gender
     
+    }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         

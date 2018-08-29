@@ -42,11 +42,13 @@ struct Keys {
     }
     
     struct UserKeys {
-        static let userTypeKey = "user"
+        static let userTypeKey = "User"
         static let nameTypeKey = "name"
         static let ageTypeKey = "age"
         static let weightTypKey = "weight"
         static let heightTypeKey = "height"
         static let genderTypekey = "gender"
+        static let profileImageTypeKey = "profileImage"
+        static let appleUserReferenceKey = "appleUserReference"
     }
 }

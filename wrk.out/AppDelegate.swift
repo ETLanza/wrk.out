@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UserController.shared.fetchUserFromCloudKit { (success) in
+            if success {
+                print(UserController.shared.loggedInUser!.name)
+            }
+        }
         return true
     }
 
