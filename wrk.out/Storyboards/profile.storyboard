@@ -51,7 +51,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="G5i-IZ-W8f">
-                                        <rect key="frame" x="21.000000000000014" y="223.99999999999997" width="139.66666666666666" height="55.666666666666664"/>
+                                        <rect key="frame" x="21" y="224" width="139.66666666666666" height="55.666666666666664"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="riL-ys-KkT">
@@ -91,7 +91,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="nPf-Bs-jvI">
-                                        <rect key="frame" x="222" y="223.99999999999997" width="168" height="54.666666666666664"/>
+                                        <rect key="frame" x="222" y="224" width="168" height="54.666666666666664"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="xKn-74-jf2">
@@ -166,25 +166,6 @@
                                         <rect key="frame" x="0.0" y="166" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="bottom" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="fXK-NB-532">
-                                                <rect key="frame" x="21" y="0.0" width="103.66666666666667" height="45"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Xkp-Fc-zuo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="45" id="CVf-fF-eAS"/>
-                                                            <constraint firstAttribute="height" constant="45" id="L48-e4-OsO"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABW-cR-30Q">
-                                                        <rect key="frame" x="46" y="24.666666666666671" width="57.666666666666657" height="20.333333333333329"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bb-gh-2nO">
                                                 <rect key="frame" x="351" y="-1" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -193,9 +174,20 @@
                                                     <segue destination="Vfi-aF-0wl" kind="presentation" modalPresentationStyle="overCurrentContext" id="BYw-AS-UCa"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p74-49-Fcs">
+                                                <rect key="frame" x="75" y="30" width="306" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fsT-xs-pLz">
+                                        <rect key="frame" x="21" y="172" width="45" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -210,8 +202,8 @@
                         <outlet property="ageLabel" destination="df6-TV-Nde" id="gMY-j0-CgR"/>
                         <outlet property="genderLabel" destination="igN-Rf-Fx3" id="3bO-8g-Y7d"/>
                         <outlet property="heightLabel" destination="sAK-vt-Aqf" id="bdY-AO-8vd"/>
-                        <outlet property="nameLabel" destination="ABW-cR-30Q" id="zcS-RV-VFG"/>
-                        <outlet property="profileImage" destination="Xkp-Fc-zuo" id="Qee-Xq-7vB"/>
+                        <outlet property="nameLabel" destination="p74-49-Fcs" id="0V9-J7-Kz7"/>
+                        <outlet property="profileImage" destination="fsT-xs-pLz" id="f94-Lc-Mq4"/>
                         <outlet property="weightLabel" destination="rlu-d6-jmW" id="ZkQ-s3-B3z"/>
                     </connections>
                 </viewController>
@@ -340,6 +332,17 @@
                                             <action selector="saveChangesButtonTapped:" destination="Vfi-aF-0wl" eventType="touchUpInside" id="fQy-fe-zRX"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFh-7Q-vBv">
+                                        <rect key="frame" x="325" y="83" width="39" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="1" green="0.042562429479999997" blue="0.0043403921310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="Vfi-aF-0wl" eventType="touchUpInside" id="FGK-Zv-qWC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="0.85277423469387759" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -350,6 +353,7 @@
                     <connections>
                         <outlet property="EditInfoPopupVIew" destination="4w6-Sm-Vhm" id="pEQ-ds-HF3"/>
                         <outlet property="ageTF" destination="epv-il-Nz1" id="ZF7-Xm-5Cz"/>
+                        <outlet property="cancelButton" destination="nFh-7Q-vBv" id="lub-oV-8dl"/>
                         <outlet property="genderTF" destination="7QW-lo-4N6" id="yTs-ib-WMK"/>
                         <outlet property="hieghtTF" destination="BI1-IF-kzR" id="w3e-3Q-KKs"/>
                         <outlet property="nameTF" destination="ZzP-Z0-9wS" id="9BS-KZ-s8R"/>
