@@ -7,11 +7,11 @@
 //
 import UIKit
 
-class ExcercisesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var results: Exercise?
     var category: Category?
-    
+    //    let exercises = SearchController.shared.excercises
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -34,29 +34,34 @@ class ExcercisesViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+
         
         SearchController.getWorkouts { (exercises) in
-            guard let exercises = exercises else { return }
-            exercises.forEach { print($0.name) }
-            exercises.forEach { print($0.category.name)}
+            guard exercises != nil else { return }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Navigation
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let selectedRow = indexPath.row
+            if segue.identifier == "toExercisePopup" {
+               if let exercisePopVC = segue.destination as? ExerciseViewControllerPopup {
+                    
+                exercisePopVC.testText =  SearchController.shared.excercises[selectedRow].description
+                }
+            }
+        }
+    }
 }
-extension ExcercisesViewController : UISearchBarDelegate {
+
+extension ExerciseViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
         
