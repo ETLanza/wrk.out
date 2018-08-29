@@ -11,6 +11,7 @@ import UIKit
 class LiftsetTableViewCell: UITableViewCell {
     
     var liftset: LiftSet?
+    weak var delegate: LiftsetTableViewCellDelegate?
     
     @IBOutlet weak var setNumberLabel: UILabel!
     @IBOutlet weak var liftNameCell: UILabel!
@@ -19,9 +20,10 @@ class LiftsetTableViewCell: UITableViewCell {
     @IBOutlet weak var doneButton: UIButton!
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
+        delegate?.liftsetCellButtonTapped(self)
     }
 }
 
-protocol LiftsetTableViewCellDelegate {
+protocol LiftsetTableViewCellDelegate: class {
     func liftsetCellButtonTapped(_ sender: LiftsetTableViewCell)
 }
