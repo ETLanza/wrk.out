@@ -13,7 +13,7 @@
         <!--Profile-->
         <scene sceneID="AuK-HD-NMq">
             <objects>
-                <viewController id="UdR-uW-kGj" customClass="profileViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UdR-uW-kGj" customClass="ProfileViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LQb-Lu-NqJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +171,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Edit"/>
                                                 <connections>
-                                                    <segue destination="Vfi-aF-0wl" kind="presentation" modalPresentationStyle="overCurrentContext" id="BYw-AS-UCa"/>
+                                                    <segue destination="Vfi-aF-0wl" kind="presentation" identifier="editUserInfoSegue" modalPresentationStyle="overCurrentContext" id="BYw-AS-UCa"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p74-49-Fcs">
@@ -214,7 +214,7 @@
         <!--Edit Info Popup View Controller-->
         <scene sceneID="zzM-0o-jSq">
             <objects>
-                <viewController id="Vfi-aF-0wl" customClass="editInfoPopupViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vfi-aF-0wl" customClass="EditInfoPopupViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="tOz-Kj-UbD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,7 +355,7 @@
                         <outlet property="ageTF" destination="epv-il-Nz1" id="ZF7-Xm-5Cz"/>
                         <outlet property="cancelButton" destination="nFh-7Q-vBv" id="lub-oV-8dl"/>
                         <outlet property="genderTF" destination="7QW-lo-4N6" id="yTs-ib-WMK"/>
-                        <outlet property="hieghtTF" destination="BI1-IF-kzR" id="w3e-3Q-KKs"/>
+                        <outlet property="heightTF" destination="BI1-IF-kzR" id="w3e-3Q-KKs"/>
                         <outlet property="nameTF" destination="ZzP-Z0-9wS" id="9BS-KZ-s8R"/>
                         <outlet property="profilePopupImageView" destination="wA9-FL-jbs" id="vUf-Kn-ngE"/>
                         <outlet property="saveChangesButton" destination="4w6-Sm-Vhm" id="xFi-DM-1Zc"/>

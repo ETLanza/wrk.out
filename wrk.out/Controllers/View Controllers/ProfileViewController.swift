@@ -1,5 +1,5 @@
 //
-//  profileViewController.swift
+//  ProfileViewController.swift
 //  wrk.out
 //
 //  Created by John Cody Thompson on 8/23/18.
@@ -8,42 +8,34 @@
 
 import UIKit
 
-class profileViewController: UIViewController {
+class ProfileViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var ageLabel: UILabel!
-    
     @IBOutlet weak var weightLabel: UILabel!
-    
     @IBOutlet weak var heightLabel: UILabel!
-    
     @IBOutlet weak var genderLabel: UILabel!
-    
     @IBOutlet weak var profileImage: UIImageView!
     
     var observer: NSObjectProtocol?
     
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
   
-        
         observer = NotificationCenter.default.addObserver(forName: .saveUserInfo,
                                                           object: nil,
                                                           queue: OperationQueue.main) { (notification) in
-            let editInfoVC = notification.object as! editInfoPopupViewController
+            let editInfoVC = notification.object as! EditInfoPopupViewController
             self.nameLabel.text = editInfoVC.nameTF.text
             self.ageLabel.text = editInfoVC.ageTF.text
             self.weightLabel.text = editInfoVC.weightTF.text
-            self.heightLabel.text = editInfoVC.hieghtTF.text
+            self.heightLabel.text = editInfoVC.heightTF.text
             self.genderLabel.text = editInfoVC.genderTF.text
 //            self.profileImage.image = editInfoVC.profilePopupImageView.image
         }
-        
         updateViews()
     }
+    
     func updateViews() {
         guard let loggedInUser = UserController.shared.loggedInUser else { return }
         self.nameLabel.text = loggedInUser.name
@@ -58,6 +50,14 @@ class profileViewController: UIViewController {
         
         if let observer = observer {
             NotificationCenter.default.removeObserver(observer)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editUserInfoSegue" {
+            guard let destinationVC = segue.destination as? EditInfoPopupViewController,
+            let user = UserController.shared.loggedInUser else { return }
+            destinationVC.user = user
         }
     }
 }

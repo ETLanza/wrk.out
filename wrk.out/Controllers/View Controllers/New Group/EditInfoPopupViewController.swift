@@ -1,5 +1,5 @@
 //
-//  editInfoPopupViewController.swift
+//  EditInfoPopupViewController.swift
 //  wrk.out
 //
 //  Created by John Cody Thompson on 8/27/18.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class editInfoPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    
+class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //TF Outlets
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var ageTF: UITextField!
     @IBOutlet weak var weightTF: UITextField!
-    @IBOutlet weak var hieghtTF: UITextField!
+    @IBOutlet weak var heightTF: UITextField!
     @IBOutlet weak var genderTF: UITextField!
+    
+    var user: User?
     
     //popup outlets
     @IBOutlet var EditInfoPopupVIew: UIView!
@@ -26,10 +26,25 @@ class editInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     
     //actions
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
-        NotificationCenter.default.post(name: .saveUserInfo, object: self)
-        
-        dismiss(animated: true)
+        if UserController.shared.loggedInUser == nil {
+            guard let name = nameTF.text, !name.isEmpty,
+                let ageAsString = ageTF.text, !ageAsString.isEmpty, let age = Int(ageAsString),
+                let heightAsString = heightTF.text, !heightAsString.isEmpty, let height = Double(heightAsString),
+                let weightAsString = weightTF.text, !weightAsString.isEmpty, let weight = Double(weightAsString),
+                let gender = genderTF.text, !gender.isEmpty else { return }
+            UserController.shared.createUserWith(name: name, age: age, height: height, weight: weight, gender: gender) { (success) in
+                if success {
+                    let sb = UIStoryboard(name: "TabBar", bundle: nil)
+                    let tabBarController = sb.instantiateViewController(withIdentifier: "TabBarController")
+                    self.present(tabBarController, animated: true, completion: nil)
+                }
+            }
+        } else {
+            NotificationCenter.default.post(name: .saveUserInfo, object: self)
+            dismiss(animated: true)
+        }
     }
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
@@ -37,27 +52,25 @@ class editInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     //Change Photo
     @IBOutlet weak var profilePopupImageView: UIImageView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
     }
     
     func updateViews() {
-        guard let loggedInUser = UserController.shared.loggedInUser else { return }
+        guard let loggedInUser = user else { return }
         self.nameTF.text = loggedInUser.name
         self.ageTF.text = String(loggedInUser.age)
-        self.hieghtTF.text = String(loggedInUser.height)
+        self.heightTF.text = String(loggedInUser.height)
         self.weightTF.text = String(loggedInUser.weight)
         self.genderTF.text = loggedInUser.gender
-        
     }
     
     @IBAction func changePhoto(_ sender: Any) {
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-    
+        
         let actionSheet = UIAlertController(title: "Where From?", message: nil, preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
@@ -72,7 +85,7 @@ class editInfoPopupViewController: UIViewController, UIImagePickerControllerDele
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
+        
         self.present(actionSheet, animated: true, completion: nil)
         
     }
