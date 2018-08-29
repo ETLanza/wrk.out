@@ -41,8 +41,8 @@ struct Keys {
         static let modificationDateKey = "modificationDate"
     }
     
-    struct PersonKeys {
-        static let personTypeKey = "person"
+    struct UserKeys {
+        static let userTypeKey = "user"
         static let nameTypeKey = "name"
         static let ageTypeKey = "age"
         static let weightTypKey = "weight"
