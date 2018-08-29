@@ -167,7 +167,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="bottom" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="fXK-NB-532">
-                                                <rect key="frame" x="21.000000000000007" y="0.0" width="103.66666666666667" height="45"/>
+                                                <rect key="frame" x="21" y="0.0" width="103.66666666666667" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Xkp-Fc-zuo">
