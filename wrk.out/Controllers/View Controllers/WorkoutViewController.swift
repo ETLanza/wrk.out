@@ -280,15 +280,14 @@ extension WorkoutViewController: LiftHeaderTableViewCellDelegate {
                 let lift = workout.lifts[section]
                 var nameText = renameExerciseAlertController.textFields?.first?.text ?? "Exercise"
                 if nameText == "" { nameText = lift.name }
-                let note = workout.note ?? ""
-                WorkoutController.shared.modify(workout: workout, withName: nameText, note: note, completion: { (success) in
+                LiftController.shared.modify(lift: lift, withName: nameText, completion: { (success) in
                     if success {
-                        workout.name = nameText
+                        lift.name = nameText
+                        DispatchQueue.main.async {
+                            self.popupTableView.reloadData()
+                        }
                     }
                 })
-                DispatchQueue.main.async {
-                    self.popupTableView.reloadData()
-                }
             }
             let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             renameExerciseAlertController.addAction(doneAlertAction)

@@ -12,8 +12,6 @@ class LoadScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         UserController.shared.fetchUserFromCloudKit { (success) in
             DispatchQueue.main.async {
             if success == true {
