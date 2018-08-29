@@ -36,7 +36,7 @@ class WorkoutViewController: UIViewController {
                     self.workout = workout
                     DispatchQueue.main.async {
                         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
-                        self.workoutDurationLabel.text = "00"
+                        self.workoutDurationLabel.text = "0"
                         self.bottomConstraint.constant = 0
                         self.currentWorkoutNameLabel.text = workout.name
                         UIView.animate(withDuration: 0.3, animations: {
@@ -280,7 +280,12 @@ extension WorkoutViewController: LiftHeaderTableViewCellDelegate {
                 let lift = workout.lifts[section]
                 var nameText = renameExerciseAlertController.textFields?.first?.text ?? "Exercise"
                 if nameText == "" { nameText = lift.name }
-                lift.name = nameText
+                let note = workout.note ?? ""
+                WorkoutController.shared.modify(workout: workout, withName: nameText, note: note, completion: { (success) in
+                    if success {
+                        workout.name = nameText
+                    }
+                })
                 DispatchQueue.main.async {
                     self.popupTableView.reloadData()
                 }
