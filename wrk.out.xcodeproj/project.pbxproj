@@ -33,13 +33,12 @@
 		3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69462212B7DCF00E9F2B1 /* Workout.swift */; };
 		3CB69468212B7DF900E9F2B1 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69467212B7DF900E9F2B1 /* Keys.swift */; };
 		3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69469212B816A00E9F2B1 /* CloudKitManager.swift */; };
-		3CB6946F212B817C00E9F2B1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB6946E212B817C00E9F2B1 /* CloudKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3CB69473212B835400E9F2B1 /* LiftSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69472212B835400E9F2B1 /* LiftSetController.swift */; };
+		3CB6CCF12137012E00A0251C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB6CCF02137012E00A0251C /* CloudKit.framework */; };
 		3CBF73E82135B8EC00D99292 /* privacyPolicyPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF73E62135B8EB00D99292 /* privacyPolicyPopupViewController.swift */; };
 		3CBF73E92135B8EC00D99292 /* editInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF73E72135B8EC00D99292 /* editInfoPopupViewController.swift */; };
 		7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */; };
 		90291BC6212E3E4300AD893E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90291BC5212E3E4300AD893E /* Search.swift */; };
-		908357AB212BA6F1007AA946 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908357AA212BA6F1007AA946 /* HealthKit.framework */; };
 		908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AC212BA883007AA946 /* HealthKitModels.swift */; };
 		908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AE212BAC15007AA946 /* HealthKitSetup.swift */; };
 		908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357B0212BB2BB007AA946 /* HealthKitController.swift */; };
@@ -79,13 +78,12 @@
 		3CB69467212B7DF900E9F2B1 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		3CB69469212B816A00E9F2B1 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		3CB6946C212B817A00E9F2B1 /* wrk.out.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wrk.out.entitlements; sourceTree = "<group>"; };
-		3CB6946E212B817C00E9F2B1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3CB69472212B835400E9F2B1 /* LiftSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftSetController.swift; sourceTree = "<group>"; };
+		3CB6CCF02137012E00A0251C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3CBF73E62135B8EB00D99292 /* privacyPolicyPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = privacyPolicyPopupViewController.swift; path = "wrk.out/Controllers/View Controllers/privacyPolicyPopupViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3CBF73E72135B8EC00D99292 /* editInfoPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = editInfoPopupViewController.swift; path = "wrk.out/Controllers/View Controllers/editInfoPopupViewController.swift"; sourceTree = SOURCE_ROOT; };
 		7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		90291BC5212E3E4300AD893E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		908357AA212BA6F1007AA946 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		908357AC212BA883007AA946 /* HealthKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModels.swift; sourceTree = "<group>"; };
 		908357AE212BAC15007AA946 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
 		908357B0212BB2BB007AA946 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
@@ -100,8 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CB6946F212B817C00E9F2B1 /* CloudKit.framework in Frameworks */,
-				908357AB212BA6F1007AA946 /* HealthKit.framework in Frameworks */,
+				3CB6CCF12137012E00A0251C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +209,7 @@
 		3CB6946D212B817C00E9F2B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				908357AA212BA6F1007AA946 /* HealthKit.framework */,
-				3CB6946E212B817C00E9F2B1 /* CloudKit.framework */,
+				3CB6CCF02137012E00A0251C /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,8 +241,8 @@
 			children = (
 				3C087424213472B40025FBD8 /* HeaderTableViewCell.swift */,
 				3C087426213472CF0025FBD8 /* LiftHeaderTableViewCell.swift */,
-				3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */,
 				3C08742A2134733D0025FBD8 /* LiftsetTableViewCell.swift */,
+				3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -296,7 +292,7 @@
 						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -516,7 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = wrk.out/wrk.out.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LWP4U374KN;
 				INFOPLIST_FILE = "$(SRCROOT)/wrk.out/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -535,7 +531,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = wrk.out/wrk.out.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LWP4U374KN;
 				INFOPLIST_FILE = "$(SRCROOT)/wrk.out/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
