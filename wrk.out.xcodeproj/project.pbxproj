@@ -46,6 +46,10 @@
 		908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357B0212BB2BB007AA946 /* HealthKitController.swift */; };
 		90A6A8532134632F0047A559 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8522134632F0047A559 /* SearchController.swift */; };
 		90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8542134637F0047A559 /* ExcerciseViewController.swift */; };
+		90C1515521384E2900509818 /* Routines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C1515421384E2900509818 /* Routines.swift */; };
+		90C1515821385A6000509818 /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C1515721385A6000509818 /* RoutineTableViewCell.swift */; };
+		90C1515A21385A7F00509818 /* RoutineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C1515921385A7F00509818 /* RoutineController.swift */; };
+		90C1515C21385A9100509818 /* RoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C1515B21385A9100509818 /* RoutineViewController.swift */; };
 		90C908312130678B003363DB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C908302130678B003363DB /* MoreViewController.swift */; };
 		90EDE6C8213607BE0057D3AB /* ExerciseViewControllerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDE6C7213607BE0057D3AB /* ExerciseViewControllerPopup.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +97,10 @@
 		908357B0212BB2BB007AA946 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		90A6A8522134632F0047A559 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		90A6A8542134637F0047A559 /* ExcerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewController.swift; sourceTree = "<group>"; };
+		90C1515421384E2900509818 /* Routines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routines.swift; sourceTree = "<group>"; };
+		90C1515721385A6000509818 /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
+		90C1515921385A7F00509818 /* RoutineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineController.swift; sourceTree = "<group>"; };
+		90C1515B21385A9100509818 /* RoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewController.swift; sourceTree = "<group>"; };
 		90C908302130678B003363DB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		90EDE6C7213607BE0057D3AB /* ExerciseViewControllerPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewControllerPopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +146,7 @@
 				7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */,
 				90A6A8542134637F0047A559 /* ExcerciseViewController.swift */,
 				7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */,
+				90C1515B21385A9100509818 /* RoutineViewController.swift */,
 				90D7D6C421373197008362B1 /* Popups */,
 			);
 			path = "View Controllers";
@@ -198,6 +207,7 @@
 				3CB69460212B7DCF00E9F2B1 /* Lift.swift */,
 				3CB69461212B7DCF00E9F2B1 /* LiftSet.swift */,
 				90291BC5212E3E4300AD893E /* Search.swift */,
+				90C1515421384E2900509818 /* Routines.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +236,7 @@
 				3C9E34C2212DCAA6006B1759 /* LiftController.swift */,
 				3CB69472212B835400E9F2B1 /* LiftSetController.swift */,
 				90A6A8522134632F0047A559 /* SearchController.swift */,
+				90C1515921385A7F00509818 /* RoutineController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -255,6 +266,7 @@
 				3C087426213472CF0025FBD8 /* LiftHeaderTableViewCell.swift */,
 				3C08742A2134733D0025FBD8 /* LiftsetTableViewCell.swift */,
 				3C087428213472E70025FBD8 /* AddSetTableViewCell.swift */,
+				90C1515721385A6000509818 /* RoutineTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -368,12 +380,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C1515A21385A7F00509818 /* RoutineController.swift in Sources */,
 				3C9E34C3212DCAA6006B1759 /* LiftController.swift in Sources */,
 				3C9E34C9212DF3A2006B1759 /* RestTimer.swift in Sources */,
 				7D40416F213617C300F7F3C2 /* NotificationNameExtention.swift in Sources */,
 				3CBF73E82135B8EC00D99292 /* privacyPolicyPopupViewController.swift in Sources */,
 				3C9E34C5212DD90B006B1759 /* WorkoutController.swift in Sources */,
 				3C9E34C7212DF359006B1759 /* Settings.swift in Sources */,
+				90C1515C21385A9100509818 /* RoutineViewController.swift in Sources */,
 				3C161EE7212F6C46006BD941 /* CustomTabBar.swift in Sources */,
 				90C908312130678B003363DB /* MoreViewController.swift in Sources */,
 				3CB69468212B7DF900E9F2B1 /* Keys.swift in Sources */,
@@ -385,6 +399,7 @@
 				908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */,
 				3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */,
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
+				90C1515521384E2900509818 /* Routines.swift in Sources */,
 				7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */,
 				3CB69464212B7DD000E9F2B1 /* LiftSet.swift in Sources */,
 				3C087429213472E70025FBD8 /* AddSetTableViewCell.swift in Sources */,
@@ -399,6 +414,7 @@
 				90A6A8532134632F0047A559 /* SearchController.swift in Sources */,
 				3C161ED3212F6C2C006BD941 /* User.swift in Sources */,
 				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
+				90C1515821385A6000509818 /* RoutineTableViewCell.swift in Sources */,
 				90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

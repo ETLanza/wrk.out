@@ -13,6 +13,11 @@ class LiftsetTableViewCell: UITableViewCell {
     var liftset: LiftSet?
     weak var delegate: LiftsetTableViewCellDelegate?
     
+    override func awakeFromNib() {
+        weightTextField.delegate = self
+        repTextField.delegate = self
+    }
+    
     @IBOutlet weak var setNumberLabel: UILabel!
     @IBOutlet weak var liftNameCell: UILabel!
     @IBOutlet weak var weightTextField: UITextField!
@@ -24,6 +29,17 @@ class LiftsetTableViewCell: UITableViewCell {
     }
 }
 
+extension LiftsetTableViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.textFieldDidEndEditing(self, textField: textField)
+    }
+}
+
 protocol LiftsetTableViewCellDelegate: class {
     func liftsetCellButtonTapped(_ sender: LiftsetTableViewCell)
+    func textFieldDidEndEditing(_ sender: LiftsetTableViewCell, textField: UITextField)
 }
+
+
+
+

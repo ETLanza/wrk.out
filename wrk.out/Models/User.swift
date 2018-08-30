@@ -23,7 +23,7 @@ class User: Equatable {
         return profileImage
     }
 //    var profileImage: UIImage
-    var ckRecordID: CKRecordID?
+    var ckRecordID: CKRecordID
     let appleUserReference: CKReference
     
     fileprivate var temporaryPhotoURL: URL {
@@ -49,6 +49,7 @@ class User: Equatable {
         self.gender = gender
         self.profileImageAsData = profileImageAsData
         self.appleUserReference = appleUserReference
+        self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
     
     init?(ckRecord: CKRecord) {
@@ -69,8 +70,9 @@ class User: Equatable {
         self.gender = gender
         self.profileImageAsData = profileImageAssetAsData
         self.appleUserReference = appleUserReference
-        
+      
         ckRecordID = ckRecord.recordID
+
     }
     
     //MARK: - Equatable
@@ -85,7 +87,7 @@ extension CKRecord {
         self.init(recordType: Keys.UserKeys.userTypeKey, recordID: recordID)
         
         let profileImageAsset = CKAsset(fileURL: user.temporaryPhotoURL)
-        
+
         self.setValue(user.age,
                       forKey: Keys.UserKeys.ageTypeKey)
         self.setValue(user.name,
@@ -98,7 +100,6 @@ extension CKRecord {
                       forKey: Keys.UserKeys.genderTypekey)
         self.setValue(profileImageAsset, forKey: Keys.UserKeys.profileImageTypeKey)
         self.setValue(user.appleUserReference, forKey: Keys.UserKeys.appleUserReferenceKey)
-        user.ckRecordID = recordID
     }
 }
 
