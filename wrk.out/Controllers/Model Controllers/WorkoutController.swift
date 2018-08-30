@@ -40,25 +40,32 @@ class WorkoutController {
         }
     }
     
-    func delete(workout: Workout) {
+    func delete(workout: Workout, completion: @escaping (Bool)->Void) {
         CloudKitManager.shared.deleteRecordWithID(workout.ckRecordID, database: CloudKitManager.shared.privateDatabase) { (recordID, error) in
             if let error = error {
                 NSLog("Error deleting workout from CloudKit", error.localizedDescription)
+                completion(false)
+                return
             }
             
             if let _ = recordID {
                 guard let index = self.workouts.index(of: workout) else {
                     NSLog("Error finding local index of lift: %@", workout.ckRecordID)
+                    completion(false)
                     return
                 }
                 self.workouts.remove(at: index)
+                completion(true)
+                return
             }
+            completion(false)
         }
     }
     
-    func modify(workout: Workout, withName name: String, note: String, completion: @escaping (Bool)->Void) {
+    func modify(workout: Workout, withName name: String, note: String, duration: TimeInterval, completion: @escaping (Bool)->Void) {
         workout.name = name
         workout.note = note
+        workout.duration = duration
         
         let workoutRecord = CKRecord(workout: workout)
         CloudKitManager.shared.modifyRecords([workoutRecord], database: CloudKitManager.shared.privateDatabase, perRecordCompletion: nil) { (_, error) in

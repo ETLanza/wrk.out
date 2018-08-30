@@ -89,25 +89,26 @@ class WorkoutViewController: UIViewController {
     }
     
     @IBAction func cancelWorkoutButtonTapped(_ sender: UIButton) {
-        WorkoutController.shared.workouts.removeLast()
-        displayEndWorkoutAlert()
+        displayCancelWorkoutAlert()
     }
     
     //MARK: - Helper Functions
     func endWorkout() {
-        bottomConstraint.constant = -612
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-            self.workout = nil
-            self.popupTableView.reloadData()
+        DispatchQueue.main.async {
+            self.bottomConstraint.constant = -612
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+                self.workout = nil
+                self.popupTableView.reloadData()
+            }
+            self.workoutDurationLabel.text = "00"
         }
-        self.workoutDurationLabel.text = "00"
     }
     
     @objc func increaseTimer() {
         guard let workout = workout else { return }
-        workout.duration = workout.duration! + 1
-        let durationAsString = timeString(time: workout.duration!)
+        workout.duration = workout.duration + 1
+        let durationAsString = timeString(time: workout.duration)
         self.workoutDurationLabel.text = durationAsString
     }
     
@@ -129,7 +130,14 @@ class WorkoutViewController: UIViewController {
         addNoteAlertController.addTextField(configurationHandler: nil)
         
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (_) in
-            self.workout?.note = addNoteAlertController.textFields?.first?.text
+            if let workout = self.workout {
+                guard let note = addNoteAlertController.textFields?.first?.text else { return }
+                WorkoutController.shared.modify(workout: workout, withName: workout.name, note: note, duration: workout.duration, completion: { (success) in
+                    if success {
+                        workout.note = note
+                    }
+                })
+            }
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -140,9 +148,32 @@ class WorkoutViewController: UIViewController {
     }
     
     func displayEndWorkoutAlert() {
-        let alertController = UIAlertController(title: "Are you sure you want to end your current workout?", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Are you sure you want to finish your current workout?", message: nil, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .cancel) { (_) in
-            self.endWorkout()
+            guard let workout = self.workout else { return }
+            WorkoutController.shared.modify(workout: workout, withName: workout.name, note: workout.note, duration: workout.duration, completion: { (success) in
+                if success {
+                    self.endWorkout()
+                }
+            })
+        }
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func displayCancelWorkoutAlert() {
+        let alertController = UIAlertController(title: "Are you sure you want to cancel your current workout?", message: nil, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .cancel) { (_) in
+            guard let workout = self.workout else { return }
+            WorkoutController.shared.delete(workout: workout, completion: { (success) in
+                if success {
+                    self.endWorkout()
+                }
+            })
         }
         let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
         
@@ -256,50 +287,50 @@ extension WorkoutViewController: LiftHeaderTableViewCellDelegate {
         func displayMoreAlertController() {
             let moreAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
             
-            let renameExerciseAlertAction = UIAlertAction(title: "Rename Exercise", style: .default) { (_) in
-                displayRenameExerciseAlert()
+            let renameLiftAlertAction = UIAlertAction(title: "Rename Lift", style: .default) { (_) in
+                displayRenameLiftAlert()
             }
             
-            let removeExerciseAlertAction = UIAlertAction(title: "Remove Exercise", style: .default) { (_) in
-                displayRemoveExerciseAlert()
+            let removeLiftAlertAction = UIAlertAction(title: "Remove Lift", style: .default) { (_) in
+                displayRemoveLiftAlert()
             }
             let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            moreAlertController.addAction(renameExerciseAlertAction)
-            moreAlertController.addAction(removeExerciseAlertAction)
+            moreAlertController.addAction(renameLiftAlertAction)
+            moreAlertController.addAction(removeLiftAlertAction)
             moreAlertController.addAction(cancelAlertAction)
             
             present(moreAlertController, animated: true, completion: nil)
         }
         
-        func displayRenameExerciseAlert() {
-            let renameExerciseAlertController = UIAlertController(title: "Rename Exercise", message: "Enter your new exercise name", preferredStyle: .alert)
-            renameExerciseAlertController.addTextField { (textField) in
+        func displayRenameLiftAlert() {
+            let renameLiftAlertController = UIAlertController(title: "Rename Lift", message: "Enter your new lift name", preferredStyle: .alert)
+            renameLiftAlertController.addTextField { (textField) in
                 textField.placeholder = "New name"
             }
             let doneAlertAction = UIAlertAction(title: "Done", style: .default) { (_) in
                 let lift = workout.lifts[section]
-                var nameText = renameExerciseAlertController.textFields?.first?.text ?? "Exercise"
+                var nameText = renameLiftAlertController.textFields?.first?.text ?? "Lift"
                 if nameText == "" { nameText = lift.name }
                 LiftController.shared.modify(lift: lift, withName: nameText, completion: { (success) in
                     if success {
-                        lift.name = nameText
                         DispatchQueue.main.async {
+                            lift.name = nameText
                             self.popupTableView.reloadData()
                         }
                     }
                 })
             }
             let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            renameExerciseAlertController.addAction(doneAlertAction)
-            renameExerciseAlertController.addAction(cancelAlertAction)
+            renameLiftAlertController.addAction(doneAlertAction)
+            renameLiftAlertController.addAction(cancelAlertAction)
             
-            present(renameExerciseAlertController, animated: true, completion: nil)
+            present(renameLiftAlertController, animated: true, completion: nil)
         }
         
-        func displayRemoveExerciseAlert() {
-            let removeExerciseAlertController = UIAlertController(title: "Are you sure you want to remove this exercise?", message: nil, preferredStyle: .alert)
+        func displayRemoveLiftAlert() {
+            let removeExerciseAlertController = UIAlertController(title: "Are you sure you want to remove this lift?", message: nil, preferredStyle: .alert)
             
-            let cancelExercise = UIAlertAction(title: "Remove Exercise", style: .destructive) { (alertAction) in
+            let cancelExercise = UIAlertAction(title: "Remove Lift", style: .destructive) { (alertAction) in
                 let lift = workout.lifts[section]
                 LiftController.shared.delete(lift: lift, fromWorkout: workout, completion: { (success) in
                     if success {

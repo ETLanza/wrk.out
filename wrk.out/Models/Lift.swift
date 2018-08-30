@@ -29,6 +29,7 @@ class Lift: Equatable {
             let workoutReference = ckRecord[Keys.LiftKeys.workoutReferenceKey] as? CKReference else { return nil }
         self.init(name: name, workoutReference: workoutReference)
         self.liftsets = []
+        self.ckRecordID = ckRecord.recordID
     }
     
     //MARK: - Equatable
