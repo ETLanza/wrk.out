@@ -22,15 +22,28 @@ class ProfileViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
   
-        observer = NotificationCenter.default.addObserver(forName: .saveUserInfo,
-                                                          object: nil,
-                                                          queue: OperationQueue.main) { (notification) in
+        observer = NotificationCenter.default.addObserver(forName: .saveUserInfo, object: nil, queue: OperationQueue.main) { (notification) in
             let editInfoVC = notification.object as! EditInfoPopupViewController
-            self.nameLabel.text = editInfoVC.nameTF.text
-            self.ageLabel.text = editInfoVC.ageTF.text
-            self.weightLabel.text = editInfoVC.weightTF.text
-            self.heightLabel.text = editInfoVC.heightTF.text
-            self.genderLabel.text = editInfoVC.genderTF.text
+            guard let name = editInfoVC.nameTF?.text, !name.isEmpty,
+            let ageAsString = editInfoVC.ageTF.text, !ageAsString.isEmpty, let age = Int(ageAsString),
+            let heightAsString = editInfoVC.heightTF.text, !heightAsString.isEmpty, let height = Double(heightAsString),
+            let weightAsString = editInfoVC.weightTF.text, !weightAsString.isEmpty, let weight = Double(weightAsString),
+            let gender = editInfoVC.genderTF.text, !gender.isEmpty,
+            let user = UserController.shared.loggedInUser else { return }
+            
+            UserController.shared.update(user: user, name: name, age: age, height: height, weight: weight, gender: gender, completion: { (success) in
+                if success {
+                    DispatchQueue.main.async {                        
+                    self.updateViews()
+                    }
+                }
+            })
+            
+//            UserController.shared.loggedInUser.name = name
+//            UserController.shared.loggedInUser?.age = age
+//            UserController.shared.loggedInUser?.weight = weight
+//            UserController.shared.loggedInUser?.height = height
+//            UserController.shared.loggedInUser?.gender = gender
 //            self.profileImage.image = editInfoVC.profilePopupImageView.image
         }
         updateViews()
