@@ -17,7 +17,7 @@ class User: Equatable {
     var weight: Double
     var gender: String
 //    var profileImage: UIImage
-    var ckRecordID: CKRecordID?
+    var ckRecordID: CKRecordID
     let appleUserReference: CKReference
     
     init(name: String, age: Int, height: Double, weight: Double, gender: String, appleUserReference: CKReference) {
@@ -28,6 +28,7 @@ class User: Equatable {
         self.gender = gender
 //        self.profileImage = profileImage
         self.appleUserReference = appleUserReference
+        self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
     
     init?(ckRecord: CKRecord) {
@@ -44,6 +45,7 @@ class User: Equatable {
         self.weight = weight
         self.gender = gender
         self.appleUserReference = appleUserReference
+        self.ckRecordID = ckRecord.recordID
     }
     
     //MARK: - Equatable
@@ -54,8 +56,7 @@ class User: Equatable {
 
 extension CKRecord {
     convenience init(user: User) {
-        let recordID = user.ckRecordID ?? CKRecordID(recordName: UUID().uuidString)
-        self.init(recordType: Keys.UserKeys.userTypeKey)
+        self.init(recordType: Keys.UserKeys.userTypeKey, recordID: user.ckRecordID)
         self.setValue(user.age,
                       forKey: Keys.UserKeys.ageTypeKey)
         self.setValue(user.name,
@@ -67,7 +68,6 @@ extension CKRecord {
         self.setValue(user.gender,
                       forKey: Keys.UserKeys.genderTypekey)
         self.setValue(user.appleUserReference, forKey: Keys.UserKeys.appleUserReferenceKey)
-        user.ckRecordID = recordID
     }
 }
 
