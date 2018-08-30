@@ -51,4 +51,11 @@ struct Keys {
         static let profileImageTypeKey = "profileImage"
         static let appleUserReferenceKey = "appleUserReference"
     }
+    
+    struct RoutineKeys {
+        static let routineNameKey = "routineName"
+        static let routineRepsKey = "routineReps"
+        static let ckRecordIDKey = "ckRecordID"
+        static let routineTypeKey = "Routine"
+    }
 }
