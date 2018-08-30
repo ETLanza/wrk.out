@@ -21,7 +21,7 @@ class UserController {
     let privateDB = CKContainer.default().privateCloudDatabase
     
     //MARK: CRUD FUNCS
-    func createUserWith(name: String, age: Int, height: Double, weight: Double, gender: String, completion: @escaping (Bool) -> Void) {
+    func createUserWith(name: String, age: Int, height: Double, weight: Double, gender: String, profileImageAsData: Data?, completion: @escaping (Bool) -> Void) {
         CKContainer.default().fetchUserRecordID { (recordID, error) in
             if let error = error {
                 print("Error fetching user RecordID: \(error)")
@@ -31,7 +31,7 @@ class UserController {
             guard let recordID = recordID else { completion(false); return }
             
             let reference = CKReference(recordID: recordID, action: .deleteSelf)
-            let newUser = User(name: name, age: age, height: height, weight: weight, gender: gender, appleUserReference: reference)
+            let newUser = User(name: name, age: age, height: height, weight: weight, gender: gender, profileImageAsData: profileImageAsData, appleUserReference: reference)
             self.saveUserToCloudKit(user: newUser)
             self.loggedInUser = newUser
             completion(true)
@@ -48,13 +48,14 @@ class UserController {
             }
         }
     
-    func update(user: User, name: String, age: Int, height: Double, weight: Double, gender: String, completion: @escaping (Bool) -> Void) {
+    func update(user: User, name: String, age: Int, height: Double, weight: Double, gender: String, profileImageAsData: Data?, completion: @escaping (Bool) -> Void) {
        
         user.name = name
         user.age = age
         user.height = height
         user.weight = weight
         user.gender = gender
+        user.profileImageAsData = profileImageAsData
         //user. image
         let record = CKRecord(user: user)
         
@@ -86,6 +87,9 @@ class UserController {
                     
                     guard let records = records,
                         let record = records.first else { completion(false); return }
+//                    let recordsToDelete = records.compactMap{ $0.recordID }
+//                    let delete = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: recordsToDelete )                  
+//                    self.privateDB.add(delete)
                     
                     let user = User(ckRecord: record)
                     

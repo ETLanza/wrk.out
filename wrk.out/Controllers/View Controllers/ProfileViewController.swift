@@ -19,43 +19,24 @@ class ProfileViewController: UIViewController {
     
     var observer: NSObjectProtocol?
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-  
-        observer = NotificationCenter.default.addObserver(forName: .saveUserInfo, object: nil, queue: OperationQueue.main) { (notification) in
-            let editInfoVC = notification.object as! EditInfoPopupViewController
-            guard let name = editInfoVC.nameTF?.text, !name.isEmpty,
-            let ageAsString = editInfoVC.ageTF.text, !ageAsString.isEmpty, let age = Int(ageAsString),
-            let heightAsString = editInfoVC.heightTF.text, !heightAsString.isEmpty, let height = Double(heightAsString),
-            let weightAsString = editInfoVC.weightTF.text, !weightAsString.isEmpty, let weight = Double(weightAsString),
-            let gender = editInfoVC.genderTF.text, !gender.isEmpty,
-            let user = UserController.shared.loggedInUser else { return }
-            
-            UserController.shared.update(user: user, name: name, age: age, height: height, weight: weight, gender: gender, completion: { (success) in
-                if success {
-                    DispatchQueue.main.async {                        
-                    self.updateViews()
-                    }
-                }
-            })
-            
-//            UserController.shared.loggedInUser.name = name
-//            UserController.shared.loggedInUser?.age = age
-//            UserController.shared.loggedInUser?.weight = weight
-//            UserController.shared.loggedInUser?.height = height
-//            UserController.shared.loggedInUser?.gender = gender
-//            self.profileImage.image = editInfoVC.profilePopupImageView.image
-        }
+    override func viewDidLoad() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .saveUserInfo, object: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         updateViews()
     }
     
-    func updateViews() {
+    @objc func updateViews() {
         guard let loggedInUser = UserController.shared.loggedInUser else { return }
         self.nameLabel.text = loggedInUser.name
         self.ageLabel.text = String(loggedInUser.age)
         self.heightLabel.text = String(loggedInUser.height)
         self.weightLabel.text = String(loggedInUser.weight)
         self.genderLabel.text = loggedInUser.gender
+        self.profileImage.image = loggedInUser.profileImage
+        
     
     }
     override func viewDidDisappear(_ animated: Bool) {
