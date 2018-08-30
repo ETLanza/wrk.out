@@ -128,7 +128,8 @@ class WorkoutViewController: UIViewController {
     func displayAddNoteAlert() {
         let addNoteAlertController = UIAlertController(title: "Add Note", message: nil, preferredStyle: .alert)
         addNoteAlertController.addTextField(configurationHandler: nil)
-        
+        guard let workout = workout else { return }
+        if workout.note != "" { addNoteAlertController.textFields?.first?.text = workout.note }
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (_) in
             if let workout = self.workout {
                 guard let note = addNoteAlertController.textFields?.first?.text else { return }
@@ -233,6 +234,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let workout = workout else { return UITableViewCell() }
         let lift = workout.lifts[indexPath.section]
+        cell.liftset = lift.liftsets[indexPath.row]
         cell.liftNameCell.text = lift.name
         cell.repTextField.text = "\(lift.liftsets[indexPath.row].reps)"
         cell.weightTextField.text = "\(lift.liftsets[indexPath.row].weight)"
@@ -353,6 +355,17 @@ extension WorkoutViewController: LiftHeaderTableViewCellDelegate {
 
 //MARK: - LiftsetTableViewCellDelegate
 extension WorkoutViewController: LiftsetTableViewCellDelegate {
+    func textFieldDidEndEditing(_ sender: LiftsetTableViewCell, textField: UITextField) {
+        guard let liftset = sender.liftset else { return }
+        if textField.tag == 1 {
+            guard let weightAsString = textField.text, let weight = Double(weightAsString) else { return }
+            LiftSetController.shared.update(liftset: liftset, withWeight: weight, andReps: liftset.reps)
+        } else if textField.tag == 2 {
+            guard let repsAsString = textField.text, let reps = Int(repsAsString) else { return }
+            LiftSetController.shared.update(liftset: liftset, withWeight: liftset.weight, andReps: reps)
+        }
+    }
+    
     func liftsetCellButtonTapped(_ sender: LiftsetTableViewCell) {
         sender.doneButton.isHidden = true
     }
