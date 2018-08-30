@@ -47,6 +47,24 @@ class UserController {
                 }
             }
         }
+    
+    func update(user: User, name: String, age: Int, height: Double, weight: Double, gender: String, completion: @escaping (Bool) -> Void) {
+       
+        user.name = name
+        user.age = age
+        user.height = height
+        user.weight = weight
+        user.gender = gender
+        //user. image
+        let record = CKRecord(user: user)
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+        operation.savePolicy = .changedKeys
+        operation.queuePriority = .high
+        operation.qualityOfService = .userInteractive
+        operation.completionBlock = { completion(true) }
+        privateDB.add(operation)
+    }
         
         func fetchUserFromCloudKit(completion: @escaping (Bool) -> Void) {
             CKContainer.default().fetchUserRecordID { (recordID, error) in
