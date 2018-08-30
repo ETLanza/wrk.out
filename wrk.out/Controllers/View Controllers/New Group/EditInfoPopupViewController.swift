@@ -16,9 +16,10 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var weightTF: UITextField!
     @IBOutlet weak var heightTF: UITextField!
     @IBOutlet weak var genderTF: UITextField!
+    @IBOutlet weak var ProfileImagePopupView: UIImageView!
     
     var user: User?
-    
+    var profileImageAsData: Data?
     //popup outlets
     @IBOutlet var EditInfoPopupVIew: UIView!
     @IBOutlet weak var saveChangesButton: UIButton!
@@ -26,22 +27,31 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     
     //actions
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
+        guard let name = nameTF.text, !name.isEmpty,
+            let ageAsString = ageTF.text, !ageAsString.isEmpty, let age = Int(ageAsString),
+            let heightAsString = heightTF.text, !heightAsString.isEmpty, let height = Double(heightAsString),
+            let weightAsString = weightTF.text, !weightAsString.isEmpty, let weight = Double(weightAsString),
+            let gender = genderTF.text, !gender.isEmpty else { return }
         if UserController.shared.loggedInUser == nil {
-            guard let name = nameTF.text, !name.isEmpty,
-                let ageAsString = ageTF.text, !ageAsString.isEmpty, let age = Int(ageAsString),
-                let heightAsString = heightTF.text, !heightAsString.isEmpty, let height = Double(heightAsString),
-                let weightAsString = weightTF.text, !weightAsString.isEmpty, let weight = Double(weightAsString),
-                let gender = genderTF.text, !gender.isEmpty else { return }
-            UserController.shared.createUserWith(name: name, age: age, height: height, weight: weight, gender: gender) { (success) in
+            UserController.shared.createUserWith(name: name, age: age, height: height, weight: weight, gender: gender, profileImageAsData: profileImageAsData) { (success) in
                 if success {
-                    let sb = UIStoryboard(name: "TabBar", bundle: nil)
-                    let tabBarController = sb.instantiateViewController(withIdentifier: "TabBarController")
-                    self.present(tabBarController, animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        let sb = UIStoryboard(name: "TabBar", bundle: nil)
+                        let tabBarController = sb.instantiateViewController(withIdentifier: "TabBarController")
+                        self.present(tabBarController, animated: true, completion: nil)
+                    }
                 }
             }
         } else {
-            NotificationCenter.default.post(name: .saveUserInfo, object: self)
-            dismiss(animated: true)
+            guard let loggedInUser = UserController.shared.loggedInUser else { return }
+            UserController.shared.update(user: loggedInUser, name: name, age: age, height: height, weight: weight, gender: gender, profileImageAsData: profileImageAsData) { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: .saveUserInfo, object: self)
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
         }
     }
     
@@ -64,10 +74,15 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
             self.heightTF.text = String(loggedInUser.height)
             self.weightTF.text = String(loggedInUser.weight)
             self.genderTF.text = loggedInUser.gender
+            self.ProfileImagePopupView.image = loggedInUser.profileImage
             cancelButton.isHidden = false
         } else {
             cancelButton.isHidden = true
         }
+        
+        guard let loggedInUser = UserController.shared.loggedInUser,
+            let profileImage = loggedInUser.profileImage else { return }
+        self.profileImageAsData = UIImagePNGRepresentation(profileImage)
     }
     
     @IBAction func changePhoto(_ sender: Any) {
@@ -95,7 +110,10 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let profileImageAsData = UIImagePNGRepresentation(image)
+        self.profileImageAsData = profileImageAsData
         
         profilePopupImageView.image = image
         

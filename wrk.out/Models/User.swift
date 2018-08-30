@@ -16,17 +16,38 @@ class User: Equatable {
     var height: Double
     var weight: Double
     var gender: String
+    var profileImageAsData: Data?
+    var profileImage: UIImage? {
+        guard let profileImageAsData = profileImageAsData else { return nil }
+        let profileImage = UIImage(data: profileImageAsData)
+        return profileImage
+    }
 //    var profileImage: UIImage
     var ckRecordID: CKRecordID?
     let appleUserReference: CKReference
     
-    init(name: String, age: Int, height: Double, weight: Double, gender: String, appleUserReference: CKReference) {
+    fileprivate var temporaryPhotoURL: URL {
+        
+        // Must write to temporary directory to be able to pass image file path url to CKAsset
+        
+        let temporaryDirectory = NSTemporaryDirectory()
+        let temporaryDirectoryURL = URL(fileURLWithPath: temporaryDirectory)
+        let fileURL = temporaryDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("png")
+        
+        guard let profileImageAsData = profileImageAsData else { return fileURL }
+        
+        try? profileImageAsData.write(to: fileURL, options: [.atomic])
+        
+        return fileURL
+    }
+    
+    init(name: String, age: Int, height: Double, weight: Double, gender: String, profileImageAsData: Data?, appleUserReference: CKReference) {
         self.name = name
         self.age = age
         self.height = height
         self.weight = weight
         self.gender = gender
-//        self.profileImage = profileImage
+        self.profileImageAsData = profileImageAsData
         self.appleUserReference = appleUserReference
     }
     
@@ -36,14 +57,20 @@ class User: Equatable {
             let height = ckRecord[Keys.UserKeys.heightTypeKey] as? Double,
             let weight = ckRecord[Keys.UserKeys.weightTypKey] as? Double,
             let gender = ckRecord[Keys.UserKeys.genderTypekey] as? String,
-            // profile image TODO
+            let profileImageAsset = ckRecord[Keys.UserKeys.profileImageTypeKey] as? CKAsset,
             let appleUserReference = ckRecord[Keys.UserKeys.appleUserReferenceKey] as? CKReference else { return nil }
+        
+        let profileImageAssetAsData = try? Data(contentsOf: profileImageAsset.fileURL)
+        
         self.name = name
         self.age = age
         self.height = height
         self.weight = weight
         self.gender = gender
+        self.profileImageAsData = profileImageAssetAsData
         self.appleUserReference = appleUserReference
+        
+        ckRecordID = ckRecord.recordID
     }
     
     //MARK: - Equatable
@@ -55,7 +82,10 @@ class User: Equatable {
 extension CKRecord {
     convenience init(user: User) {
         let recordID = user.ckRecordID ?? CKRecordID(recordName: UUID().uuidString)
-        self.init(recordType: Keys.UserKeys.userTypeKey)
+        self.init(recordType: Keys.UserKeys.userTypeKey, recordID: recordID)
+        
+        let profileImageAsset = CKAsset(fileURL: user.temporaryPhotoURL)
+        
         self.setValue(user.age,
                       forKey: Keys.UserKeys.ageTypeKey)
         self.setValue(user.name,
@@ -66,6 +96,7 @@ extension CKRecord {
                       forKey: Keys.UserKeys.weightTypKey)
         self.setValue(user.gender,
                       forKey: Keys.UserKeys.genderTypekey)
+        self.setValue(profileImageAsset, forKey: Keys.UserKeys.profileImageTypeKey)
         self.setValue(user.appleUserReference, forKey: Keys.UserKeys.appleUserReferenceKey)
         user.ckRecordID = recordID
     }
