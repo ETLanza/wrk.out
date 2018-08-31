@@ -33,6 +33,9 @@ class LoadScreenViewController: UIViewController {
             }
         }
         
+        SearchController.getWorkouts { (_) in
+        }
+        
     }
     
 

@@ -75,19 +75,19 @@ class WorkoutViewController: UIViewController {
     @IBAction func endWorkoutButtonTapped(_ sender: UIButton) {
         timer?.invalidate()
         displayEndWorkoutAlert()
+        previousWorkoutTableView.reloadData()
     }
     
-    @IBAction func addExerciseButtonTapped(_ sender: UIButton) {
-        //NEEDS TO COME FROM THE EXERCISES TAB??????
-        guard let workout = workout else { return }
-        LiftController.shared.addLiftTo(workout: workout, name: "New Exercise") { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    self.popupTableView.reloadData()
-                }
-            }
-        }
-    }
+//    @IBAction func addExerciseButtonTapped(_ sender: UIButton) {
+//        guard let workout = workout else { return }
+//        LiftController.shared.addLiftTo(workout: workout, name: "New Exercise") { (success) in
+//            if success {
+//                DispatchQueue.main.async {
+//                    self.popupTableView.reloadData()
+//                }
+//            }
+//        }
+//    }
     
     @IBAction func cancelWorkoutButtonTapped(_ sender: UIButton) {
         displayCancelWorkoutAlert()
@@ -98,15 +98,15 @@ class WorkoutViewController: UIViewController {
         super.viewDidLoad()
         WorkoutController.shared.fetchAllWorkouts { (success) in
             if success {
+                DispatchQueue.main.async {
+                    self.previousWorkoutTableView.reloadData()
+                }
                 WorkoutController.shared.workouts.forEach({ (workout) in
                     LiftController.shared.fetchAllLiftsFor(workout: workout, completion: { (success) in
                         if success {
                             workout.lifts.forEach({ (lift) in
                                 LiftSetController.shared.fetchAllLiftsetsFor(lift: lift, completion: { (success) in
                                     if success {
-                                        DispatchQueue.main.async {
-                                            self.previousWorkoutTableView.reloadData()
-                                        }
                                     }
                                 })
                             })
@@ -126,7 +126,6 @@ class WorkoutViewController: UIViewController {
                 self.workout = nil
                 self.popupTableView.reloadData()
             }
-            self.workoutDurationLabel.text = "00"
         }
     }
     
@@ -151,7 +150,8 @@ class WorkoutViewController: UIViewController {
     }
     
     func displayAddNoteAlert() {
-        let addNoteAlertController = UIAlertController(title: "Add Note", message: nil, preferredStyle: .alert)
+        let alertTitle = workout?.note == "" ? "Add Note" : "Edit Note"
+        let addNoteAlertController = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         addNoteAlertController.addTextField(configurationHandler: nil)
         guard let workout = workout else { return }
         if workout.note != "" { addNoteAlertController.textFields?.first?.text = workout.note }
@@ -207,6 +207,14 @@ class WorkoutViewController: UIViewController {
         alertController.addAction(noAction)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    //MARK: - Naviagtion
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addExerciseSegue" {
+            let destinationVC = segue.destination as? WorkoutExerciseViewController
+            destinationVC?.delegate = self
+        }
     }
 }
 
@@ -314,26 +322,25 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if let workout = workout {
-                if tableView == popupTableView {
+            if tableView == popupTableView {
+                if let workout = workout {
                     let lift = workout.lifts[indexPath.section]
                     let liftset = lift.liftsets[indexPath.row]
                     LiftSetController.shared.delete(liftset: liftset, fromLift: lift) { (success) in
                         if success {
                             DispatchQueue.main.async {
                                 tableView.deleteRows(at: [indexPath], with: .fade)
-//                                self.popupTableView.reloadData()
+                                tableView.reloadData()
                             }
                         }
                     }
-                } else {
-                    let workout = WorkoutController.shared.workouts[indexPath.row]
-                    WorkoutController.shared.delete(workout: workout) { (success) in
-                        if success {
-                            DispatchQueue.main.async {
-                                tableView.deleteRows(at: [indexPath], with: .fade)
-//                                self.previousWorkoutTableView.reloadData()
-                            }
+                }
+            } else {
+                let workout = WorkoutController.shared.workouts[indexPath.row]
+                WorkoutController.shared.delete(workout: workout) { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            tableView.deleteRows(at: [indexPath], with: .fade)
                         }
                     }
                 }
@@ -451,3 +458,16 @@ extension WorkoutViewController: LiftsetTableViewCellDelegate {
     }
 }
 
+extension WorkoutViewController: WorkoutExerciseViewControllerDelegate {
+    func selectedLift(name: String) {
+        if let workout = workout {
+            LiftController.shared.addLiftTo(workout: workout, name: name) { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.popupTableView.reloadData()                        
+                    }
+                }
+            }
+        }
+    }
+}
