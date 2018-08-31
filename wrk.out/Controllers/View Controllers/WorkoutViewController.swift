@@ -21,6 +21,7 @@ class WorkoutViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var workoutDurationLabel: UILabel!
     @IBOutlet weak var currentWorkoutNameLabel: UILabel!
+    @IBOutlet weak var previousWorkoutTableView: UITableView!
     
     //MARK: - IBActions
     @IBAction func newWorkoutButtonTapped(_ sender: Any) {
@@ -90,6 +91,30 @@ class WorkoutViewController: UIViewController {
     
     @IBAction func cancelWorkoutButtonTapped(_ sender: UIButton) {
         displayCancelWorkoutAlert()
+    }
+    
+    //MARK: - Life Cycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        WorkoutController.shared.fetchAllWorkouts { (success) in
+            if success {
+                WorkoutController.shared.workouts.forEach({ (workout) in
+                    LiftController.shared.fetchAllLiftsFor(workout: workout, completion: { (success) in
+                        if success {
+                            workout.lifts.forEach({ (lift) in
+                                LiftSetController.shared.fetchAllLiftsetsFor(lift: lift, completion: { (success) in
+                                    if success {
+                                        DispatchQueue.main.async {
+                                            self.previousWorkoutTableView.reloadData()
+                                        }
+                                    }
+                                })
+                            })
+                        }
+                    })
+                })
+            }
+        }
     }
     
     //MARK: - Helper Functions
@@ -190,70 +215,125 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
-        return workout?.lifts.count ?? 0
+        if tableView == popupTableView {
+            return workout?.lifts.count ?? 0
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workout?.lifts[section].liftsets.count ?? 0
+        if tableView == popupTableView {
+            return workout?.lifts[section].liftsets.count ?? 0
+        } else {
+            return WorkoutController.shared.workouts.count
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "liftHeaderCell") as? LiftHeaderTableViewCell else { return UITableViewCell() }
-        
-        cell.delegate = self
-        cell.tag = section
-        
-        return cell
+        if tableView == popupTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "liftHeaderCell") as? LiftHeaderTableViewCell else { return UITableViewCell() }
+            
+            cell.delegate = self
+            cell.tag = section
+            
+            return cell
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 26
+        if tableView == popupTableView {
+            return 26
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 26
+        if tableView == popupTableView {
+            return 26
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "addSetCell") as? AddSetTableViewCell else { return UITableViewCell() }
-        cell.addSetButton.tag = section
-        cell.delegate = self
-        return cell
+        if tableView == popupTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "addSetCell") as? AddSetTableViewCell else { return UITableViewCell() }
+            cell.addSetButton.tag = section
+            cell.delegate = self
+            return cell
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 32
+        if tableView == popupTableView {
+            return 32
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 32
+        if tableView == popupTableView {
+            return 32
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "liftsetCell", for: indexPath) as? LiftsetTableViewCell else { return UITableViewCell() }
-        
-        guard let workout = workout else { return UITableViewCell() }
-        let lift = workout.lifts[indexPath.section]
-        cell.liftset = lift.liftsets[indexPath.row]
-        cell.liftNameCell.text = lift.name
-        cell.repTextField.text = "\(lift.liftsets[indexPath.row].reps)"
-        cell.weightTextField.text = "\(lift.liftsets[indexPath.row].weight)"
-        cell.setNumberLabel.text = "\(indexPath.row + 1)"
-        cell.delegate = self
-        
-        return cell
+        if tableView == popupTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "liftsetCell", for: indexPath) as? LiftsetTableViewCell else { return UITableViewCell() }
+            
+            guard let workout = workout else { return UITableViewCell() }
+            let lift = workout.lifts[indexPath.section]
+            cell.liftset = lift.liftsets[indexPath.row]
+            cell.liftNameCell.text = lift.name
+            cell.repTextField.text = "\(lift.liftsets[indexPath.row].reps)"
+            cell.weightTextField.text = "\(lift.liftsets[indexPath.row].weight)"
+            cell.setNumberLabel.text = "\(indexPath.row + 1)"
+            cell.delegate = self
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "previousWorkoutCell", for: indexPath)
+            
+            let workout = WorkoutController.shared.workouts[indexPath.row]
+            
+            cell.textLabel?.text = workout.name
+            cell.detailTextLabel?.text = timeString(time: workout.duration)
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if let workout = workout {
-                let lift = workout.lifts[indexPath.section]
-                let liftset = lift.liftsets[indexPath.row]
-                LiftSetController.shared.delete(liftset: liftset, fromLift: lift) { (success) in
-                    if success {
-                        DispatchQueue.main.async {
-                            tableView.deleteRows(at: [indexPath], with: .fade)
-                            self.popupTableView.reloadData()
+                if tableView == popupTableView {
+                    let lift = workout.lifts[indexPath.section]
+                    let liftset = lift.liftsets[indexPath.row]
+                    LiftSetController.shared.delete(liftset: liftset, fromLift: lift) { (success) in
+                        if success {
+                            DispatchQueue.main.async {
+                                tableView.deleteRows(at: [indexPath], with: .fade)
+//                                self.popupTableView.reloadData()
+                            }
+                        }
+                    }
+                } else {
+                    let workout = WorkoutController.shared.workouts[indexPath.row]
+                    WorkoutController.shared.delete(workout: workout) { (success) in
+                        if success {
+                            DispatchQueue.main.async {
+                                tableView.deleteRows(at: [indexPath], with: .fade)
+//                                self.previousWorkoutTableView.reloadData()
+                            }
                         }
                     }
                 }
