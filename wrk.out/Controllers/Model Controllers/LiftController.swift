@@ -33,7 +33,13 @@ class LiftController {
                     return
             }
             workout.lifts.append(liftFromRecord)
-            completion(true)
+            LiftSetController.shared.addLiftset(toLift: liftFromRecord, weight: 0, reps: 0, completion: { (success) in
+                if success {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            })
         }
     }
     
