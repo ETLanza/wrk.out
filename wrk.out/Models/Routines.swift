@@ -10,10 +10,10 @@ import Foundation
 import CloudKit
 
 class Routine {
-    let routineName: String
+    var routineName: String
     var ckRecordID: CKRecordID
     let routineReference: CKReference?
-    let routineLifts: [Lift] = []
+    var routineLifts: [Lift] = []
     init(routineName: String, routineReference: CKReference) {
     self.routineName = routineName
     self.routineReference = routineReference
