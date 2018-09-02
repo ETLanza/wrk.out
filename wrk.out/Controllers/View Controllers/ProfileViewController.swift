@@ -21,6 +21,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .saveUserInfo, object: nil)
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.borderColor = UIColor.black.cgColor
+        profileImage.layer.cornerRadius = (self.profileImage.frame.width / 2)
+        profileImage.clipsToBounds = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
