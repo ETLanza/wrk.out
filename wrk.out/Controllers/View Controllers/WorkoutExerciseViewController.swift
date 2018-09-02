@@ -1,20 +1,22 @@
 //
-//  ExcerciseViewController.swift
+//  WorkoutExerciseViewController.swift
 //  wrk.out
 //
-//  Created by Sam on 8/27/18.
+//  Created by Eric Lanza on 8/31/18.
 //  Copyright © 2018 ETLanza. All rights reserved.
 //
+
 import UIKit
 
-class ExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WorkoutExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var results: Exercise?
-    var category: Category?
+    var exercises: [Exercise] = SearchController.shared.excercises
     var filtered: [Exercise] = []
+    weak var delegate: WorkoutExerciseViewControllerDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet var backgroundView: UIView!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath)
@@ -38,28 +40,30 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var exercise = exercises[indexPath.row]
+        if !filtered.isEmpty {
+            exercise = filtered[indexPath.row]
+        }
+        
+        let liftName = exercise.name
+        delegate?.selectedLift(name: liftName)
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let selectedRow = indexPath.row
-            if segue.identifier == "toExercisePopup" {
-                if let exercisePopVC = segue.destination as? ExerciseViewControllerPopup {
-                    if filtered.isEmpty == true {
-                        exercisePopVC.testText =  SearchController.shared.excercises[selectedRow].description
-                    } else {
-                        exercisePopVC.testText = filtered[selectedRow].description
-                    }
-                }
-            }
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.layer.cornerRadius = 20
+        tableView.layer.masksToBounds = true
+    }
+    
+    @IBAction func backgroundViewTapped(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
-extension ExerciseViewController : UISearchBarDelegate {
+extension WorkoutExerciseViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("cancel")
     }
@@ -76,7 +80,10 @@ extension ExerciseViewController : UISearchBarDelegate {
             
             filtered = filteredCategory + filteredString
             tableView.reloadData()
-            print(filtered)
         }
     }
+}
+
+protocol WorkoutExerciseViewControllerDelegate: class {
+    func selectedLift(name: String)
 }

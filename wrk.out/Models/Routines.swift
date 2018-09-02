@@ -9,28 +9,23 @@
 import Foundation
 import CloudKit
 
-class RoutineList {
-    let routines: [Routine]
-    init(routines: [Routine]) {
-        self.routines = routines
-    }
-}
-
 class Routine {
-    let routineName: String
-    let routineReps: Int
+    var routineName: String
     var ckRecordID: CKRecordID
-    
-    init(routineName: String, routineReps: Int) {
-        self.routineName = routineName
-        self.routineReps = routineReps
-        self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
+    let routineReference: CKReference?
+    var routineLifts: [Lift] = []
+    init(routineName: String, routineReference: CKReference) {
+    self.routineName = routineName
+    self.routineReference = routineReference
+    self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
     
     convenience init?(ckRecord: CKRecord) {
         guard let routineName = ckRecord[Keys.RoutineKeys.routineNameKey] as? String,
-            let routineReps = ckRecord[Keys.RoutineKeys.routineRepsKey] as? Int else { return nil}
-        self.init(routineName: routineName, routineReps: routineReps)
+            let routineReference = ckRecord[Keys.RoutineKeys.routineReferenceKey] as? CKReference
+            else { return nil }
+        
+        self.init(routineName: routineName, routineReference: routineReference)
         self.ckRecordID = ckRecord.recordID
     }
 }
@@ -39,6 +34,11 @@ extension CKRecord {
     convenience init(routine: Routine) {
         self.init(recordType: Keys.RoutineKeys.routineTypeKey, recordID: routine.ckRecordID)
         self.setValue(routine.routineName, forKey: Keys.RoutineKeys.routineNameKey)
-        self.setValue(routine.routineReps, forKey: Keys.RoutineKeys.routineRepsKey)
+    }
+}
+
+extension Routine: Equatable {
+    static func == (lhs: Routine, rhs: Routine) -> Bool {
+        return lhs.ckRecordID == rhs.ckRecordID
     }
 }

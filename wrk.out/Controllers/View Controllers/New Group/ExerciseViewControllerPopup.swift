@@ -10,17 +10,13 @@ import UIKit
 
 class ExerciseViewControllerPopup: UIViewController {
     @IBOutlet var backgroundView: UIView!
+    @IBOutlet weak var popupView: UIView!
     @IBAction func backgroundButtonTapped(_ sender: Any) {
-        
         dismiss(animated: true, completion: nil)
-        
     }
-    
-    
     
     var results: Exercise?
     var testText: String?
-    
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
@@ -48,5 +44,7 @@ class ExerciseViewControllerPopup: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = TrimmingHTMLFromLabel(testText!)
+        popupView.layer.cornerRadius = 20
+        popupView.layer.masksToBounds = true
     }
 }
