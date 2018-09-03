@@ -14,9 +14,10 @@ class RoutineController {
     static let shared = RoutineController()
     
     var routines: [Routine] = []
+//    var routine: Routine?
     var user: User?
     
-    func createRoutine(name: String, completion: @escaping (Bool) -> Void) {
+    func createRoutine(name: String, completion: @escaping (Routine?) -> Void) {
         
         let routineReference = CKReference(recordID: user!.ckRecordID, action:.deleteSelf)
         let newRoutine = Routine(routineName: name, routineReference: routineReference)
@@ -25,18 +26,18 @@ class RoutineController {
         CloudKitManager.shared.saveRecord(routineAsRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {
                 print("error saving routine as record to cloudkit \(error.localizedDescription)")
-                completion(false)
+                completion(nil)
                 return
             }
             
             guard let record = record, let routineAsRecord = Routine(ckRecord: record) else {
                 print("there was an error creating routine from CKRecord \(error!.localizedDescription)")
-                completion(false)
+                completion(nil)
                 return
             }
             
             self.routines.append(routineAsRecord)
-            completion(true)
+            completion(routineAsRecord)
         }
     }
     
