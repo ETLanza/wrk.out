@@ -13,7 +13,7 @@
         <!--Routines-->
         <scene sceneID="SoM-YA-gel">
             <objects>
-                <viewController id="mGg-OO-K31" sceneMemberID="viewController">
+                <viewController id="mGg-OO-K31" customClass="RoutineViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FLF-bz-OKl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,6 +31,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 <state key="normal" title="+"/>
+                                                <connections>
+                                                    <action selector="addButtonTapped:" destination="mGg-OO-K31" eventType="touchUpInside" id="kNt-nw-T3T"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,7 +43,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routineHeaderCell" id="9Ro-5F-UaK" customClass="he">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routineHeaderCell" id="9Ro-5F-UaK" customClass="RoutineHeaderTableViewCell" customModule="wrk_out" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ro-5F-UaK" id="DxF-0b-GXD" customClass="routinesHeaderCell" customModule="wrk_out" customModuleProvider="target">
@@ -59,10 +62,11 @@
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="routineHeaderlabel" destination="KXq-Fb-rbt" id="oH7-cL-I0O"/>
+                                                    <outlet property="routineName" destination="KXq-Fb-rbt" id="wEu-z5-aiV"/>
                                                     <outlet property="routineNameLabel" destination="KXq-Fb-rbt" id="aFB-2l-8bf"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseInRoutineCell" textLabel="LkR-EZ-GZ1" style="IBUITableViewCellStyleDefault" id="HK9-Sf-g7a">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseInRoutineCell" textLabel="LkR-EZ-GZ1" style="IBUITableViewCellStyleDefault" id="HK9-Sf-g7a" customClass="RoutineTableViewCell" customModule="wrk_out" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HK9-Sf-g7a" id="8BB-Pg-4gF">
@@ -81,6 +85,29 @@
                                                     <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.59999999999999998"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WTb-yq-ZJe">
+                                                <rect key="frame" x="0.0" y="116" width="414" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WTb-yq-ZJe" id="PEq-Hl-2bf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jz-aT-SqY">
+                                                            <rect key="frame" x="8" y="8" width="398" height="28"/>
+                                                            <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" title="Add exercise to routine">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="7jz-aT-SqY" firstAttribute="top" secondItem="PEq-Hl-2bf" secondAttribute="top" constant="8" id="DYa-wX-nb7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="7jz-aT-SqY" secondAttribute="bottom" constant="8" id="VUX-JG-vUE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="7jz-aT-SqY" secondAttribute="trailing" constant="8" id="nEt-44-W5x"/>
+                                                        <constraint firstItem="7jz-aT-SqY" firstAttribute="leading" secondItem="PEq-Hl-2bf" secondAttribute="leading" constant="8" id="oBN-um-TDV"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
                                         </prototypes>
                                     </tableView>
                                 </subviews>
@@ -93,6 +120,9 @@
                     <tabBarItem key="tabBarItem" tag="1" title="Routines" image="RoutinesIcon" selectedImage="RoutinesIconSelected" id="kU3-UL-B0n"/>
                     <navigationItem key="navigationItem" title="Routines" id="WfZ-oJ-mAN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Tby-P8-zgK" id="GD1-eF-5W7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8NX-hk-S7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
