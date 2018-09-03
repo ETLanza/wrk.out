@@ -39,7 +39,3 @@ protocol LiftsetTableViewCellDelegate: class {
     func liftsetCellButtonTapped(_ sender: LiftsetTableViewCell)
     func textFieldDidEndEditing(_ sender: LiftsetTableViewCell, textField: UITextField)
 }
-
-
-
-

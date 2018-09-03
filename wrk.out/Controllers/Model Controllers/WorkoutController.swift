@@ -36,7 +36,7 @@ class WorkoutController {
                     completion(nil)
                     return
             }
-            self.workouts.append(workoutFromRecord)
+            self.workouts.insert(workoutFromRecord, at: 0)
             completion(workoutFromRecord)
         }
     }
@@ -83,8 +83,9 @@ class WorkoutController {
     func fetchAllWorkoutsFor(user: User, completion: @escaping (Bool)->Void) {
         
         let predicate = NSPredicate(format: "\(Keys.WorkoutKeys.userReferenceKey) == %@", user.ckRecordID)
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         
-        CloudKitManager.shared.fetchRecordsOfType(Keys.WorkoutKeys.workoutTypeKey, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
+        CloudKitManager.shared.fetchRecordsOfType(Keys.WorkoutKeys.workoutTypeKey, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: [sortDescriptor]) { (records, error) in
             if let error = error {
                 NSLog("Error fetching workouts from CloudKit", error.localizedDescription)
                 completion(false)
