@@ -19,7 +19,9 @@ class WorkoutController {
     
     //MARK: - CRUD Functions
     func createNewWorkoutWith(name: String, completion: @escaping (Workout?) -> Void) {
-        let newWorkout = Workout(name: name)
+        guard let user = UserController.shared.loggedInUser else { return }
+        let userReference = CKReference(recordID: user.ckRecordID, action: .deleteSelf)
+        let newWorkout = Workout(name: name, userReference: userReference)
         let workoutRecord = CKRecord(workout: newWorkout)
         CloudKitManager.shared.saveRecord(workoutRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {
@@ -78,8 +80,11 @@ class WorkoutController {
     }
     
     //MARK: - CloudKitMethods
-    func fetchAllWorkouts(completion: @escaping (Bool)->Void) {
-        CloudKitManager.shared.fetchRecordsOfType(Keys.WorkoutKeys.workoutTypeKey, database: CloudKitManager.shared.privateDatabase) { (records, error) in
+    func fetchAllWorkoutsFor(user: User, completion: @escaping (Bool)->Void) {
+        
+        let predicate = NSPredicate(format: "\(Keys.WorkoutKeys.userReferenceKey) == %@", user.ckRecordID)
+        
+        CloudKitManager.shared.fetchRecordsOfType(Keys.WorkoutKeys.workoutTypeKey, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
             if let error = error {
                 NSLog("Error fetching workouts from CloudKit", error.localizedDescription)
                 completion(false)
