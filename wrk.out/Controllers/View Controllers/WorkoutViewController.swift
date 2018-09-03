@@ -85,7 +85,8 @@ class WorkoutViewController: UIViewController {
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        WorkoutController.shared.fetchAllWorkoutsFor(user: UserController.shared.loggedInUser!) { (success) in
+        guard let user = UserController.shared.loggedInUser else { return }
+        WorkoutController.shared.fetchAllWorkoutsFor(user: user) { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.previousWorkoutTableView.reloadData()
