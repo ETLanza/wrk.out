@@ -22,6 +22,7 @@ class Lift: Equatable {
     init(name: String, workoutReference: CKReference?, routineReference: CKReference?) {
         self.name = name
         self.workoutReference = workoutReference
+        self.routineReference = routineReference
         self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
     
@@ -46,6 +47,6 @@ extension CKRecord {
         self.init(recordType: Keys.LiftKeys.liftTypeKey, recordID: lift.ckRecordID)
         self.setValue(lift.name, forKey: Keys.LiftKeys.nameKey)
         self.setValue(lift.workoutReference, forKey: Keys.LiftKeys.workoutReferenceKey)
-        //        self.setValue(lift.liftsets, forKey: Keys.LiftKeys.setsKey)
+        self.setValue(lift.routineReference, forKey: Keys.LiftKeys.routineReferenceKey)
     }
 }
