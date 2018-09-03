@@ -10,4 +10,6 @@ import UIKit
 
 class RestTimer {
     var length: TimeInterval = 120
+    var startLength: TimeInterval = 120
+    var isEnabled: Bool = false
 }

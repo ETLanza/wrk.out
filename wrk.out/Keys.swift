@@ -16,6 +16,7 @@ struct Keys {
         static let durationKey = "duration"
         static let noteKey = "note"
         static let ckRecordIDKey = "ckRecordID"
+        static let userReferenceKey = "userReference"
     }
     
     struct LiftKeys {
@@ -24,6 +25,7 @@ struct Keys {
         static let liftsetsKey = "liftsets"
         static let ckRecordIDKey = "ckRecordID"
         static let workoutReferenceKey = "workoutReference"
+        static let routineReferenceKey = "routineReference"
     }
     
     struct LiftsetKeys {

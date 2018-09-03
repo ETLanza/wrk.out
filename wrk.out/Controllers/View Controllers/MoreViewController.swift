@@ -8,13 +8,40 @@
 
 import UIKit
 
-class MoreViewController: UIViewController {
+class MoreViewController: UIViewController, UITextFieldDelegate {
    
+    //MARK: - IBOutlets
     @IBOutlet weak var restTimerSwitch: UISwitch!
     @IBOutlet weak var numberOfSecondsTextField: UITextField!
     
-    @IBAction func restTimerSwitchedON(_ sender: Any) {
-        numberOfSecondsTextField.isHidden = false
+    //MARK: - Life Cycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        numberOfSecondsTextField.text = "\(RestTimerControlller.shared.restTimer.length)"
+        if RestTimerControlller.shared.restTimer.isEnabled {
+            restTimerSwitch.isOn = true
+        } else {
+            restTimerSwitch.isOn = false
+        }
     }
     
+    //MARK: - IBActions
+    @IBAction func restTimerSwitchedON(_ sender: Any) {
+        RestTimerControlller.shared.toggleIsEnabled()
+        numberOfSecondsTextField.isHidden = !numberOfSecondsTextField.isHidden
+    }
+    
+    //MARK: - Helper Functions
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == numberOfSecondsTextField {
+            guard let text = textField.text, let textAsInt = Int(text) else { return }
+            let textAsTimeInterval = TimeInterval(exactly: textAsInt)
+            RestTimerControlller.shared.changeRestTimerLength(to: textAsTimeInterval!)
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

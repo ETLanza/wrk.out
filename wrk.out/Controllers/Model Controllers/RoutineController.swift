@@ -76,7 +76,7 @@ class RoutineController {
     
     func createLift(name: String, routine: Routine, completion: @escaping (Bool)->Void) {
         let routineReference = CKReference(recordID: routine.ckRecordID, action: .deleteSelf)
-        let newLift = Lift(name: name, workoutReference: routineReference)
+        let newLift = Lift(name: name, workoutReference: nil, routineReference: routineReference)
         let ckRecord = CKRecord(lift: newLift)
         CloudKitManager.shared.saveRecord(ckRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {

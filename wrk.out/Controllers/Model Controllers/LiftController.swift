@@ -16,7 +16,7 @@ class LiftController {
     //MARK: - CRUD Functions
     func addLiftTo(workout: Workout, name: String, completion: @escaping ((Bool) -> Void)) {
         let workoutReference = CKReference(recordID: workout.ckRecordID, action: .deleteSelf)
-        let newLift = Lift(name: name, workoutReference: workoutReference)
+        let newLift = Lift(name: name, workoutReference: workoutReference, routineReference: nil)
         let liftRecord = CKRecord(lift: newLift)
         
         CloudKitManager.shared.saveRecord(liftRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
