@@ -64,13 +64,7 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilePopupImageView.layer.borderWidth = 1
-        profilePopupImageView.layer.masksToBounds = false
-        profilePopupImageView.layer.borderColor = UIColor.black.cgColor
-        profilePopupImageView.layer.cornerRadius = (self.profilePopupImageView.frame.width / 2)
-        profilePopupImageView.clipsToBounds = true
         updateViews()
-        
     }
     
     func updateViews() {

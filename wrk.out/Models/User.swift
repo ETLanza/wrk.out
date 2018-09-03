@@ -83,7 +83,7 @@ class User: Equatable {
 
 extension CKRecord {
     convenience init(user: User) {
-        let recordID = user.ckRecordID //?? CKRecordID(recordName: UUID().uuidString)
+        let recordID = user.ckRecordID ?? CKRecordID(recordName: UUID().uuidString)
         self.init(recordType: Keys.UserKeys.userTypeKey, recordID: recordID)
         
         let profileImageAsset = CKAsset(fileURL: user.temporaryPhotoURL)
