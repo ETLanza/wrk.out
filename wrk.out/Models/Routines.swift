@@ -13,11 +13,13 @@ class Routine {
     var routineName: String
     var ckRecordID: CKRecordID
     let routineReference: CKReference?
+
     var routineLifts: [Lift] = []
+
     init(routineName: String, routineReference: CKReference) {
-    self.routineName = routineName
-    self.routineReference = routineReference
-    self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
+        self.routineName = routineName
+        self.routineReference = routineReference
+        self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
     
     convenience init?(ckRecord: CKRecord) {

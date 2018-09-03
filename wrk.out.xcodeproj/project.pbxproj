@@ -38,6 +38,7 @@
 		3CBF73E82135B8EC00D99292 /* privacyPolicyPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF73E62135B8EB00D99292 /* privacyPolicyPopupViewController.swift */; };
 		3CBF73E92135B8EC00D99292 /* EditInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF73E72135B8EC00D99292 /* EditInfoPopupViewController.swift */; };
 		3CE3B0C22139D4A000F9BDF6 /* WorkoutExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */; };
+		3CE3B0C4213B336200F9BDF6 /* RestTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */; };
 		7D40416F213617C300F7F3C2 /* NotificationNameExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */; };
 		7D76C33B21370EB900BBED97 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */; };
 		7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */; };
@@ -90,6 +91,7 @@
 		3CBF73E62135B8EB00D99292 /* privacyPolicyPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = privacyPolicyPopupViewController.swift; path = "wrk.out/Controllers/View Controllers/New Group/privacyPolicyPopupViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3CBF73E72135B8EC00D99292 /* EditInfoPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditInfoPopupViewController.swift; path = "wrk.out/Controllers/View Controllers/New Group/EditInfoPopupViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseViewController.swift; sourceTree = "<group>"; };
+		3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerController.swift; sourceTree = "<group>"; };
 		7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtention.swift; sourceTree = "<group>"; };
 		7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadScreenViewController.swift; sourceTree = "<group>"; };
 		7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +181,6 @@
 				3CB6944D212B75E600E9F2B1 /* AppDelegate.swift */,
 				3CB69467212B7DF900E9F2B1 /* Keys.swift */,
 				3C9E34C6212DF359006B1759 /* Settings.swift */,
-				3C9E34C8212DF3A2006B1759 /* RestTimer.swift */,
 				3CB69466212B7DD300E9F2B1 /* Models */,
 				7D40416D2136178F00F7F3C2 /* Extentions */,
 				7D80C60F21345D9F00F1CD19 /* views */,
@@ -205,6 +206,7 @@
 		3CB69466212B7DD300E9F2B1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3C9E34C8212DF3A2006B1759 /* RestTimer.swift */,
 				3C161ED2212F6C2C006BD941 /* User.swift */,
 				3CB69462212B7DCF00E9F2B1 /* Workout.swift */,
 				3CB69460212B7DCF00E9F2B1 /* Lift.swift */,
@@ -240,6 +242,7 @@
 				3CB69472212B835400E9F2B1 /* LiftSetController.swift */,
 				90A6A8522134632F0047A559 /* SearchController.swift */,
 				90C1515921385A7F00509818 /* RoutineController.swift */,
+				3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				3C161ED3212F6C2C006BD941 /* User.swift in Sources */,
 				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
 				3CE3B0C22139D4A000F9BDF6 /* WorkoutExerciseViewController.swift in Sources */,
+				3CE3B0C4213B336200F9BDF6 /* RestTimerController.swift in Sources */,
 				90C1515821385A6000509818 /* RoutineTableViewCell.swift in Sources */,
 				90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */,
 			);
