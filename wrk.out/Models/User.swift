@@ -58,17 +58,20 @@ class User: Equatable {
             let height = ckRecord[Keys.UserKeys.heightTypeKey] as? Double,
             let weight = ckRecord[Keys.UserKeys.weightTypKey] as? Double,
             let gender = ckRecord[Keys.UserKeys.genderTypekey] as? String,
-            let profileImageAsset = ckRecord[Keys.UserKeys.profileImageTypeKey] as? CKAsset,
             let appleUserReference = ckRecord[Keys.UserKeys.appleUserReferenceKey] as? CKReference else { return nil }
         
-        let profileImageAssetAsData = try? Data(contentsOf: profileImageAsset.fileURL)
+        let profileImageAsset = ckRecord[Keys.UserKeys.profileImageTypeKey] as? CKAsset
+        
+        if profileImageAsset != nil {
+        let profileImageAssetAsData = try? Data(contentsOf: (profileImageAsset?.fileURL)!)
+            self.profileImageAsData = profileImageAssetAsData
+        }
         
         self.name = name
         self.age = age
         self.height = height
         self.weight = weight
         self.gender = gender
-        self.profileImageAsData = profileImageAssetAsData
         self.appleUserReference = appleUserReference
       
         ckRecordID = ckRecord.recordID
