@@ -78,17 +78,6 @@ class WorkoutViewController: UIViewController {
         previousWorkoutTableView.reloadData()
     }
     
-//    @IBAction func addExerciseButtonTapped(_ sender: UIButton) {
-//        guard let workout = workout else { return }
-//        LiftController.shared.addLiftTo(workout: workout, name: "New Exercise") { (success) in
-//            if success {
-//                DispatchQueue.main.async {
-//                    self.popupTableView.reloadData()
-//                }
-//            }
-//        }
-//    }
-    
     @IBAction func cancelWorkoutButtonTapped(_ sender: UIButton) {
         displayCancelWorkoutAlert()
     }

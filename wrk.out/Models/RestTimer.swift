@@ -9,5 +9,5 @@
 import UIKit
 
 class RestTimer {
-    
+    var length: TimeInterval = 120
 }
