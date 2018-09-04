@@ -14,15 +14,14 @@ class RoutineController {
     static let shared = RoutineController()
     
     var routines: [Routine] = []
-//    var routine: Routine?
-    var user: User?
+    var routine: Routine?
     
     func createRoutine(name: String, completion: @escaping (Routine?) -> Void) {
-        
-        let routineReference = CKReference(recordID: user!.ckRecordID, action:.deleteSelf)
+        guard let user = UserController.shared.loggedInUser else { return }
+        let routineReference = CKReference(recordID: user.ckRecordID, action:.deleteSelf)
         let newRoutine = Routine(routineName: name, routineReference: routineReference)
-        
         let routineAsRecord = CKRecord(routine: newRoutine)
+        
         CloudKitManager.shared.saveRecord(routineAsRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {
                 print("error saving routine as record to cloudkit \(error.localizedDescription)")
@@ -30,14 +29,15 @@ class RoutineController {
                 return
             }
             
-            guard let record = record, let routineAsRecord = Routine(ckRecord: record) else {
-                print("there was an error creating routine from CKRecord \(error!.localizedDescription)")
+            guard let record = record,
+                let routineFromRecord = Routine(ckRecord: record) else {
+                print("there was an error creating routine from CKRecord \(name)")
                 completion(nil)
                 return
             }
             
-            self.routines.append(routineAsRecord)
-            completion(routineAsRecord)
+            self.routines.append(routineFromRecord)
+            completion(routineFromRecord)
         }
     }
     

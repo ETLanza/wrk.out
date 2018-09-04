@@ -25,7 +25,7 @@ class ExerciseViewControllerPopup: UIViewController {
 //
 //        }
 
-    // TODO: 
+    // TODO: Clean this up
     
     func TrimmingHTMLFromLabel(_: String)->String {
         let trimString1 = testText?.replacingOccurrences(of: "<p>", with: "")
