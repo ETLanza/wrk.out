@@ -13,12 +13,13 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
     //MARK: - IBOutlets
     @IBOutlet weak var restTimerSwitch: UISwitch!
     @IBOutlet weak var numberOfSecondsTextField: UITextField!
+    @IBOutlet weak var inSecondsLabel: UILabel!
     
     //MARK: - Life Cycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        numberOfSecondsTextField.text = "\(RestTimerControlller.shared.restTimer.length)"
-        if RestTimerControlller.shared.restTimer.isEnabled {
+        numberOfSecondsTextField.text = "\(Int(RestTimerController.shared.restTimer.startLength))"
+        if RestTimerController.shared.restTimer.isEnabled {
             restTimerSwitch.isOn = true
         } else {
             restTimerSwitch.isOn = false
@@ -27,8 +28,9 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - IBActions
     @IBAction func restTimerSwitchedON(_ sender: Any) {
-        RestTimerControlller.shared.toggleIsEnabled()
+        RestTimerController.shared.toggleIsEnabled()
         numberOfSecondsTextField.isHidden = !numberOfSecondsTextField.isHidden
+        inSecondsLabel.isHidden = !inSecondsLabel.isHidden
     }
     
     //MARK: - Helper Functions
@@ -36,7 +38,7 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
         if textField == numberOfSecondsTextField {
             guard let text = textField.text, let textAsInt = Int(text) else { return }
             let textAsTimeInterval = TimeInterval(exactly: textAsInt)
-            RestTimerControlller.shared.changeRestTimerLength(to: textAsTimeInterval!)
+            RestTimerController.shared.changeRestTimerLength(to: textAsTimeInterval!)
         }
     }
     

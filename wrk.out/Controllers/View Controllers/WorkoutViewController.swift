@@ -13,7 +13,8 @@ class WorkoutViewController: UIViewController {
     
     //MARK: - Properties
     var workout: Workout?
-    var timer: Timer?
+    var durationTimer: Timer?
+    var restTimer: Timer?
     
     //MARK: - IBOutlets
     @IBOutlet weak var popupTableView: UITableView!
@@ -22,6 +23,8 @@ class WorkoutViewController: UIViewController {
     @IBOutlet weak var workoutDurationLabel: UILabel!
     @IBOutlet weak var currentWorkoutNameLabel: UILabel!
     @IBOutlet weak var previousWorkoutTableView: UITableView!
+    @IBOutlet weak var restTimerLabel: UILabel!
+    
     
     //MARK: - IBActions
     @IBAction func newWorkoutButtonTapped(_ sender: Any) {
@@ -36,7 +39,7 @@ class WorkoutViewController: UIViewController {
                 if let workout = workout {
                     self.workout = workout
                     DispatchQueue.main.async {
-                        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
+                        self.durationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
                         self.workoutDurationLabel.text = "0"
                         self.bottomConstraint.constant = 0
                         self.currentWorkoutNameLabel.text = workout.name
@@ -73,7 +76,6 @@ class WorkoutViewController: UIViewController {
     }
     
     @IBAction func endWorkoutButtonTapped(_ sender: UIButton) {
-        timer?.invalidate()
         displayEndWorkoutAlert()
         previousWorkoutTableView.reloadData()
     }
@@ -108,7 +110,10 @@ class WorkoutViewController: UIViewController {
     }
     
     //MARK: - Helper Functions
+    
+    //MARK: TableViewFooter Buttons
     func endWorkout() {
+        durationTimer?.invalidate()
         DispatchQueue.main.async {
             self.bottomConstraint.constant = -612
             UIView.animate(withDuration: 0.3) {
@@ -116,26 +121,6 @@ class WorkoutViewController: UIViewController {
                 self.workout = nil
                 self.popupTableView.reloadData()
             }
-        }
-    }
-    
-    @objc func increaseTimer() {
-        guard let workout = workout else { return }
-        workout.duration = workout.duration + 1
-        let durationAsString = timeString(time: workout.duration)
-        self.workoutDurationLabel.text = durationAsString
-    }
-    
-    func timeString(time:TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        if hours == 0 && minutes == 0 {
-            return String(format:"%2i", seconds)
-        } else if hours == 0 {
-            return String(format:"%2i:%02i", minutes, seconds)
-        } else {
-            return String(format:"%2i:%02i:%02i", hours, minutes, seconds)
         }
     }
     
@@ -199,10 +184,51 @@ class WorkoutViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    //MARK: Duration Timer
+    @objc func increaseTimer() {
+        guard let workout = workout else { return }
+        workout.duration = workout.duration + 1
+        let durationAsString = timeString(time: workout.duration)
+        self.workoutDurationLabel.text = durationAsString
+    }
+    
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        if hours == 0 && minutes == 0 {
+            return String(format:"%2i", seconds)
+        } else if hours == 0 {
+            return String(format:"%2i:%02i", minutes, seconds)
+        } else {
+            return String(format:"%2i:%02i:%02i", hours, minutes, seconds)
+        }
+    }
+    
+    //MARK: RestTimer
+    @objc func deacreaseTimer() {
+        RestTimerController.shared.decreaseTimer()
+        let restTimeAsString = timeString(time: RestTimerController.shared.restTimer.length)
+        self.restTimerLabel.text = restTimeAsString
+        if RestTimerController.shared.restTimer.length == 0 {
+            restTimer?.invalidate()
+            restTimerLabel.isHidden = true
+            displayEndRestAlert()
+        }
+    }
+    
+    func displayEndRestAlert() {
+        let alertController = UIAlertController(title: "Rest Time is up!", message: "Get Lifting", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     //MARK: - Naviagtion
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addExerciseSegue" {
             let destinationVC = segue.destination as? WorkoutExerciseViewController
+            self.definesPresentationContext = true
             destinationVC?.delegate = self
         }
     }
@@ -444,7 +470,20 @@ extension WorkoutViewController: LiftsetTableViewCellDelegate {
     }
     
     func liftsetCellButtonTapped(_ sender: LiftsetTableViewCell) {
-        sender.doneButton.isHidden = true
+        if sender.doneButton.titleLabel?.text == "Done" {
+            sender.doneButton.setTitle("Fuck", for: .normal)
+            if RestTimerController.shared.restTimer.isEnabled {
+                let restTimeText = timeString(time: RestTimerController.shared.restTimer.length)
+                restTimerLabel.text = restTimeText
+                restTimerLabel.isHidden = false
+                restTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(deacreaseTimer), userInfo: nil, repeats: true)
+            }
+        } else {
+            sender.doneButton.setTitle("Done", for: .normal)
+            restTimer?.invalidate()
+            restTimerLabel.isHidden = true
+            RestTimerController.shared.restTimer.length = RestTimerController.shared.restTimer.startLength
+        }
     }
 }
 
