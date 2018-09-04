@@ -43,10 +43,10 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="routineHeaderCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routineHeaderCell" id="9Ro-5F-UaK" customClass="RoutineHeaderTableViewCell" customModule="wrk_out" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routineHeaderCell" id="9Ro-5F-UaK" customClass="RoutineHeaderTableViewCell" customModule="wrk_out" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ro-5F-UaK" id="DxF-0b-GXD" customClass="routinesHeaderCell" customModule="wrk_out" customModuleProvider="target">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ro-5F-UaK" id="DxF-0b-GXD" customClass="RoutineHeaderTableViewCell" customModule="wrk_out" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
@@ -61,9 +61,7 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
-                                                    <outlet property="routineHeaderlabel" destination="KXq-Fb-rbt" id="oH7-cL-I0O"/>
                                                     <outlet property="routineName" destination="KXq-Fb-rbt" id="wEu-z5-aiV"/>
-                                                    <outlet property="routineNameLabel" destination="KXq-Fb-rbt" id="aFB-2l-8bf"/>
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseInRoutineCell" textLabel="LkR-EZ-GZ1" style="IBUITableViewCellStyleDefault" id="HK9-Sf-g7a" customClass="RoutineTableViewCell" customModule="wrk_out" customModuleProvider="target">
@@ -118,6 +116,10 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="mGg-OO-K31" id="B0Y-T3-xuL"/>
+                                            <outlet property="delegate" destination="mGg-OO-K31" id="7LF-Xn-kr4"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>

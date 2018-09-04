@@ -47,7 +47,7 @@ class WorkoutExerciseViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         let liftName = exercise.name
-        delegate?.selectedLift(name: liftName)
+        delegate?.selectedLift(name: liftName, sender: self)
         
         self.dismiss(animated: true, completion: nil)
     }
@@ -85,5 +85,5 @@ extension WorkoutExerciseViewController: UISearchBarDelegate {
 }
 
 protocol WorkoutExerciseViewControllerDelegate: class {
-    func selectedLift(name: String)
+    func selectedLift(name: String, sender: WorkoutExerciseViewController)
 }

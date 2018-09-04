@@ -522,7 +522,7 @@
         <!--Workout Exercise View Controller-->
         <scene sceneID="41j-OI-x2p">
             <objects>
-                <viewController id="KUc-Uy-i2F" customClass="WorkoutExerciseViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exerciseReuse" id="KUc-Uy-i2F" customClass="WorkoutExerciseViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U5Y-sP-nhs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -534,7 +534,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Up2-dW-USb" appends="YES" id="Sj4-g6-7ia"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gqY-NN-3oS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="exerciseTV" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gqY-NN-3oS">
                                 <rect key="frame" x="20.666666666666657" y="73.666666666666686" width="372.66666666666674" height="588.66666666666652"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="mqU-jA-znu">

@@ -12,22 +12,22 @@ import CloudKit
 class Routine {
     var routineName: String
     var ckRecordID: CKRecordID
-    let routineReference: CKReference?
+    let userReference: CKReference?
 
     var routineLifts: [Lift] = []
 
-    init(routineName: String, routineReference: CKReference) {
+    init(routineName: String, userReference: CKReference) {
         self.routineName = routineName
-        self.routineReference = routineReference
+        self.userReference = userReference
         self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
     
     convenience init?(ckRecord: CKRecord) {
         guard let routineName = ckRecord[Keys.RoutineKeys.routineNameKey] as? String,
-            let routineReference = ckRecord[Keys.RoutineKeys.routineReferenceKey] as? CKReference
+            let userReference = ckRecord[Keys.RoutineKeys.userReferenceKey] as? CKReference
             else { return nil }
         
-        self.init(routineName: routineName, routineReference: routineReference)
+        self.init(routineName: routineName, userReference: userReference)
         self.ckRecordID = ckRecord.recordID
     }
 }
@@ -36,6 +36,7 @@ extension CKRecord {
     convenience init(routine: Routine) {
         self.init(recordType: Keys.RoutineKeys.routineTypeKey, recordID: routine.ckRecordID)
         self.setValue(routine.routineName, forKey: Keys.RoutineKeys.routineNameKey)
+        self.setValue(routine.userReference, forKey: Keys.RoutineKeys.userReferenceKey)
     }
 }
 

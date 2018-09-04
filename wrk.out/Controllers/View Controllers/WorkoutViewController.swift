@@ -488,7 +488,7 @@ extension WorkoutViewController: LiftsetTableViewCellDelegate {
 }
 
 extension WorkoutViewController: WorkoutExerciseViewControllerDelegate {
-    func selectedLift(name: String) {
+    func selectedLift(name: String, sender: WorkoutExerciseViewController) {
         if let workout = workout {
             LiftController.shared.addLiftTo(workout: workout, name: name) { (success) in
                 if success {

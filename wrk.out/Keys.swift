@@ -58,6 +58,7 @@ struct Keys {
         static let routineNameKey = "routineName"
         static let ckRecordIDKey = "ckRecordID"
         static let routineTypeKey = "Routine"
-        static let routineReferenceKey = "routineReference"
+        static let userReferenceKey = "userReference"
+        static let routineLiftsKey = "routineLifts"
     }
 }
