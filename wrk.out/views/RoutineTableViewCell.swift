@@ -9,5 +9,6 @@
 import UIKit
 
 class RoutineTableViewCell: UITableViewCell {
+    @IBOutlet weak var exerciseNameLabel: UILabel!
 
 }
