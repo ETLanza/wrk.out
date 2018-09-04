@@ -18,8 +18,8 @@ class RoutineController {
     
     func createRoutine(name: String, completion: @escaping (Routine?) -> Void) {
         guard let user = UserController.shared.loggedInUser else { return }
-        let routineReference = CKReference(recordID: user.ckRecordID, action:.deleteSelf)
-        let newRoutine = Routine(routineName: name, routineReference: routineReference)
+        let userReference = CKReference(recordID: user.ckRecordID, action:.deleteSelf)
+        let newRoutine = Routine(routineName: name, userReference: userReference)
         let routineAsRecord = CKRecord(routine: newRoutine)
         
         CloudKitManager.shared.saveRecord(routineAsRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
@@ -31,9 +31,9 @@ class RoutineController {
             
             guard let record = record,
                 let routineFromRecord = Routine(ckRecord: record) else {
-                print("there was an error creating routine from CKRecord \(name)")
-                completion(nil)
-                return
+                    print("there was an error creating routine from CKRecord \(name)")
+                    completion(nil)
+                    return
             }
             
             self.routines.append(routineFromRecord)
@@ -73,7 +73,30 @@ class RoutineController {
             completion(true)
         }
     }
-    
+    func fetchRoutines(completion: @escaping (Bool)->Void){
+        CloudKitManager.shared.fetchRecordsOfType(Keys.RoutineKeys.routineTypeKey, database: CloudKitManager.shared.privateDatabase) { (records, error) in
+            if let error = error {
+                print("There was an error fetching routines \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            let routines = records?.compactMap{ Routine(ckRecord: $0) }
+            RoutineController.shared.routines = routines!
+            completion(true)
+        }
+    }
+    func fetchLifts(completion: @escaping (Bool)->Void) {
+        CloudKitManager.shared.fetchRecordsOfType(Keys.RoutineKeys.routineLiftsKey, database: CloudKitManager.shared.privateDatabase) { (records, error) in
+            if let error = error {
+                print("there was an error fetching the lifts within the routines \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            let lifts = records?.compactMap{ Lift(ckRecord: $0)}
+            RoutineController.shared.routine?.routineLifts = lifts!
+            completion(true)
+        }
+    }
     
     func createLift(name: String, routine: Routine, completion: @escaping (Bool)->Void) {
         let routineReference = CKReference(recordID: routine.ckRecordID, action: .deleteSelf)
