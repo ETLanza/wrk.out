@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A3g-x7-tTJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A3g-x7-tTJ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="The-N6-kJC">
-                                        <rect key="frame" x="0.0" y="116" width="414" height="523"/>
+                                        <rect key="frame" x="0.0" y="116" width="414" height="572"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableHeaderView" contentMode="scaleToFill" id="qEc-EM-8C3">
@@ -126,7 +124,7 @@
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQB-sS-MNp">
-                                        <rect key="frame" x="0.0" y="736" width="414" height="612"/>
+                                        <rect key="frame" x="0.0" y="116" width="414" height="612"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrE-Cj-ges">
                                                 <rect key="frame" x="0.0" y="48" width="414" height="564"/>
@@ -141,10 +139,10 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XCZ-TL-VBq">
-                                                                    <rect key="frame" x="8" y="8" width="398" height="104"/>
+                                                                    <rect key="frame" x="8" y="28" width="398" height="84"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB9-ap-cEq">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="398" height="30.666666666666668"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="398" height="24"/>
                                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <state key="normal" title="End Workout">
                                                                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,7 +152,7 @@
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-uR-w4b">
-                                                                            <rect key="frame" x="0.0" y="36.666666666666664" width="398" height="30.666666666666664"/>
+                                                                            <rect key="frame" x="0.0" y="30" width="398" height="24"/>
                                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <state key="normal" title="Add Exercise">
                                                                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -164,7 +162,7 @@
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqb-iz-6DO">
-                                                                            <rect key="frame" x="0.0" y="73.333333333333329" width="398" height="30.666666666666671"/>
+                                                                            <rect key="frame" x="0.0" y="60" width="398" height="24"/>
                                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <state key="normal" title="Cancel Workout">
                                                                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -429,7 +427,7 @@
                                                         <rect key="frame" x="295.66666666666669" y="0.0" width="56.333333333333314" height="20.333333333333332"/>
                                                         <subviews>
                                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmI-pn-kQ2">
-                                                                <rect key="frame" x="-303.66666666666669" y="0.0" width="0.0" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.333333333333332"/>
                                                                 <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -473,9 +471,8 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="kQB-sS-MNp" secondAttribute="bottom" constant="-612" id="Fs0-IW-id8"/>
                                     <constraint firstItem="kQB-sS-MNp" firstAttribute="leading" secondItem="5ui-hl-gXT" secondAttribute="leading" id="LQj-bu-ZOc"/>
-                                    <constraint firstAttribute="bottom" secondItem="The-N6-kJC" secondAttribute="bottom" constant="97" id="aVE-Xw-8xc"/>
+                                    <constraint firstAttribute="bottom" secondItem="The-N6-kJC" secondAttribute="bottom" constant="48" id="aVE-Xw-8xc"/>
                                     <constraint firstItem="The-N6-kJC" firstAttribute="leading" secondItem="5ui-hl-gXT" secondAttribute="leading" id="lG4-uy-rOY"/>
                                     <constraint firstAttribute="trailing" secondItem="The-N6-kJC" secondAttribute="trailing" id="qrS-Vi-HKE"/>
                                     <constraint firstAttribute="trailing" secondItem="kQB-sS-MNp" secondAttribute="trailing" id="rSh-mD-YuL"/>
@@ -487,6 +484,7 @@
                             <constraint firstItem="5ui-hl-gXT" firstAttribute="top" secondItem="c14-gG-YdZ" secondAttribute="top" id="0ME-jX-G92"/>
                             <constraint firstAttribute="trailing" secondItem="5ui-hl-gXT" secondAttribute="trailing" id="1V2-nn-pg3"/>
                             <constraint firstItem="The-N6-kJC" firstAttribute="top" secondItem="jhy-Y4-8Q3" secondAttribute="top" id="35W-4D-KQz"/>
+                            <constraint firstItem="kQB-sS-MNp" firstAttribute="top" secondItem="jhy-Y4-8Q3" secondAttribute="top" id="CWG-TQ-CEU"/>
                             <constraint firstItem="5ui-hl-gXT" firstAttribute="leading" secondItem="c14-gG-YdZ" secondAttribute="leading" id="YMZ-C6-fhi"/>
                             <constraint firstAttribute="bottom" secondItem="5ui-hl-gXT" secondAttribute="bottom" id="aM2-Ea-qzg"/>
                         </constraints>
@@ -496,10 +494,12 @@
                     <navigationItem key="navigationItem" title="Workouts" id="myF-yr-bXB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bottomConstraint" destination="Fs0-IW-id8" id="oAv-Pb-BwQ"/>
                         <outlet property="currentWorkoutNameLabel" destination="g6g-FU-RMH" id="SeK-MT-HNs"/>
+                        <outlet property="drawerHeaderStackView" destination="bDo-sL-HWd" id="3vc-HR-6t4"/>
                         <outlet property="popupTableView" destination="DIS-yD-ErJ" id="Bt8-PV-dMR"/>
                         <outlet property="popupView" destination="kQB-sS-MNp" id="IR0-AH-fo6"/>
+                        <outlet property="popupViewSubView" destination="qrE-Cj-ges" id="HeB-L3-EQm"/>
+                        <outlet property="popupViewTopConstraint" destination="CWG-TQ-CEU" id="6b8-hg-Rhr"/>
                         <outlet property="previousWorkoutTableView" destination="The-N6-kJC" id="WSM-De-64V"/>
                         <outlet property="restTimerLabel" destination="DmI-pn-kQ2" id="x5C-Xq-ekH"/>
                         <outlet property="workoutDurationLabel" destination="BsG-eL-GJP" id="raF-gD-0Vg"/>
@@ -517,7 +517,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1055" y="1091"/>
+            <point key="canvasLocation" x="1053.6231884057972" y="1090.7608695652175"/>
         </scene>
         <!--Workout Exercise View Controller-->
         <scene sceneID="41j-OI-x2p">
@@ -601,6 +601,11 @@
                                     <outlet property="delegate" destination="KUc-Uy-i2F" id="9Xu-JW-sT7"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBd-HQ-JGC">
+                                <rect key="frame" x="0.0" y="646" width="414" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.095178674768518517" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
@@ -629,7 +634,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2099" y="1092"/>
+            <point key="canvasLocation" x="2098.5507246376815" y="1091.5760869565217"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="1At-Os-Dfn">
@@ -659,7 +664,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WorkoutsIcon" width="25" height="14"/>
-        <image name="WorkoutsIconSelected" width="37" height="21"/>
+        <image name="WorkoutsIcon" width="75" height="42"/>
+        <image name="WorkoutsIconSelected" width="75" height="42"/>
     </resources>
 </document>
