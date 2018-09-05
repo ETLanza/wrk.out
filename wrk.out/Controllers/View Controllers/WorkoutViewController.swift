@@ -471,7 +471,7 @@ extension WorkoutViewController: LiftsetTableViewCellDelegate {
     
     func liftsetCellButtonTapped(_ sender: LiftsetTableViewCell) {
         if sender.doneButton.titleLabel?.text == "Done" {
-            sender.doneButton.setTitle("Fuck", for: .normal)
+            sender.doneButton.setTitle("√", for: .normal)
             if RestTimerController.shared.restTimer.isEnabled {
                 let restTimeText = timeString(time: RestTimerController.shared.restTimer.length)
                 restTimerLabel.text = restTimeText
