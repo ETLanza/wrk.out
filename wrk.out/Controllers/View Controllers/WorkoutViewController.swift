@@ -19,7 +19,7 @@ class WorkoutViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var popupTableView: UITableView!
     @IBOutlet weak var popupView: UIView!
-
+    
     @IBOutlet weak var workoutDurationLabel: UILabel!
     @IBOutlet weak var currentWorkoutNameLabel: UILabel!
     @IBOutlet weak var previousWorkoutTableView: UITableView!
@@ -77,8 +77,8 @@ class WorkoutViewController: UIViewController {
             else { return }
         
         self.popupViewTopConstraint.constant = tabbarcontroller.tabBar.frame.maxY - navigationController!.navigationBar.frame.maxY - tabbarcontroller.tabBar.frame.height - (popupView.frame.height - popupViewSubView.frame.height)
-      
-      
+        
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
         })
@@ -102,7 +102,7 @@ class WorkoutViewController: UIViewController {
         super.viewDidLoad()
         self.popupViewTopConstraintOriginal = popupViewTopConstraint.constant
         popupViewTopConstraint.constant = tabBarController?.tabBar.frame.maxY ?? 0
-
+        
         guard let user = UserController.shared.loggedInUser else { return }
         WorkoutController.shared.fetchAllWorkoutsFor(user: user) { (success) in
             if success {
@@ -132,7 +132,6 @@ class WorkoutViewController: UIViewController {
         durationTimer?.invalidate()
         DispatchQueue.main.async {
             self.popupViewTopConstraint.constant = self.tabBarController?.tabBar.frame.maxY ?? 0
-//            self.bottomConstraint.constant = -612
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
                 self.workout = nil
