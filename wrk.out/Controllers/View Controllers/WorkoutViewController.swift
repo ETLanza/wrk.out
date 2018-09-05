@@ -230,6 +230,7 @@ class WorkoutViewController: UIViewController {
             restTimer?.invalidate()
             restTimerLabel.isHidden = true
             displayEndRestAlert()
+            RestTimerController.shared.changeRestTimerLength(to: RestTimerController.shared.restTimer.startLength)
         }
     }
     

@@ -21,6 +21,8 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
         numberOfSecondsTextField.text = "\(Int(RestTimerController.shared.restTimer.startLength))"
         if RestTimerController.shared.restTimer.isEnabled {
             restTimerSwitch.isOn = true
+            numberOfSecondsTextField.isHidden = false
+            inSecondsLabel.isHidden = false
         } else {
             restTimerSwitch.isOn = false
         }
@@ -31,6 +33,7 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
         RestTimerController.shared.toggleIsEnabled()
         numberOfSecondsTextField.isHidden = !numberOfSecondsTextField.isHidden
         inSecondsLabel.isHidden = !inSecondsLabel.isHidden
+        UserDefaults.standard.set(RestTimerController.shared.restTimer.isEnabled, forKey: "restTimerIsEnabled")
     }
     
     //MARK: - Helper Functions
@@ -39,6 +42,7 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
             guard let text = textField.text, let textAsInt = Int(text) else { return }
             let textAsTimeInterval = TimeInterval(exactly: textAsInt)
             RestTimerController.shared.changeRestTimerLength(to: textAsTimeInterval!)
+            UserDefaults.standard.set(textAsTimeInterval, forKey: "restTimerLength")
         }
     }
     
