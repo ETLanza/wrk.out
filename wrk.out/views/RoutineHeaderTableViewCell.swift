@@ -12,4 +12,12 @@ class RoutineHeaderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var routineName: UILabel!
     
+    weak var delegate: RoutineHeaderTableViewCellDelegate?
+    @IBAction func ellipsisButtonTapped(_ sender: Any) {
+        delegate?.ellipsisButtonTapped(self)
+    }
+}
+
+protocol RoutineHeaderTableViewCellDelegate: class {
+    func ellipsisButtonTapped(_ sender: RoutineHeaderTableViewCell)
 }

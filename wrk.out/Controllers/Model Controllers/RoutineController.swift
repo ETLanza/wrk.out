@@ -85,15 +85,24 @@ class RoutineController {
             completion(true)
         }
     }
-    func fetchLifts(completion: @escaping (Bool)->Void) {
-        CloudKitManager.shared.fetchRecordsOfType(Keys.RoutineKeys.routineLiftsKey, database: CloudKitManager.shared.privateDatabase) { (records, error) in
+    func fetchLiftsFor(routine: Routine, completion: @escaping (Bool)->Void) {
+        
+        let predicate = NSPredicate(format: "\(Keys.LiftKeys.routineReferenceKey) == %@", routine.ckRecordID)
+        
+        CloudKitManager.shared.fetchRecordsOfType(Keys.LiftKeys.liftTypeKey, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
             if let error = error {
                 print("there was an error fetching the lifts within the routines \(error.localizedDescription)")
                 completion(false)
                 return
             }
-            let lifts = records?.compactMap{ Lift(ckRecord: $0)}
-            RoutineController.shared.routine?.routineLifts = lifts!
+            
+            guard let records = records else {
+                completion(false)
+                return
+            }
+            
+            let lifts = records.compactMap { Lift(ckRecord: $0) }
+            routine.routineLifts = lifts
             completion(true)
         }
     }
