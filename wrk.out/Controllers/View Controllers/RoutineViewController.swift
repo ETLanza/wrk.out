@@ -17,12 +17,14 @@ class RoutineViewController: UIViewController {
         super.viewDidLoad()
         RoutineController.shared.fetchRoutines { (success) in
             if success {
-                RoutineController.shared.fetchLifts(completion: { (success) in
-                    if success {
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
+                RoutineController.shared.routines.forEach({ (routine) in
+                    RoutineController.shared.fetchLiftsFor(routine: routine, completion: { (success) in
+                        if success {
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
                         }
-                    }
+                    })
                 })
             }
         }
@@ -92,7 +94,7 @@ extension RoutineViewController : UITableViewDelegate, UITableViewDataSource {
         let routine = RoutineController.shared.routines[section]
         cell.routineName.text = routine.routineName
         cell.tag = section
-        
+        cell.delegate = self
         return cell
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -147,4 +149,61 @@ extension RoutineViewController : WorkoutExerciseViewControllerDelegate {
             }
         }
     }
+}
+extension RoutineViewController : RoutineHeaderTableViewCellDelegate {
+    func ellipsisButtonTapped(_ sender: RoutineHeaderTableViewCell) {
+        let index = sender.tag
+        displayAlertController(forIndex: index)
+    }
+}
+extension RoutineViewController {
+    func displayAlertController(forIndex index: Int) {
+        let routine = RoutineController.shared.routines[index]
+        let alertController = UIAlertController(title: "What would you like to do?", message: nil, preferredStyle: .actionSheet)
+        let renameRoutineAlert = UIAlertAction(title: "Rename Routine", style: .default) { (_) in
+            self.displayRenameAlertController(routine: routine)
+        }
+        let deleteRoutineAlert = UIAlertAction(title: "Delete Routine", style: .default) { (_) in
+            RoutineController.shared.remove(routine: routine, completion: { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+        }
+        let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(renameRoutineAlert)
+        alertController.addAction(deleteRoutineAlert)
+        alertController.addAction(cancelAlert)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    func displayRenameAlertController(routine: Routine){
+        
+        let alertController = UIAlertController(title: "Rename The Routine", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Rename routine"
+        }
+        let doneAlert = UIAlertAction(title: "Done", style: .default) { (_) in
+            
+            let newName = alertController.textFields?.first?.text ?? ""
+            if newName != "" {
+                RoutineController.shared.modifyRoutine(routine: routine, name: newName, completion: { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            routine.routineName = newName
+                            self.tableView.reloadData()
+                        }
+                    }
+                })
+            }
+        }
+        let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(doneAlert)
+        alertController.addAction(cancelAlert)
+        present(alertController, animated: true)
+    }
+    
 }

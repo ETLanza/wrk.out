@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     //TF Outlets
     @IBOutlet weak var nameTF: UITextField!
@@ -17,6 +17,7 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var heightTF: UITextField!
     @IBOutlet weak var genderTF: UITextField!
     @IBOutlet weak var ProfileImagePopupView: UIImageView!
+    
     
     var user: User?
     var profileImageAsData: Data?
@@ -122,5 +123,19 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nameTF:
+            ageTF.becomeFirstResponder()
+        case ageTF:
+            weightTF.becomeFirstResponder()
+        case heightTF:
+            genderTF.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }

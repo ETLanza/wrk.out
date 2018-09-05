@@ -56,6 +56,15 @@
                                                             <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exe-mD-Mum">
+                                                            <rect key="frame" x="327" y="0.0" width="30" height="43"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                                            <state key="normal" title="..."/>
+                                                            <connections>
+                                                                <action selector="ellipsisButtonTapped:" destination="9Ro-5F-UaK" eventType="touchUpInside" id="hG4-cZ-xbh"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
