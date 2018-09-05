@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let isEnabled = UserDefaults.standard.bool(forKey: "restTimerIsEnabled")
+        let duration = UserDefaults.standard.double(forKey: "restTimerLength")
+        
+//        if isEnabled && duration != nil {
+        RestTimerController.shared.changeRestTimerLength(to: duration)
+        RestTimerController.shared.restTimer.isEnabled = isEnabled
+//        }
+        
         return true
     }
 
