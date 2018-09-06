@@ -53,14 +53,14 @@ class User: Equatable {
     }
     
     init?(ckRecord: CKRecord) {
-        guard let name = ckRecord[Keys.UserKeys.nameTypeKey] as? String,
-            let age = ckRecord[Keys.UserKeys.ageTypeKey] as? Int,
-            let height = ckRecord[Keys.UserKeys.heightTypeKey] as? Double,
-            let weight = ckRecord[Keys.UserKeys.weightTypKey] as? Double,
-            let gender = ckRecord[Keys.UserKeys.genderTypekey] as? String,
-            let appleUserReference = ckRecord[Keys.UserKeys.appleUserReferenceKey] as? CKReference else { return nil }
+        guard let name = ckRecord[Keys.User.name] as? String,
+            let age = ckRecord[Keys.User.age] as? Int,
+            let height = ckRecord[Keys.User.height] as? Double,
+            let weight = ckRecord[Keys.User.weight] as? Double,
+            let gender = ckRecord[Keys.User.gender] as? String,
+            let appleUserReference = ckRecord[Keys.User.appleUserReference] as? CKReference else { return nil }
         
-        let profileImageAsset = ckRecord[Keys.UserKeys.profileImageTypeKey] as? CKAsset
+        let profileImageAsset = ckRecord[Keys.User.profileImage] as? CKAsset
         
         if profileImageAsset != nil {
         let profileImageAssetAsData = try? Data(contentsOf: (profileImageAsset?.fileURL)!)
@@ -86,22 +86,22 @@ class User: Equatable {
 
 extension CKRecord {
     convenience init(user: User) {
-        self.init(recordType: Keys.UserKeys.userTypeKey, recordID: user.ckRecordID)
+        self.init(recordType: Keys.User.type, recordID: user.ckRecordID)
         
         let profileImageAsset = CKAsset(fileURL: user.temporaryPhotoURL)
 
         self.setValue(user.age,
-                      forKey: Keys.UserKeys.ageTypeKey)
+                      forKey: Keys.User.age)
         self.setValue(user.name,
-                      forKey: Keys.UserKeys.nameTypeKey)
+                      forKey: Keys.User.name)
         self.setValue(user.height,
-                      forKey: Keys.UserKeys.heightTypeKey)
+                      forKey: Keys.User.height)
         self.setValue(user.weight,
-                      forKey: Keys.UserKeys.weightTypKey)
+                      forKey: Keys.User.weight)
         self.setValue(user.gender,
-                      forKey: Keys.UserKeys.genderTypekey)
-        self.setValue(profileImageAsset, forKey: Keys.UserKeys.profileImageTypeKey)
-        self.setValue(user.appleUserReference, forKey: Keys.UserKeys.appleUserReferenceKey)
+                      forKey: Keys.User.gender)
+        self.setValue(profileImageAsset, forKey: Keys.User.profileImage)
+        self.setValue(user.appleUserReference, forKey: Keys.User.appleUserReference)
     }
 }
 

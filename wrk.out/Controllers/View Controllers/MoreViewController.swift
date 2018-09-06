@@ -26,6 +26,7 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
         } else {
             restTimerSwitch.isOn = false
         }
+        numberOfSecondsTextField.addDoneButtonOnKeyboard()
     }
     
     //MARK: - IBActions
@@ -46,8 +47,5 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+    
 }

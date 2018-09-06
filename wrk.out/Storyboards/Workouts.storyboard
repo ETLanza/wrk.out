@@ -41,13 +41,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="Ek3-Ww-fzQ">
                                                     <rect key="frame" x="8" y="81" width="398" height="58"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhb-Lc-av5">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhb-Lc-av5">
                                                             <rect key="frame" x="0.0" y="0.0" width="398" height="31"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                                             <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workouts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijz-sJ-xBz">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workouts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijz-sJ-xBz">
                                                             <rect key="frame" x="0.0" y="27" width="398" height="31"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                                             <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,7 +58,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="IGK-EF-xaq">
                                                     <rect key="frame" x="8" y="0.0" width="406" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkn-VO-7cd">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkn-VO-7cd">
                                                             <rect key="frame" x="0.0" y="9.6666666666666643" width="318.66666666666669" height="31"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                                             <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -129,11 +129,11 @@
                                         <rect key="frame" x="0.0" y="116" width="414" height="612"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrE-Cj-ges">
-                                                <rect key="frame" x="0.0" y="48" width="414" height="519"/>
+                                                <rect key="frame" x="0.0" y="48" width="414" height="564"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DIS-yD-ErJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="519"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="523"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <view key="tableFooterView" contentMode="scaleToFill" id="WrR-Yz-ufT">
@@ -141,10 +141,10 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XCZ-TL-VBq">
-                                                                    <rect key="frame" x="8" y="28" width="398" height="84"/>
+                                                                    <rect key="frame" x="8" y="8" width="398" height="104"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB9-ap-cEq">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="398" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="398" height="30.666666666666668"/>
                                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <state key="normal" title="End Workout">
                                                                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,7 +154,7 @@
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-uR-w4b">
-                                                                            <rect key="frame" x="0.0" y="30" width="398" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="36.666666666666664" width="398" height="30.666666666666664"/>
                                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <state key="normal" title="Add Exercise">
                                                                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -164,7 +164,7 @@
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqb-iz-6DO">
-                                                                            <rect key="frame" x="0.0" y="60" width="398" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="73.333333333333329" width="398" height="30.666666666666671"/>
                                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <state key="normal" title="Cancel Workout">
                                                                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -429,7 +429,7 @@
                                                         <rect key="frame" x="295.66666666666669" y="0.0" width="56.333333333333314" height="20.333333333333332"/>
                                                         <subviews>
                                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmI-pn-kQ2">
-                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.333333333333332"/>
+                                                                <rect key="frame" x="-303.66666666666669" y="0.0" width="0.0" height="20.333333333333332"/>
                                                                 <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -537,7 +537,7 @@
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="exerciseTV" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gqY-NN-3oS">
-                                <rect key="frame" x="20.666666666666657" y="73.666666666666686" width="372.66666666666674" height="588.66666666666652"/>
+                                <rect key="frame" x="20.666666666666657" y="122" width="372.66666666666674" height="552"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="mqU-jA-znu">
                                     <rect key="frame" x="0.0" y="0.0" width="372.66666666666674" height="120"/>
@@ -603,11 +603,6 @@
                                     <outlet property="delegate" destination="KUc-Uy-i2F" id="9Xu-JW-sT7"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBd-HQ-JGC">
-                                <rect key="frame" x="0.0" y="646" width="414" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.095178674768518517" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
@@ -616,9 +611,9 @@
                             <constraint firstItem="lAb-gz-VKJ" firstAttribute="trailing" secondItem="G7k-Bm-UVU" secondAttribute="trailing" id="Sp7-Ig-CP5"/>
                             <constraint firstItem="gqY-NN-3oS" firstAttribute="centerX" secondItem="U5Y-sP-nhs" secondAttribute="centerX" id="bQj-qv-JFy"/>
                             <constraint firstItem="gqY-NN-3oS" firstAttribute="width" secondItem="U5Y-sP-nhs" secondAttribute="width" multiplier="0.9" id="gf2-yG-nt9"/>
-                            <constraint firstItem="gqY-NN-3oS" firstAttribute="height" secondItem="U5Y-sP-nhs" secondAttribute="height" multiplier="0.8" id="qJQ-3D-TxA"/>
+                            <constraint firstItem="gqY-NN-3oS" firstAttribute="height" secondItem="U5Y-sP-nhs" secondAttribute="height" multiplier="0.75" id="qJQ-3D-TxA"/>
                             <constraint firstItem="G7k-Bm-UVU" firstAttribute="top" secondItem="lAb-gz-VKJ" secondAttribute="top" id="spF-Qa-CJM"/>
-                            <constraint firstItem="gqY-NN-3oS" firstAttribute="centerY" secondItem="U5Y-sP-nhs" secondAttribute="centerY" id="tHm-Ez-G8F"/>
+                            <constraint firstItem="gqY-NN-3oS" firstAttribute="centerY" secondItem="U5Y-sP-nhs" secondAttribute="centerY" constant="30" id="tHm-Ez-G8F"/>
                             <constraint firstItem="lAb-gz-VKJ" firstAttribute="bottom" secondItem="G7k-Bm-UVU" secondAttribute="bottom" id="ykp-Uf-cfu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lAb-gz-VKJ"/>
@@ -666,7 +661,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WorkoutsIcon" width="75" height="42"/>
-        <image name="WorkoutsIconSelected" width="75" height="42"/>
+        <image name="WorkoutsIcon" width="25" height="14"/>
+        <image name="WorkoutsIconSelected" width="37" height="21"/>
     </resources>
 </document>

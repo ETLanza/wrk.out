@@ -20,10 +20,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSHealthShareUsageDescription</key>
-	<string>Need data for these values in order to accurately calculate calories burned</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Need to write to health kit in order to store your calories burned and weight training workouts</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

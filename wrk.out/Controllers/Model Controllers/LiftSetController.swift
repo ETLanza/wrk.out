@@ -67,9 +67,9 @@ class LiftSetController {
     //MARK: - CloudKit Methods
     func fetchAllLiftsetsFor(lift: Lift, completion: @escaping (Bool)-> Void) {
         
-        let predicate = NSPredicate(format: "\(Keys.LiftsetKeys.liftReference) == %@", lift.ckRecordID)
+        let predicate = NSPredicate(format: "\(Keys.Liftset.liftReference) == %@", lift.ckRecordID)
         
-        CloudKitManager.shared.fetchRecordsOfType(Keys.LiftsetKeys.liftsetTypeKey, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
+        CloudKitManager.shared.fetchRecordsOfType(Keys.Liftset.type, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
             if let error = error {
                 NSLog("Error Fetching LiftSets for %@ from CloudKit: %@", [lift.name, error.localizedDescription])
                 completion(false)

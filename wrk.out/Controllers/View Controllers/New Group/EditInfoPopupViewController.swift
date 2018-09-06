@@ -18,7 +18,6 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var genderTF: UITextField!
     @IBOutlet weak var ProfileImagePopupView: UIImageView!
     
-    
     var user: User?
     var profileImageAsData: Data?
     //popup outlets
@@ -131,6 +130,8 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
             ageTF.becomeFirstResponder()
         case ageTF:
             weightTF.becomeFirstResponder()
+        case weightTF:
+            heightTF.becomeFirstResponder()
         case heightTF:
             genderTF.becomeFirstResponder()
         default:

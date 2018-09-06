@@ -6,7 +6,7 @@
 //  Copyright © 2018 ETLanza. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class UserController {
@@ -31,7 +31,8 @@ class UserController {
             guard let recordID = recordID else { completion(false); return }
             
             let reference = CKReference(recordID: recordID, action: .deleteSelf)
-            let newUser = User(name: name, age: age, height: height, weight: weight, gender: gender, profileImageAsData: profileImageAsData, appleUserReference: reference)
+            let imageData = profileImageAsData ?? UIImagePNGRepresentation(#imageLiteral(resourceName: "ProfileIcon"))
+            let newUser = User(name: name, age: age, height: height, weight: weight, gender: gender, profileImageAsData: imageData, appleUserReference: reference)
             self.saveUserToCloudKit(user: newUser)
             self.loggedInUser = newUser
             completion(true)
@@ -77,7 +78,7 @@ class UserController {
             guard let recordID = recordID else { completion(false); return }
             
             let predicate = NSPredicate(format: "appleUserReference == %@", recordID)
-            let query = CKQuery(recordType: Keys.UserKeys.userTypeKey, predicate: predicate)
+            let query = CKQuery(recordType: Keys.User.type, predicate: predicate)
             
             self.privateDB.perform(query, inZoneWith: nil, completionHandler: { (records, error) in
                 if let error = error {
@@ -87,10 +88,7 @@ class UserController {
                 
                 guard let records = records,
                     let record = records.first else { completion(false); return }
-                //                    let recordsToDelete = records.compactMap{ $0.recordID }
-                //                    let delete = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: recordsToDelete )
-                //                    self.privateDB.add(delete)
-                
+         
                 let user = User(ckRecord: record)
                 
                 self.loggedInUser = user
