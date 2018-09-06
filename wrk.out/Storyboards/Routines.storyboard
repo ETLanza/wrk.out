@@ -21,11 +21,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2v-ff-PSk">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tby-P8-zgK">
-                                        <rect key="frame" x="0.0" y="124" width="414" height="565"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="0.0" y="116" width="414" height="573"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableHeaderView" contentMode="scaleToFill" id="XYH-q3-N4R">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -44,7 +44,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCZ-4H-4yj">
-                                                    <rect key="frame" x="311" y="-8" width="46" height="83"/>
+                                                    <rect key="frame" x="347" y="-5" width="46" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                     <state key="normal" title="+"/>
@@ -63,31 +63,22 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="il7-0n-LJr">
-                                                            <rect key="frame" x="20" y="11" width="374" height="28"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(routine name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsf-a6-fpg">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="28"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                                    <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3W-rI-glZ">
-                                                                    <rect key="frame" x="344" y="0.0" width="30" height="28"/>
-                                                                    <state key="normal" title="•••"/>
-                                                                    <connections>
-                                                                        <action selector="ellipsisButtonTapped:" destination="9Ro-5F-UaK" eventType="touchUpInside" id="qJJ-fz-1QO"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(routine name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsf-a6-fpg">
+                                                            <rect key="frame" x="20" y="0.0" width="280" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3W-rI-glZ">
+                                                            <rect key="frame" x="360" y="11" width="34" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="•••"/>
+                                                            <connections>
+                                                                <action selector="ellipsisButtonTapped:" destination="9Ro-5F-UaK" eventType="touchUpInside" id="qJJ-fz-1QO"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="il7-0n-LJr" firstAttribute="top" secondItem="DxF-0b-GXD" secondAttribute="topMargin" id="3Ua-6g-1Z6"/>
-                                                        <constraint firstItem="il7-0n-LJr" firstAttribute="leading" secondItem="DxF-0b-GXD" secondAttribute="leadingMargin" id="VcL-6u-bSE"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="il7-0n-LJr" secondAttribute="trailing" id="fgc-cT-goi"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="il7-0n-LJr" secondAttribute="bottom" id="m3F-j0-lIF"/>
-                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.17647058823529413" green="0.17647058823529413" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -105,12 +96,12 @@
                                                             <rect key="frame" x="20" y="0.0" width="374" height="35.666666666666664"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                             <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.59999999999999998"/>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.17647058823529413" green="0.17647058823529413" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
