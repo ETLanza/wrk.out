@@ -91,6 +91,7 @@ extension RoutineViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "routineHeaderCell") as? RoutineHeaderTableViewCell else { return UITableViewCell() }
+        
         let routine = RoutineController.shared.routines[section]
         cell.routineName.text = routine.routineName
         cell.tag = section
@@ -107,16 +108,16 @@ extension RoutineViewController : UITableViewDelegate, UITableViewDataSource {
     
     // Height for footer/header
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 40
+        return 52
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40
+        return 52
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 50
     }
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 50
     }
 }
 extension RoutineViewController : AddRoutineExerciseTableViewCellDelegate {

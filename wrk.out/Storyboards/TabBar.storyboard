@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6kQ-ST-gye">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6kQ-ST-gye">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="-2243" y="1215"/>
         </scene>
-        <!--routines-->
+        <!--Routines-->
         <scene sceneID="akI-kd-KLa">
             <objects>
-                <viewControllerPlaceholder storyboardName="routines" id="Wb2-nh-mb2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Routines" id="Wb2-nh-mb2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="pms-HP-cb2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dtb-j7-fWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="-945" y="1695"/>
         </scene>
-        <!--more-->
+        <!--More-->
         <scene sceneID="RKa-6Z-xJN">
             <objects>
-                <viewControllerPlaceholder storyboardName="more" id="KCT-ku-BSf" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="More" id="KCT-ku-BSf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="spz-3u-lOF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhb-Nq-8nz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,6 +122,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchScreenimage" width="1302" height="843"/>
+        <image name="launchScreenimage" width="434" height="281"/>
     </resources>
 </document>

@@ -23,8 +23,8 @@ class Routine {
     }
     
     convenience init?(ckRecord: CKRecord) {
-        guard let routineName = ckRecord[Keys.RoutineKeys.routineNameKey] as? String,
-            let userReference = ckRecord[Keys.RoutineKeys.userReferenceKey] as? CKReference
+        guard let routineName = ckRecord[Keys.Routine.routineName] as? String,
+            let userReference = ckRecord[Keys.Routine.userReference] as? CKReference
             else { return nil }
         
         self.init(routineName: routineName, userReference: userReference)
@@ -34,9 +34,9 @@ class Routine {
 
 extension CKRecord {
     convenience init(routine: Routine) {
-        self.init(recordType: Keys.RoutineKeys.routineTypeKey, recordID: routine.ckRecordID)
-        self.setValue(routine.routineName, forKey: Keys.RoutineKeys.routineNameKey)
-        self.setValue(routine.userReference, forKey: Keys.RoutineKeys.userReferenceKey)
+        self.init(recordType: Keys.Routine.type, recordID: routine.ckRecordID)
+        self.setValue(routine.routineName, forKey: Keys.Routine.routineName)
+        self.setValue(routine.userReference, forKey: Keys.Routine.userReference)
     }
 }
 

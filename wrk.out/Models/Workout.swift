@@ -27,10 +27,10 @@ class Workout: Equatable {
     }
     
     convenience init?(ckRecord: CKRecord) {
-        guard let name = ckRecord[Keys.WorkoutKeys.nameKey] as? String ,
-        let duration = ckRecord[Keys.WorkoutKeys.durationKey] as? TimeInterval,
-        let note = ckRecord[Keys.WorkoutKeys.noteKey] as? String,
-        let userReference = ckRecord[Keys.WorkoutKeys.userReferenceKey] as? CKReference
+        guard let name = ckRecord[Keys.Workout.name] as? String ,
+        let duration = ckRecord[Keys.Workout.duration] as? TimeInterval,
+        let note = ckRecord[Keys.Workout.note] as? String,
+        let userReference = ckRecord[Keys.Workout.userReference] as? CKReference
         else { return nil }
         self.init(name: name, userReference: userReference)
         self.ckRecordID = ckRecord.recordID
@@ -46,10 +46,10 @@ class Workout: Equatable {
 
 extension CKRecord {
     convenience init(workout: Workout) {
-        self.init(recordType: Keys.WorkoutKeys.workoutTypeKey, recordID: workout.ckRecordID)
-        self.setValue(workout.name, forKey: Keys.WorkoutKeys.nameKey)
-        self.setValue(workout.duration, forKey: Keys.WorkoutKeys.durationKey)
-        self.setValue(workout.note, forKey: Keys.WorkoutKeys.noteKey)
-        self.setValue(workout.userReference, forKey: Keys.WorkoutKeys.userReferenceKey)
+        self.init(recordType: Keys.Workout.type, recordID: workout.ckRecordID)
+        self.setValue(workout.name, forKey: Keys.Workout.name)
+        self.setValue(workout.duration, forKey: Keys.Workout.duration)
+        self.setValue(workout.note, forKey: Keys.Workout.note)
+        self.setValue(workout.userReference, forKey: Keys.Workout.userReference)
     }
 }

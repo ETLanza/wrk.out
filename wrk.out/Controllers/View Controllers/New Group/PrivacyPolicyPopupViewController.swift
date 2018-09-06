@@ -8,7 +8,7 @@
 
 import UIKit
 
-class privacyPolicyPopupViewController: UIViewController {
+class PrivacyPolicyPopupViewController: UIViewController {
     
     
     @IBOutlet weak var exitButton: UIButton!

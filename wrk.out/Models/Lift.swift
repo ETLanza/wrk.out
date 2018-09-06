@@ -27,9 +27,9 @@ class Lift: Equatable {
     }
     
     convenience init?(ckRecord: CKRecord) {
-        guard let name = ckRecord[Keys.LiftKeys.nameKey] as? String else { return nil }
-        let workoutReference = ckRecord[Keys.LiftKeys.workoutReferenceKey] as? CKReference
-        let routineReference = ckRecord[Keys.LiftKeys.routineReferenceKey] as? CKReference
+        guard let name = ckRecord[Keys.Lift.name] as? String else { return nil }
+        let workoutReference = ckRecord[Keys.Lift.workoutReference] as? CKReference
+        let routineReference = ckRecord[Keys.Lift.routineReference] as? CKReference
         self.init(name: name, workoutReference: workoutReference, routineReference: routineReference)
         self.liftsets = []
         self.ckRecordID = ckRecord.recordID
@@ -44,9 +44,9 @@ class Lift: Equatable {
 //MARK: - CKRecord Init for Lift
 extension CKRecord {
     convenience init(lift: Lift) {
-        self.init(recordType: Keys.LiftKeys.liftTypeKey, recordID: lift.ckRecordID)
-        self.setValue(lift.name, forKey: Keys.LiftKeys.nameKey)
-        self.setValue(lift.workoutReference, forKey: Keys.LiftKeys.workoutReferenceKey)
-        self.setValue(lift.routineReference, forKey: Keys.LiftKeys.routineReferenceKey)
+        self.init(recordType: Keys.Lift.type, recordID: lift.ckRecordID)
+        self.setValue(lift.name, forKey: Keys.Lift.name)
+        self.setValue(lift.workoutReference, forKey: Keys.Lift.workoutReference)
+        self.setValue(lift.routineReference, forKey: Keys.Lift.routineReference)
     }
 }

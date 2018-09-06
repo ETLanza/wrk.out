@@ -74,7 +74,7 @@ class RoutineController {
         }
     }
     func fetchRoutines(completion: @escaping (Bool)->Void){
-        CloudKitManager.shared.fetchRecordsOfType(Keys.RoutineKeys.routineTypeKey, database: CloudKitManager.shared.privateDatabase) { (records, error) in
+        CloudKitManager.shared.fetchRecordsOfType(Keys.Routine.type, database: CloudKitManager.shared.privateDatabase) { (records, error) in
             if let error = error {
                 print("There was an error fetching routines \(error.localizedDescription)")
                 completion(false)
@@ -87,9 +87,9 @@ class RoutineController {
     }
     func fetchLiftsFor(routine: Routine, completion: @escaping (Bool)->Void) {
         
-        let predicate = NSPredicate(format: "\(Keys.LiftKeys.routineReferenceKey) == %@", routine.ckRecordID)
+        let predicate = NSPredicate(format: "\(Keys.Lift.routineReference) == %@", routine.ckRecordID)
         
-        CloudKitManager.shared.fetchRecordsOfType(Keys.LiftKeys.liftTypeKey, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
+        CloudKitManager.shared.fetchRecordsOfType(Keys.Lift.type, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
             if let error = error {
                 print("there was an error fetching the lifts within the routines \(error.localizedDescription)")
                 completion(false)
