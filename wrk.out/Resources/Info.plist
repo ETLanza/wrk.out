@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Wrk.out uses camera access to allow you to take a picture for your profile picture.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Wrk.out uses your photo library to allow you to set yourprofile picture.</string>
 </dict>
 </plist>
