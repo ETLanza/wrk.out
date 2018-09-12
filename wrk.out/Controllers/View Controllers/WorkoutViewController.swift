@@ -25,10 +25,8 @@ class WorkoutViewController: UIViewController {
     @IBOutlet weak var previousWorkoutTableView: UITableView!
     @IBOutlet weak var restTimerLabel: UILabel!
 
-    @IBOutlet weak var popupViewTopConstraint: NSLayoutConstraint!
-    var popupViewTopConstraintOriginal: CGFloat?
-    @IBOutlet weak var drawerHeaderStackView: UIStackView!
-    @IBOutlet weak var popupViewSubView: UIView!
+    @IBOutlet weak var popupViewOpenedConstraint: NSLayoutConstraint!
+    @IBOutlet weak var popupViewMinimizedConstraint: NSLayoutConstraint!
 
     // MARK: - IBActions
     @IBAction func newWorkoutButtonTapped(_ sender: Any) {
@@ -45,7 +43,7 @@ class WorkoutViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.durationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
                         self.workoutDurationLabel.text = "0"
-                        self.popupViewTopConstraint.constant = 0
+                        self.popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 999)
                         self.currentWorkoutNameLabel.text = workout.name
                         UIView.animate(withDuration: 0.3, animations: {
                             self.view.layoutIfNeeded()
@@ -62,7 +60,8 @@ class WorkoutViewController: UIViewController {
     }
 
     @IBAction func popupSwipedUp(_ sender: Any) {
-        popupViewTopConstraint.constant = 0
+        popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 999)
+        popupViewMinimizedConstraint.priority = UILayoutPriority(rawValue: 1)
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
 
@@ -70,10 +69,11 @@ class WorkoutViewController: UIViewController {
     }
 
     @IBAction func popupSwippedDown(_ sender: Any) {
-        guard let tabbarcontroller = tabBarController
-            else { return }
-
-        self.popupViewTopConstraint.constant = tabbarcontroller.tabBar.frame.maxY - navigationController!.navigationBar.frame.maxY - tabbarcontroller.tabBar.frame.height - (popupView.frame.height - popupViewSubView.frame.height)
+//        guard let tabbarcontroller = tabBarController
+//            else { return }
+        popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 1)
+        popupViewMinimizedConstraint.priority = UILayoutPriority(rawValue: 999)
+//        self.popupViewOpenedContraint.constant = tabbarcontroller.tabBar.frame.maxY - navigationController!.navigationBar.frame.maxY - tabbarcontroller.tabBar.frame.height - (popupView.frame.height - popupViewSubView.frame.height)
 
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
@@ -96,9 +96,7 @@ class WorkoutViewController: UIViewController {
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.popupViewTopConstraintOriginal = popupViewTopConstraint.constant
-        popupViewTopConstraint.constant = tabBarController?.tabBar.frame.maxY ?? 0
-
+        popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 800)
         guard let user = UserController.shared.loggedInUser else { return }
         WorkoutController.shared.fetchAllWorkoutsFor(user: user) { (success) in
             if success {
@@ -127,7 +125,8 @@ class WorkoutViewController: UIViewController {
     func endWorkout() {
         durationTimer?.invalidate()
         DispatchQueue.main.async {
-            self.popupViewTopConstraint.constant = self.tabBarController?.tabBar.frame.maxY ?? 0
+            self.popupViewMinimizedConstraint.priority = UILayoutPriority(rawValue: 1)
+            self.popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 2)
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
                 self.workout = nil
