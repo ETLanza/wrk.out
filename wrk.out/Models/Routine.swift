@@ -21,12 +21,12 @@ class Routine {
         self.userReference = userReference
         self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
-    
+
     convenience init?(ckRecord: CKRecord) {
         guard let routineName = ckRecord[Keys.Routine.routineName] as? String,
             let userReference = ckRecord[Keys.Routine.userReference] as? CKReference
             else { return nil }
-        
+
         self.init(routineName: routineName, userReference: userReference)
         self.ckRecordID = ckRecord.recordID
     }

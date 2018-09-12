@@ -8,14 +8,14 @@
 import UIKit
 
 class ExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     var results: Exercise?
     var category: Category?
     var filtered: [Exercise] = []
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath)
         if filtered.isEmpty == true {
@@ -29,7 +29,7 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
         }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filtered.isEmpty == true {
             return SearchController.shared.excercises.count
@@ -37,11 +37,11 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
             return filtered.count
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow {
@@ -59,11 +59,11 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
     }
 }
 
-extension ExerciseViewController : UISearchBarDelegate {
+extension ExerciseViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("cancel")
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let searchTerm = searchBar.text else { return }
         if searchTerm.isEmpty {
@@ -71,9 +71,9 @@ extension ExerciseViewController : UISearchBarDelegate {
             tableView.reloadData()
         } else {
             let exercises = SearchController.shared.excercises
-            let filteredCategory = exercises.filter{$0.category.name.contains(searchTerm)}
-            let filteredString = exercises.filter{$0.name.contains(searchTerm)}
-            
+            let filteredCategory = exercises.filter {$0.category.name.contains(searchTerm)}
+            let filteredString = exercises.filter {$0.name.contains(searchTerm)}
+
             filtered = filteredCategory + filteredString
             tableView.reloadData()
             print(filtered)

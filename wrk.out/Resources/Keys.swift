@@ -18,7 +18,7 @@ struct Keys {
         static let ckRecordID = "ckRecordID"
         static let userReference = "userReference"
     }
-    
+
     struct Lift {
         static let type = "Lift"
         static let name = "name"
@@ -27,7 +27,7 @@ struct Keys {
         static let workoutReference = "workoutReference"
         static let routineReference = "routineReference"
     }
-    
+
     struct Liftset {
         static let type = "LiftSet"
         static let weight = "weight"
@@ -35,14 +35,14 @@ struct Keys {
         static let ckRecordID = "ckRecordID"
         static let liftReference = "liftReference"
     }
-    
+
     struct CloudKit {
         static let creatorUserRecordID = "creatorUserRecordID"
         static let lastModifiedUserRecordID = "creatorUserRecordID"
         static let creationDate = "creationDate"
         static let modificationDate = "modificationDate"
     }
-    
+
     struct User {
         static let type = "User"
         static let name = "name"
@@ -53,7 +53,7 @@ struct Keys {
         static let profileImage = "profileImage"
         static let appleUserReference = "appleUserReference"
     }
-    
+
     struct Routine {
         static let routineName = "routineName"
         static let ckRecordID = "ckRecordID"

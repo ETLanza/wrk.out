@@ -16,10 +16,10 @@ struct Exercise: Decodable {
     var name: String
     let description: String
     var category: Category
-    
+
 }
 
 struct Category: Decodable {
     var name: String
-    
+
 }

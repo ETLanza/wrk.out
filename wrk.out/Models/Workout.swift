@@ -17,7 +17,7 @@ class Workout: Equatable {
     var note: String
     var ckRecordID: CKRecordID
     var userReference: CKReference
-    
+
     init(name: String, userReference: CKReference) {
         self.name = name
         self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
@@ -25,7 +25,7 @@ class Workout: Equatable {
         self.note = ""
         self.userReference = userReference
     }
-    
+
     convenience init?(ckRecord: CKRecord) {
         guard let name = ckRecord[Keys.Workout.name] as? String ,
         let duration = ckRecord[Keys.Workout.duration] as? TimeInterval,
@@ -37,8 +37,8 @@ class Workout: Equatable {
         self.duration = duration
         self.note = note
     }
-    
-    //MARK: - Equatable
+
+    // MARK: - Equatable
     static func == (lhs: Workout, rhs: Workout) -> Bool {
         return lhs.ckRecordID == rhs.ckRecordID
     }

@@ -9,9 +9,9 @@
 import UIKit
 
 class RoutineHeaderTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var routineName: UILabel!
-    
+
     weak var delegate: RoutineHeaderTableViewCellDelegate?
     @IBAction func ellipsisButtonTapped(_ sender: Any) {
         delegate?.ellipsisButtonTapped(self)

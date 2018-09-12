@@ -9,7 +9,7 @@
 import UIKit
 
 class HeaderTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var workoutNameTextField: UITextField!
     @IBOutlet weak var workoutDurationLabel: UILabel!
 }
