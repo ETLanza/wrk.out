@@ -16,6 +16,8 @@ class LiftsetTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         weightTextField.delegate = self
         repTextField.delegate = self
+        doneButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        liftNameCell.adjustsFontSizeToFitWidth = true
     }
 
     @IBOutlet weak var setNumberLabel: UILabel!
