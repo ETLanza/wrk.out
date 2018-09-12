@@ -9,13 +9,13 @@
 import UIKit
 
 class MoreViewController: UIViewController, UITextFieldDelegate {
-   
-    //MARK: - IBOutlets
+
+    // MARK: - IBOutlets
     @IBOutlet weak var restTimerSwitch: UISwitch!
     @IBOutlet weak var numberOfSecondsTextField: UITextField!
     @IBOutlet weak var inSecondsLabel: UILabel!
-    
-    //MARK: - Life Cycle Methods
+
+    // MARK: - Life Cycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         numberOfSecondsTextField.text = "\(Int(RestTimerController.shared.restTimer.startLength))"
@@ -28,16 +28,16 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
         }
         numberOfSecondsTextField.addDoneButtonOnKeyboard()
     }
-    
-    //MARK: - IBActions
+
+    // MARK: - IBActions
     @IBAction func restTimerSwitchedON(_ sender: Any) {
         RestTimerController.shared.toggleIsEnabled()
         numberOfSecondsTextField.isHidden = !numberOfSecondsTextField.isHidden
         inSecondsLabel.isHidden = !inSecondsLabel.isHidden
         UserDefaults.standard.set(RestTimerController.shared.restTimer.isEnabled, forKey: "restTimerIsEnabled")
     }
-    
-    //MARK: - Helper Functions
+
+    // MARK: - Helper Functions
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == numberOfSecondsTextField {
             guard let text = textField.text, let textAsInt = Int(text) else { return }
@@ -46,6 +46,5 @@ class MoreViewController: UIViewController, UITextFieldDelegate {
             UserDefaults.standard.set(textAsTimeInterval, forKey: "restTimerLength")
         }
     }
-    
-    
+
 }

@@ -10,45 +10,45 @@ import Foundation
 import CloudKit
 
 class RoutineController {
-    
+
     static let shared = RoutineController()
-    
+
     var routines: [Routine] = []
     var routine: Routine?
-    
+
     func createRoutine(name: String, completion: @escaping (Routine?) -> Void) {
         guard let user = UserController.shared.loggedInUser else { return }
-        let userReference = CKReference(recordID: user.ckRecordID, action:.deleteSelf)
+        let userReference = CKReference(recordID: user.ckRecordID, action: .deleteSelf)
         let newRoutine = Routine(routineName: name, userReference: userReference)
         let routineAsRecord = CKRecord(routine: newRoutine)
-        
+
         CloudKitManager.shared.saveRecord(routineAsRecord, database: CloudKitManager.shared.privateDatabase) { (record, error) in
             if let error = error {
                 print("error saving routine as record to cloudkit \(error.localizedDescription)")
                 completion(nil)
                 return
             }
-            
+
             guard let record = record,
                 let routineFromRecord = Routine(ckRecord: record) else {
                     print("there was an error creating routine from CKRecord \(name)")
                     completion(nil)
                     return
             }
-            
+
             self.routines.append(routineFromRecord)
             completion(routineFromRecord)
         }
     }
-    
-    func remove(routine: Routine, completion: @escaping (Bool)->Void) {
+
+    func remove(routine: Routine, completion: @escaping (Bool) -> Void) {
         CloudKitManager.shared.deleteRecordWithID(routine.ckRecordID, database: CloudKitManager.shared.privateDatabase) { (recordID, error) in
             if let error = error {
                 print("there was an error deleting the routine from cloudkit, \(error.localizedDescription)")
                 completion(false)
                 return
             }
-            
+
             if let _ = recordID {
                 guard let index = self.routines.index(of: routine) else {
                     print("There was an error finding local index of routine")
@@ -60,8 +60,8 @@ class RoutineController {
             }
         }
     }
-    
-    func modifyRoutine(routine: Routine, name: String, completion: @escaping (Bool)-> Void) {
+
+    func modifyRoutine(routine: Routine, name: String, completion: @escaping (Bool) -> Void) {
         routine.routineName = name
         let routineRecord = CKRecord(routine: routine)
         CloudKitManager.shared.modifyRecords([routineRecord], database: CloudKitManager.shared.privateDatabase, perRecordCompletion: nil) { (_, error) in
@@ -73,41 +73,41 @@ class RoutineController {
             completion(true)
         }
     }
-    func fetchRoutines(completion: @escaping (Bool)->Void){
+    func fetchRoutines(completion: @escaping (Bool) -> Void) {
         CloudKitManager.shared.fetchRecordsOfType(Keys.Routine.type, database: CloudKitManager.shared.privateDatabase) { (records, error) in
             if let error = error {
                 print("There was an error fetching routines \(error.localizedDescription)")
                 completion(false)
                 return
             }
-            let routines = records?.compactMap{ Routine(ckRecord: $0) }
+            let routines = records?.compactMap { Routine(ckRecord: $0) }
             RoutineController.shared.routines = routines!
             completion(true)
         }
     }
-    func fetchLiftsFor(routine: Routine, completion: @escaping (Bool)->Void) {
-        
+    func fetchLiftsFor(routine: Routine, completion: @escaping (Bool) -> Void) {
+
         let predicate = NSPredicate(format: "\(Keys.Lift.routineReference) == %@", routine.ckRecordID)
-        
+
         CloudKitManager.shared.fetchRecordsOfType(Keys.Lift.type, predicate: predicate, database: CloudKitManager.shared.privateDatabase, sortDescriptors: nil) { (records, error) in
             if let error = error {
                 print("there was an error fetching the lifts within the routines \(error.localizedDescription)")
                 completion(false)
                 return
             }
-            
+
             guard let records = records else {
                 completion(false)
                 return
             }
-            
+
             let lifts = records.compactMap { Lift(ckRecord: $0) }
             routine.routineLifts = lifts
             completion(true)
         }
     }
-    
-    func createLift(name: String, routine: Routine, completion: @escaping (Bool)->Void) {
+
+    func createLift(name: String, routine: Routine, completion: @escaping (Bool) -> Void) {
         let routineReference = CKReference(recordID: routine.ckRecordID, action: .deleteSelf)
         let newLift = Lift(name: name, workoutReference: nil, routineReference: routineReference)
         let ckRecord = CKRecord(lift: newLift)
@@ -127,8 +127,8 @@ class RoutineController {
             completion(true)
         }
     }
-    
-    func deleteLift(lift: Lift, routine: Routine, completion: @escaping (Bool)->Void) {
+
+    func deleteLift(lift: Lift, routine: Routine, completion: @escaping (Bool) -> Void) {
         CloudKitManager.shared.deleteRecordWithID(lift.ckRecordID, database: CloudKitManager.shared.privateDatabase) { (recordID, error) in
             if let error = error {
                 print("there was an error deleting the lift with \(lift.ckRecordID) \(error.localizedDescription)")
@@ -145,7 +145,7 @@ class RoutineController {
             }
         }
     }
-    func modifyLiftInRoutine(lift: Lift, routine: Routine, name: String, completion: @escaping (Bool)->Void) {
+    func modifyLiftInRoutine(lift: Lift, routine: Routine, name: String, completion: @escaping (Bool) -> Void) {
         lift.name = name
         let liftRecord = CKRecord(lift: lift)
         CloudKitManager.shared.saveRecord(liftRecord, database: CloudKitManager.shared.privateDatabase) { (_, error) in
@@ -157,8 +157,8 @@ class RoutineController {
             completion(true)
         }
     }
-    
-    func addLiftSetToRoutine(lift: Lift, routine: Routine, weight: Double, reps: Int, completion: @escaping (Bool)->Void) {
+
+    func addLiftSetToRoutine(lift: Lift, routine: Routine, weight: Double, reps: Int, completion: @escaping (Bool) -> Void) {
         let liftReference = CKReference(recordID: lift.ckRecordID, action: .deleteSelf)
         let newLiftSet = LiftSet(weight: weight, reps: reps, liftReference: liftReference)
         let ckRecord = CKRecord(liftset: newLiftSet)
@@ -177,8 +177,8 @@ class RoutineController {
             completion(true)
         }
     }
-    func deleteLiftSetFrom(routine: Routine, lift: Lift, liftset: LiftSet, completion: @escaping (Bool)->Void) {
-        CloudKitManager.shared.deleteRecordWithID(liftset.ckRecordID , database: CloudKitManager.shared.privateDatabase) { (recordID, error) in
+    func deleteLiftSetFrom(routine: Routine, lift: Lift, liftset: LiftSet, completion: @escaping (Bool) -> Void) {
+        CloudKitManager.shared.deleteRecordWithID(liftset.ckRecordID, database: CloudKitManager.shared.privateDatabase) { (recordID, error) in
             if let error = error {
                 print("there was an error deleting the liftSet within the routine from cloudkit \(error.localizedDescription)")
                 completion(false)
@@ -195,7 +195,7 @@ class RoutineController {
             }
         }
     }
-    func modifyLiftSetIn(routine: Routine, lift: Lift, liftSet: LiftSet, weight: Double, reps: Int, completion: @escaping (Bool)->Void) {
+    func modifyLiftSetIn(routine: Routine, lift: Lift, liftSet: LiftSet, weight: Double, reps: Int, completion: @escaping (Bool) -> Void) {
         liftSet.reps = reps
         liftSet.weight = weight
         let LiftSetRecord = CKRecord(liftset: liftSet)

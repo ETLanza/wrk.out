@@ -11,39 +11,39 @@ import HealthKit
 class HealthKitSetup {
     static let shared = HealthKitSetup()
     // call this function when a user connects an apple watch
-   
-    func authorizeHealthKit(completion: @escaping (Bool)->Void) {
+
+    func authorizeHealthKit(completion: @escaping (Bool) -> Void) {
         // if this device is capable of using healthkit...
         if HKHealthStore.isHealthDataAvailable() {
-            
+
 //            let healthStore = HealthKitModels.healthStore
-            
+
             // This data is solely for computing calories burned as accurately as possible
             let allTypesToRead = Set([
-                
+
                 HKObjectType.workoutType(),
                 HKObjectType.characteristicType(forIdentifier: .biologicalSex)!,
                 HKObjectType.characteristicType(forIdentifier: .dateOfBirth)!,
                 HKObjectType.quantityType(forIdentifier: .bodyMass)!,
                 HKObjectType.quantityType(forIdentifier: .heartRate)!
-                
+
                 ])
-            
+
             // workout activity type will be HKWorkoutActivityType.functionalStrengthTraining :D
             // need to write and read the heartRate in order to calculate calories burned
             let allTypesToWrite = Set([
-                
+
                 HKObjectType.workoutType(),
                 HKObjectType.quantityType(forIdentifier: .heartRate)!,
                 HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!
-                
+
                 ])
-            
+
             HealthKitModels.healthStore.requestAuthorization(toShare: allTypesToWrite, read: allTypesToRead) { (success, error) in
                 if let error = error {
                     print("Access denied, restricted, or error due to \(error.localizedDescription)")
                     completion (false) ; return
-                    
+
                 }
                 if success {
                    completion(true)

@@ -9,14 +9,12 @@
 import UIKit
 
 class PrivacyPolicyPopupViewController: UIViewController {
-    
-    
+
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var popupView: UIView!
-    
+
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
-    
-  
+
 }

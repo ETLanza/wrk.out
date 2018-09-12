@@ -9,9 +9,9 @@
 import UIKit
 
 class LiftHeaderTableViewCell: UITableViewCell {
-    
+
     weak var delegate: LiftHeaderTableViewCellDelegate?
-    
+
     @IBAction func moreButtonPressed(_ sender: UIButton) {
         delegate?.moreButtonPressed(self)
     }

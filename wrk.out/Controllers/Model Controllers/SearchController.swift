@@ -8,17 +8,16 @@
 
 import Foundation
 class SearchController {
-    
+
     var excercises: [Exercise] = []
     var categories: [Category] = []
-    
+
     static let shared = SearchController()
-    
+
     static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?format=json")
-    
-    
+
     //  static let baseURL = URL(string: "https://wger.de/api/v2/exerciseinfo/?format=json&language=2&status=2")
-    
+
     static func getWorkouts (completion: @escaping ([Exercise]?) -> Void) {
         var pageNumber: Int = 1
         while pageNumber < 11 {
@@ -29,12 +28,12 @@ class SearchController {
             let statusQuery = URLQueryItem(name: "status", value: "2")
             components?.queryItems = [languageQuery, pageQuery, statusQuery]
             guard let dataTaskURL = components?.url else { completion(nil) ; return }
-            
+
             var request = URLRequest(url: dataTaskURL)
-            
+
             request.httpBody = nil
             request.httpMethod = "GET"
-            
+
             let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
                 if let error = error {
                     print("there was an error handling the dataTask \(error.localizedDescription)")
@@ -54,8 +53,8 @@ class SearchController {
             dataTask.resume()
         }
     }
-    
+
     static func getWorkoutImagesMaybe() {
-        
+
     }
 }

@@ -10,22 +10,22 @@ import Foundation
 import CloudKit
 
 class Lift: Equatable {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     var name: String
     var liftsets: [LiftSet] = []
     var ckRecordID: CKRecordID
     var workoutReference: CKReference?
     var routineReference: CKReference?
-    
-    //MARK: - Initilizers
+
+    // MARK: - Initilizers
     init(name: String, workoutReference: CKReference?, routineReference: CKReference?) {
         self.name = name
         self.workoutReference = workoutReference
         self.routineReference = routineReference
         self.ckRecordID = CKRecordID(recordName: UUID().uuidString)
     }
-    
+
     convenience init?(ckRecord: CKRecord) {
         guard let name = ckRecord[Keys.Lift.name] as? String else { return nil }
         let workoutReference = ckRecord[Keys.Lift.workoutReference] as? CKReference
@@ -34,14 +34,14 @@ class Lift: Equatable {
         self.liftsets = []
         self.ckRecordID = ckRecord.recordID
     }
-    
-    //MARK: - Equatable
+
+    // MARK: - Equatable
     static func == (lhs: Lift, rhs: Lift) -> Bool {
         return lhs.ckRecordID == rhs.ckRecordID
     }
 }
 
-//MARK: - CKRecord Init for Lift
+// MARK: - CKRecord Init for Lift
 extension CKRecord {
     convenience init(lift: Lift) {
         self.init(recordType: Keys.Lift.type, recordID: lift.ckRecordID)

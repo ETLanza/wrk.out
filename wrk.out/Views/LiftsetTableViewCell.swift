@@ -9,21 +9,21 @@
 import UIKit
 
 class LiftsetTableViewCell: UITableViewCell {
-    
+
     var liftset: LiftSet?
     weak var delegate: LiftsetTableViewCellDelegate?
-    
+
     override func awakeFromNib() {
         weightTextField.delegate = self
         repTextField.delegate = self
     }
-    
+
     @IBOutlet weak var setNumberLabel: UILabel!
     @IBOutlet weak var liftNameCell: UILabel!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var repTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
-    
+
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         delegate?.liftsetCellButtonTapped(self)
     }

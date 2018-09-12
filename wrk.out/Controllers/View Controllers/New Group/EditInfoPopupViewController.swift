@@ -9,7 +9,7 @@
 import UIKit
 
 class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-    
+
     //TF Outlets
     @IBOutlet weak fileprivate var nameTF: UITextField!
     @IBOutlet weak public var ageTF: UITextField!
@@ -18,15 +18,15 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak public var genderTF: UITextField!
     @IBOutlet weak var profileImagePopupView: UIImageView!
     @IBOutlet weak var changePhotoButton: UIButton!
-    
+
     var user: User?
     var profileImageAsData: Data?
     //popup outlets
-    
+
     @IBOutlet var editInfoPopupView: UIView!
     @IBOutlet weak var saveChangesButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    
+
     //actions
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
         guard let name = nameTF.text, !name.isEmpty,
@@ -56,20 +56,20 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
             }
         }
     }
-    
+
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+
     //Change Photo
     @IBOutlet weak var profilePopupImageView: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         changePhotoButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
-    
+
     func updateViews() {
         if let loggedInUser = user {
             self.nameTF.text = loggedInUser.name
@@ -82,57 +82,57 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
         } else {
             cancelButton.isHidden = true
         }
-        
+
         ageTF.addDoneButtonOnKeyboard()
         heightTF.addDoneButtonOnKeyboard()
         weightTF.addDoneButtonOnKeyboard()
         genderTF.addDoneButtonOnKeyboard()
-        
+
         guard let loggedInUser = UserController.shared.loggedInUser,
             let profileImage = loggedInUser.profileImage else { return }
         self.profileImageAsData = UIImagePNGRepresentation(profileImage)
     }
-    
+
     @IBAction func changePhoto(_ sender: Any) {
-        
+
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        
+
         let actionSheet = UIAlertController(title: "Where From?", message: nil, preferredStyle: .actionSheet)
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_: UIAlertAction) in
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
             }))
         }
-        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (_: UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
-            
+
         }))
-        
+
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
+
         self.present(actionSheet, animated: true, completion: nil)
-        
+
     }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let profileImageAsData = UIImagePNGRepresentation(image)
         self.profileImageAsData = profileImageAsData
-        
+
         profilePopupImageView.image = image
-        
+
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case nameTF:

@@ -14,20 +14,20 @@ class ExerciseViewControllerPopup: UIViewController {
     @IBAction func backgroundButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     var results: Exercise?
     var testText: String?
-    
+
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+
 //        func testingTrimming(_: String)->String {
 //            let newString = testText?.replacingOccurrences(of: "[</p>, <p>, <ul>, </ul>, <li>, </li>, <em>, </em>]",  with: "")
 //
 //        }
 
     // TODO: Clean this up
-    
-    func TrimmingHTMLFromLabel(_: String)->String {
+
+    func TrimmingHTMLFromLabel(_: String) -> String {
         let trimString1 = testText?.replacingOccurrences(of: "<p>", with: "")
         let trimString2 = trimString1?.replacingOccurrences(of: "</p>", with: "")
         let trimString3 = trimString2?.replacingOccurrences(of: "<ul>", with: "")
@@ -40,7 +40,7 @@ class ExerciseViewControllerPopup: UIViewController {
         let trimString10 = trimString9?.replacingOccurrences(of: "</ol>", with: "")
         return trimString10!
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = TrimmingHTMLFromLabel(testText!)
