@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6kQ-ST-gye">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Load Screen View Controller-->
+        <scene sceneID="Th1-Cw-Vo7">
+            <objects>
+                <viewController id="6kQ-ST-gye" customClass="LoadScreenViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Cn-Kg-s64">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchScreenimage" translatesAutoresizingMaskIntoConstraints="NO" id="d9z-Ed-qaD">
+                                <rect key="frame" x="50" y="-131" width="314" height="912"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AIX-9t-3LY">
+                                <rect key="frame" x="188.66666666666666" y="484" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fetching gains..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cks-ij-NL6">
+                                <rect key="frame" x="146" y="520" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AJs-TA-6W4" firstAttribute="bottom" secondItem="cks-ij-NL6" secondAttribute="bottom" constant="195" id="2WO-Qo-mrX"/>
+                            <constraint firstItem="cks-ij-NL6" firstAttribute="centerX" secondItem="9Cn-Kg-s64" secondAttribute="centerX" id="3Lw-7I-KdU"/>
+                            <constraint firstItem="AJs-TA-6W4" firstAttribute="bottom" secondItem="AIX-9t-3LY" secondAttribute="bottom" constant="215" id="Bur-8n-tIy"/>
+                            <constraint firstItem="AIX-9t-3LY" firstAttribute="centerX" secondItem="9Cn-Kg-s64" secondAttribute="centerX" id="tCY-9R-evT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AJs-TA-6W4"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="AIX-9t-3LY" id="5Jw-pL-zl0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqr-ZO-EtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3601" y="1695"/>
+        </scene>
+        <!--Custom Tab Bar-->
+        <scene sceneID="d76-dr-XQM">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" id="QbW-dc-6ZC" customClass="CustomTabBar" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tpv-e8-sny">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Eqg-h0-UOp" kind="relationship" relationship="viewControllers" id="0d1-nJ-SjQ"/>
+                        <segue destination="Wb2-nh-mb2" kind="relationship" relationship="viewControllers" id="Gag-pA-kCv"/>
+                        <segue destination="ufO-jz-FLc" kind="relationship" relationship="viewControllers" id="aR2-Ir-9b8"/>
+                        <segue destination="eS6-cz-jJg" kind="relationship" relationship="viewControllers" id="7Ax-C5-Eba"/>
+                        <segue destination="KCT-ku-BSf" kind="relationship" relationship="viewControllers" id="HVB-aK-agE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tsd-A0-gFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2775" y="1695"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="hW0-qb-6oD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="Eqg-h0-UOp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="hXW-S6-73V"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gT8-h8-yQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2243" y="1215"/>
+        </scene>
+        <!--Routines-->
+        <scene sceneID="akI-kd-KLa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Routines" id="Wb2-nh-mb2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="pms-HP-cb2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dtb-j7-fWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1687" y="1216"/>
+        </scene>
+        <!--Workouts-->
+        <scene sceneID="P6U-b5-25Z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Workouts" id="ufO-jz-FLc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Workouts" id="lIE-kS-goB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3e9-na-gMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-946" y="1215"/>
+        </scene>
+        <!--Exercises-->
+        <scene sceneID="rWo-6d-cHm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Exercises" id="eS6-cz-jJg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="tna-yF-L7f"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K4I-CD-IPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-945" y="1695"/>
+        </scene>
+        <!--More-->
+        <scene sceneID="RKa-6Z-xJN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="More" id="KCT-ku-BSf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="spz-3u-lOF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhb-Nq-8nz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-925" y="1450"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchScreenimage" width="434" height="281"/>
+    </resources>
+</document>

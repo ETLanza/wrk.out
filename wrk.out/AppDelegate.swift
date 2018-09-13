@@ -13,9 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let isEnabled = UserDefaults.standard.bool(forKey: "restTimerIsEnabled")
+        let duration = UserDefaults.standard.double(forKey: "restTimerLength")
+
+        RestTimerController.shared.changeRestTimerLength(to: duration)
+        RestTimerController.shared.restTimer.isEnabled = isEnabled
+
         return true
     }
 
@@ -41,6 +46,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
-
