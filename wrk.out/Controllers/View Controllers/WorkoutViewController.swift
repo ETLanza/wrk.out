@@ -24,6 +24,9 @@ class WorkoutViewController: UIViewController {
     @IBOutlet weak var currentWorkoutNameLabel: UILabel!
     @IBOutlet weak var previousWorkoutTableView: UITableView!
     @IBOutlet weak var restTimerLabel: UILabel!
+    @IBOutlet weak var endWorkoutButton: UIButton!
+    @IBOutlet weak var addExerciseButton: UIButton!
+    @IBOutlet weak var cancelWorkoutButton: UIButton!
     
     @IBOutlet weak var popupViewOpenedConstraint: NSLayoutConstraint!
     @IBOutlet weak var popupViewMinimizedConstraint: NSLayoutConstraint!
@@ -65,7 +68,7 @@ class WorkoutViewController: UIViewController {
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 800)
+        setUpViews()
         guard let user = UserController.shared.loggedInUser else { return }
         WorkoutController.shared.fetchAllWorkoutsFor(user: user) { (success) in
             if success {
@@ -90,6 +93,13 @@ class WorkoutViewController: UIViewController {
     
     // MARK: - Helper Functions
     
+    func setUpViews() {
+        addExerciseButton.roundCorners()
+        endWorkoutButton.roundCorners()
+        cancelWorkoutButton.roundCorners()
+        popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 800)
+    }
+  
     func displayNewWorkoutAlert() {
         let alertController = UIAlertController(title: "Enter new workout name", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in

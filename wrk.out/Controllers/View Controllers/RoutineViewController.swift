@@ -13,6 +13,7 @@ class RoutineViewController: UIViewController {
     var routine: Routine?
     
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         RoutineController.shared.fetchRoutines { (success) in

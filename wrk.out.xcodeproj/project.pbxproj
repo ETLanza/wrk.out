@@ -42,6 +42,7 @@
 		3CBF73E92135B8EC00D99292 /* EditInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF73E72135B8EC00D99292 /* EditInfoPopupViewController.swift */; };
 		3CE3B0C22139D4A000F9BDF6 /* WorkoutExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */; };
 		3CE3B0C4213B336200F9BDF6 /* RestTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */; };
+		3CF65651214F6E47000A7053 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF65650214F6E47000A7053 /* UIButton+Extension.swift */; };
 		7D40416F213617C300F7F3C2 /* NotificationNameExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */; };
 		7D76C33B21370EB900BBED97 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */; };
 		7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */; };
@@ -100,6 +101,7 @@
 		3CBF73E72135B8EC00D99292 /* EditInfoPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditInfoPopupViewController.swift; path = "wrk.out/Controllers/View Controllers/New Group/EditInfoPopupViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseViewController.swift; sourceTree = "<group>"; };
 		3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerController.swift; sourceTree = "<group>"; };
+		3CF65650214F6E47000A7053 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtention.swift; sourceTree = "<group>"; };
 		7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadScreenViewController.swift; sourceTree = "<group>"; };
 		7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */,
 				3C6E8ED8214188F90052FB06 /* UITextField+Extensions.swift */,
+				3CF65650214F6E47000A7053 /* UIButton+Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				3C918584214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift in Sources */,
 				3CB69464212B7DD000E9F2B1 /* LiftSet.swift in Sources */,
 				3C087429213472E70025FBD8 /* AddSetTableViewCell.swift in Sources */,
+				3CF65651214F6E47000A7053 /* UIButton+Extension.swift in Sources */,
 				3CBF73E92135B8EC00D99292 /* EditInfoPopupViewController.swift in Sources */,
 				908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */,
 				9062072F213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift in Sources */,
