@@ -36,7 +36,8 @@ class ProfileViewController: UIViewController {
         self.weightLabel.text = String(loggedInUser.weight)
         self.genderLabel.text = loggedInUser.gender
         self.profileImage.image = loggedInUser.profileImage
-
+        profileImage.layer.cornerRadius = profileImage.frame.height / 2
+        profileImage.clipsToBounds = true
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
