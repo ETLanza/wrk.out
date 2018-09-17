@@ -28,7 +28,6 @@ class WorkoutViewController: UIViewController {
     @IBOutlet weak var addExerciseButton: UIButton!
     @IBOutlet weak var cancelWorkoutButton: UIButton!
     
-    
     @IBOutlet weak var popupViewOpenedConstraint: NSLayoutConstraint!
     @IBOutlet weak var popupViewMinimizedConstraint: NSLayoutConstraint!
     
@@ -100,6 +99,7 @@ class WorkoutViewController: UIViewController {
         cancelWorkoutButton.roundCorners()
         popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 800)
     }
+  
     func displayNewWorkoutAlert() {
         let alertController = UIAlertController(title: "Enter new workout name", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
