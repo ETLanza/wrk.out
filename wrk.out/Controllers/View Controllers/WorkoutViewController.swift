@@ -126,6 +126,9 @@ class WorkoutViewController: UIViewController {
         self.popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 999)
         self.currentWorkoutNameLabel.text = name
         self.workout?.lifts.forEach({ (lift) in
+            lift.liftsets = []
+        })
+        self.workout?.lifts.forEach({ (lift) in
             LiftSetController.shared.addLiftset(toLift: lift, weight: 0, reps: 0, completion: { (success) in
                 if success {
                     DispatchQueue.main.async {

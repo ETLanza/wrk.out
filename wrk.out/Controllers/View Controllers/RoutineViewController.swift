@@ -162,7 +162,7 @@ extension RoutineViewController {
         let routine = RoutineController.shared.routines[index]
         let alertController = UIAlertController(title: "What would you like to do?", message: nil, preferredStyle: .actionSheet)
         
-        let newWorkoutAction = UIAlertAction(title: "Start a workout", style: .default) { (_) in
+        let newWorkoutAction = UIAlertAction(title: "Start New Workout", style: .default) { (_) in
             DispatchQueue.main.async {
                 self.tabBarController?.selectedIndex = 2
                 let workoutVC = self.tabBarController?.viewControllers![2].childViewControllers.first as? WorkoutViewController
