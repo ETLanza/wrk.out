@@ -51,6 +51,7 @@ class ProfileViewController: UIViewController {
         if segue.identifier == "editUserInfoSegue" {
             guard let destinationVC = segue.destination as? EditInfoPopupViewController,
             let user = UserController.shared.loggedInUser else { return }
+            self.definesPresentationContext = true
             destinationVC.user = user
         }
     }

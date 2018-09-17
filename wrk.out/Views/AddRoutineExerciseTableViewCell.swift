@@ -12,11 +12,15 @@ class AddRoutineExerciseTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addExercise: UIButton!
     weak var delegate: AddRoutineExerciseTableViewCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addExercise.roundCorners()
+    }
 
     @IBAction func addExerciseButtonTapped(_ sender: UIButton) {
         delegate?.addExerciseCellButtonTapped(self)
     }
-
 }
 protocol AddRoutineExerciseTableViewCellDelegate: class {
     func addExerciseCellButtonTapped(_ sender: AddRoutineExerciseTableViewCell)

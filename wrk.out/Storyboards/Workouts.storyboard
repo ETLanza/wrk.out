@@ -557,7 +557,10 @@
                     <navigationItem key="navigationItem" title="Workouts" id="myF-yr-bXB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addExerciseButton" destination="KMQ-uR-w4b" id="Gy2-zb-Ldy"/>
+                        <outlet property="cancelWorkoutButton" destination="jqb-iz-6DO" id="ulB-t1-RRA"/>
                         <outlet property="currentWorkoutNameLabel" destination="g6g-FU-RMH" id="SeK-MT-HNs"/>
+                        <outlet property="endWorkoutButton" destination="XB9-ap-cEq" id="pfQ-lb-93p"/>
                         <outlet property="popupTableView" destination="DIS-yD-ErJ" id="Bt8-PV-dMR"/>
                         <outlet property="popupView" destination="kQB-sS-MNp" id="IR0-AH-fo6"/>
                         <outlet property="popupViewMinimizedConstraint" destination="dAk-zf-2C1" id="2mi-Su-17I"/>

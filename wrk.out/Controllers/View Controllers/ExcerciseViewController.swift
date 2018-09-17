@@ -47,6 +47,7 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
         if let indexPath = tableView.indexPathForSelectedRow {
             let selectedRow = indexPath.row
             if segue.identifier == "toExercisePopup" {
+                self.definesPresentationContext = true
                 if let exercisePopVC = segue.destination as? ExerciseViewControllerPopup {
                     if filtered.isEmpty == true {
                         exercisePopVC.testText =  SearchController.shared.excercises[selectedRow].description
