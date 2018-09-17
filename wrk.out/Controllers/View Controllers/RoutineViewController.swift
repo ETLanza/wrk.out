@@ -176,6 +176,12 @@ extension RoutineViewController {
                             }
                         }
                     }
+                } else {
+                    let okayAlertController = UIAlertController(title: "You already have a workout in progress!", message: nil, preferredStyle: .alert)
+                    
+                    let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                    okayAlertController.addAction(okayAction)
+                    self.present(okayAlertController, animated: true, completion: nil)
                 }
             }
         }
