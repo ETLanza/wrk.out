@@ -36,7 +36,6 @@ class WorkoutController {
                     completion(nil)
                     return
             }
-            self.workouts.insert(workoutFromRecord, at: 0)
             completion(workoutFromRecord)
         }
     }

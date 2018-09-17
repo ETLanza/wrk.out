@@ -16,7 +16,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-
+    @IBOutlet weak var previousWorkoutTableView: UITableView!
+    
     var observer: NSObjectProtocol?
 
     override func viewDidLoad() {
@@ -29,6 +30,7 @@ class ProfileViewController: UIViewController {
     }
 
     @objc func updateViews() {
+        previousWorkoutTableView.reloadData()
         guard let loggedInUser = UserController.shared.loggedInUser else { return }
         self.nameLabel.text = loggedInUser.name
         self.ageLabel.text = String(loggedInUser.age)
@@ -53,6 +55,40 @@ class ProfileViewController: UIViewController {
             let user = UserController.shared.loggedInUser else { return }
             self.definesPresentationContext = true
             destinationVC.user = user
+        } else if segue.identifier == "previousWorkoutSegue" {
+            guard let destinationVC = segue.destination as? PreviousWorkoutViewController else { return }
+            let index = previousWorkoutTableView.indexPathForSelectedRow
+            let workout = WorkoutController.shared.workouts[index!.row]
+            destinationVC.workout = workout
+        }
+    }
+}
+
+// MARK: - UITableView DataSource and Delegate
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return WorkoutController.shared.workouts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recentWorkoutsCell", for: indexPath)
+        let workout = WorkoutController.shared.workouts[indexPath.row]
+        cell.textLabel?.text = workout.name
+        cell.detailTextLabel?.text = TimeStringFormatter.shared.timeString(time: workout.duration)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let workout = WorkoutController.shared.workouts[indexPath.row]
+            WorkoutController.shared.delete(workout: workout) { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                }
+            }
         }
     }
 }

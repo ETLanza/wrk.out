@@ -81,6 +81,9 @@ class WorkoutViewController: UIViewController {
                             workout.lifts.forEach({ (lift) in
                                 LiftSetController.shared.fetchAllLiftsetsFor(lift: lift, completion: { (success) in
                                     if success {
+                                        DispatchQueue.main.async {
+                                            self.previousWorkoutTableView.reloadData()
+                                        }
                                     }
                                 })
                             })
@@ -91,6 +94,11 @@ class WorkoutViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.previousWorkoutTableView.reloadData()
+    }
+    
     // MARK: - Helper Functions
     
     func setUpViews() {
@@ -99,7 +107,7 @@ class WorkoutViewController: UIViewController {
         cancelWorkoutButton.roundCorners()
         popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 800)
     }
-  
+    
     func displayNewWorkoutAlert() {
         let alertController = UIAlertController(title: "Enter new workout name", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
@@ -131,14 +139,17 @@ class WorkoutViewController: UIViewController {
     }
     
     func newWorkoutFromRoutine(named name: String) {
-        self.durationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
-        self.workoutDurationLabel.text = "0"
-        self.popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 999)
-        self.currentWorkoutNameLabel.text = name
-        self.workout?.lifts.forEach({ (lift) in
-            lift.liftsets = []
-        })
-        self.workout?.lifts.forEach({ (lift) in
+        DispatchQueue.main.async {
+            self.durationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
+            self.workoutDurationLabel.text = "0"
+            self.popupViewOpenedConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.currentWorkoutNameLabel.text = name
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
+        workout?.lifts.forEach({ (lift) in
             LiftSetController.shared.addLiftset(toLift: lift, weight: 0, reps: 0, completion: { (success) in
                 if success {
                     DispatchQueue.main.async {
@@ -146,9 +157,6 @@ class WorkoutViewController: UIViewController {
                     }
                 }
             })
-        })
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
         })
     }
     
@@ -163,6 +171,7 @@ class WorkoutViewController: UIViewController {
                 self.view.layoutIfNeeded()
                 self.workout = nil
                 self.popupTableView.reloadData()
+                self.previousWorkoutTableView.reloadData()
             }
         }
     }
@@ -195,6 +204,7 @@ class WorkoutViewController: UIViewController {
         let alertController = UIAlertController(title: "Are you sure you want to finish your current workout?", message: nil, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .cancel) { (_) in
             guard let workout = self.workout else { return }
+            WorkoutController.shared.workouts.insert(workout, at: 0)
             WorkoutController.shared.modify(workout: workout, withName: workout.name, note: workout.note, duration: workout.duration, completion: { (success) in
                 if success {
                     self.endWorkout()
@@ -212,12 +222,8 @@ class WorkoutViewController: UIViewController {
     func displayCancelWorkoutAlert() {
         let alertController = UIAlertController(title: "Are you sure you want to cancel your current workout?", message: nil, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .cancel) { (_) in
-            guard let workout = self.workout else { return }
-            WorkoutController.shared.delete(workout: workout, completion: { (success) in
-                if success {
-                    self.endWorkout()
-                }
-            })
+            guard let _ = self.workout else { return }
+         self.endWorkout()
         }
         let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
         
@@ -231,27 +237,14 @@ class WorkoutViewController: UIViewController {
     @objc func increaseTimer() {
         guard let workout = workout else { return }
         workout.duration = workout.duration + 1
-        let durationAsString = timeString(time: workout.duration)
+        let durationAsString = TimeStringFormatter.shared.timeString(time: workout.duration)
         self.workoutDurationLabel.text = durationAsString
-    }
-    
-    func timeString(time: TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        if hours == 0 && minutes == 0 {
-            return String(format: "%2i", seconds)
-        } else if hours == 0 {
-            return String(format: "%2i:%02i", minutes, seconds)
-        } else {
-            return String(format: "%2i:%02i:%02i", hours, minutes, seconds)
-        }
     }
     
     // MARK: RestTimer
     @objc func deacreaseTimer() {
         RestTimerController.shared.decreaseTimer()
-        let restTimeAsString = timeString(time: RestTimerController.shared.restTimer.length)
+        let restTimeAsString = TimeStringFormatter.shared.timeString(time: RestTimerController.shared.restTimer.length)
         self.restTimerLabel.text = restTimeAsString
         if RestTimerController.shared.restTimer.length == 0 {
             restTimer?.invalidate()
@@ -381,7 +374,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
             let workout = WorkoutController.shared.workouts[indexPath.row]
             
             cell.textLabel?.text = workout.name
-            cell.detailTextLabel?.text = timeString(time: workout.duration)
+            cell.detailTextLabel?.text = TimeStringFormatter.shared.timeString(time: workout.duration)
             
             return cell
         }
@@ -524,7 +517,7 @@ extension WorkoutViewController: LiftsetTableViewCellDelegate {
         if sender.doneButton.titleLabel?.text == "Done" {
             sender.doneButton.setTitle("√", for: .normal)
             if RestTimerController.shared.restTimer.isEnabled {
-                let restTimeText = timeString(time: RestTimerController.shared.restTimer.length)
+                let restTimeText = TimeStringFormatter.shared.timeString(time: RestTimerController.shared.restTimer.length)
                 restTimerLabel.text = restTimeText
                 restTimerLabel.isHidden = false
                 restTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(deacreaseTimer), userInfo: nil, repeats: true)

@@ -43,6 +43,7 @@
 		3CE3B0C22139D4A000F9BDF6 /* WorkoutExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */; };
 		3CE3B0C4213B336200F9BDF6 /* RestTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */; };
 		3CF65651214F6E47000A7053 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF65650214F6E47000A7053 /* UIButton+Extension.swift */; };
+		3CFD73A921500A1200A8C8D1 /* TimeStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFD73A821500A1200A8C8D1 /* TimeStringFormatter.swift */; };
 		7D40416F213617C300F7F3C2 /* NotificationNameExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */; };
 		7D76C33B21370EB900BBED97 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */; };
 		7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */; };
@@ -102,6 +103,7 @@
 		3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseViewController.swift; sourceTree = "<group>"; };
 		3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerController.swift; sourceTree = "<group>"; };
 		3CF65650214F6E47000A7053 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		3CFD73A821500A1200A8C8D1 /* TimeStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStringFormatter.swift; sourceTree = "<group>"; };
 		7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtention.swift; sourceTree = "<group>"; };
 		7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadScreenViewController.swift; sourceTree = "<group>"; };
 		7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				3CB6946C212B817A00E9F2B1 /* wrk.out.entitlements */,
 				3CB6944D212B75E600E9F2B1 /* AppDelegate.swift */,
+				3CFD73A821500A1200A8C8D1 /* TimeStringFormatter.swift */,
 				3CB69466212B7DD300E9F2B1 /* Models */,
 				7D80C60F21345D9F00F1CD19 /* Views */,
 				3C161ED4212F6C37006BD941 /* Storyboards */,
@@ -417,6 +420,7 @@
 				3C918588214F388E0007C284 /* PreviousWorkoutViewController.swift in Sources */,
 				3CB69468212B7DF900E9F2B1 /* Keys.swift in Sources */,
 				3C161EF0212F6C4F006BD941 /* ProfileViewController.swift in Sources */,
+				3CFD73A921500A1200A8C8D1 /* TimeStringFormatter.swift in Sources */,
 				3C161EF6212F6C8B006BD941 /* UserController.swift in Sources */,
 				90EDE6C8213607BE0057D3AB /* ExerciseViewControllerPopup.swift in Sources */,
 				3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */,

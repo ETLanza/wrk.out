@@ -20,21 +20,8 @@ class PreviousWorkoutViewController: UIViewController {
     
     func setUpViews() {
         guard let workout = workout else { return }
-        workoutDurationLabel.text = timeString(time: workout.duration)
+        workoutDurationLabel.text = TimeStringFormatter.shared.timeString(time: workout.duration)
         navigationItem.title = workout.name
-    }
-    
-    func timeString(time: TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        if hours == 0 && minutes == 0 {
-            return String(format: "%2i", seconds)
-        } else if hours == 0 {
-            return String(format: "%2i:%02i", minutes, seconds)
-        } else {
-            return String(format: "%2i:%02i:%02i", hours, minutes, seconds)
-        }
     }
 }
 

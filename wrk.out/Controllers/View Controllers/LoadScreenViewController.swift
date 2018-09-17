@@ -35,6 +35,16 @@ class LoadScreenViewController: UIViewController {
 
         SearchController.getWorkouts { (_) in
         }
+        
+        RoutineController.shared.fetchRoutines { (success) in
+            if success {
+                RoutineController.shared.routines.forEach({ (routine) in
+                    RoutineController.shared.fetchLiftsFor(routine: routine, completion: { (_) in
+                    })
+                })
+            }
+        }
+
 
     }
 

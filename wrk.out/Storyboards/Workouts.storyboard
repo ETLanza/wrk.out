@@ -587,7 +587,8 @@
         <!--(workout name)-->
         <scene sceneID="Vdg-tJ-gmt">
             <objects>
-                <viewController id="qrf-lG-EGh" customClass="PreviousWorkoutViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0U-P3-ESO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="previousWorkoutVC" id="qrf-lG-EGh" customClass="PreviousWorkoutViewController" customModule="wrk_out" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ufk-lh-FUp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -676,7 +677,7 @@
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="kbx-4n-ZSQ" firstAttribute="leading" secondItem="Vfz-70-lFV" secondAttribute="leading" constant="6" id="ACR-vx-gGm"/>
                                                 <constraint firstAttribute="trailing" secondItem="kbx-4n-ZSQ" secondAttribute="trailing" constant="6" id="EUd-VS-akl"/>
@@ -773,7 +774,6 @@
                         <outlet property="workoutDurationLabel" destination="4ga-ke-3ih" id="8TD-Nn-OHm"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J0U-P3-ESO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2212" y="885"/>
         </scene>
