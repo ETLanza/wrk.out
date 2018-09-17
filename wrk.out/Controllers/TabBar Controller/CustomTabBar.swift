@@ -15,7 +15,7 @@ class CustomTabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UITabBar.appearance().barTintColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 90)
+        UITabBar.appearance().barTintColor = UIColor.white
 
         let profileTabSelectedImage = UIImage(named: "ProfileIconSelected.png")?.withRenderingMode(.alwaysOriginal)
         let profileTabDeselectedImage = UIImage(named: "ProfileIcon.png")?.withRenderingMode(.alwaysOriginal)

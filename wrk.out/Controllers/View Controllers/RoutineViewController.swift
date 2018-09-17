@@ -9,9 +9,9 @@
 import UIKit
 
 class RoutineViewController: UIViewController {
-
+    
     var routine: Routine?
-
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class RoutineViewController: UIViewController {
         let okAlertAction = UIAlertAction(title: "OK", style: .default) { (_) in
             var routineName = alertController.textFields?.first?.text ?? "New routine"
             if routineName == "" { routineName = "New routine" }
-
+            
             RoutineController.shared.createRoutine(name: routineName) { (routine) in
                 if let routine = routine {
                     self.routine = routine
@@ -52,15 +52,15 @@ class RoutineViewController: UIViewController {
         alertController.addAction(cancelAlertAction)
         present(alertController, animated: true, completion: nil)
     }
-
+    
 }
 extension RoutineViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return RoutineController.shared.routines.count
     }
-
+    
     // TODO: Swipe to delete rows/sections
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let routine = RoutineController.shared.routines[indexPath.section]
@@ -73,10 +73,10 @@ extension RoutineViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 }
             }
-
+            
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseInRoutineCell", for: indexPath) as? RoutineTableViewCell else { return UITableViewCell() }
         let routine = RoutineController.shared.routines[indexPath.section]
@@ -84,14 +84,14 @@ extension RoutineViewController: UITableViewDelegate, UITableViewDataSource {
         cell.exerciseNameLabel.text = lift.name
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RoutineController.shared.routines[section].routineLifts.count
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "routineHeaderCell") as? RoutineHeaderTableViewCell else { return UITableViewCell() }
-
+        
         let routine = RoutineController.shared.routines[section]
         cell.routineName.text = routine.routineName
         cell.tag = section
@@ -100,12 +100,12 @@ extension RoutineViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "addRoutineExerciseCell") as? AddRoutineExerciseTableViewCell else { return UITableViewCell() }
-
+        
         cell.delegate = self
         cell.tag = section
         return cell
     }
-
+    
     // Height for footer/header
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
         return 52
@@ -122,16 +122,16 @@ extension RoutineViewController: UITableViewDelegate, UITableViewDataSource {
 }
 extension RoutineViewController: AddRoutineExerciseTableViewCellDelegate {
     func addExerciseCellButtonTapped(_ sender: AddRoutineExerciseTableViewCell) {
-
+        
         let section = sender.tag
         let storyboard = UIStoryboard(name: "Workouts", bundle: nil)
         guard let popupVC = storyboard.instantiateViewController(withIdentifier: "exerciseReuse") as? WorkoutExerciseViewController else { return }
-
+        
         popupVC.modalTransitionStyle = .crossDissolve
         popupVC.modalPresentationStyle = .overCurrentContext
         popupVC.delegate = self
         popupVC.view.tag = section
-
+        
         self.definesPresentationContext = true
         self.present(popupVC, animated: true, completion: nil)
     }
@@ -141,7 +141,7 @@ extension RoutineViewController: WorkoutExerciseViewControllerDelegate {
     func selectedLift(name: String, sender: WorkoutExerciseViewController) {
         let index = sender.view.tag
         let routine = RoutineController.shared.routines[index]
-
+        
         RoutineController.shared.createLift(name: name, routine: routine) { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -161,6 +161,24 @@ extension RoutineViewController {
     func displayAlertController(forIndex index: Int) {
         let routine = RoutineController.shared.routines[index]
         let alertController = UIAlertController(title: "What would you like to do?", message: nil, preferredStyle: .actionSheet)
+        
+        let newWorkoutAction = UIAlertAction(title: "Start a workout", style: .default) { (_) in
+            DispatchQueue.main.async {
+                self.tabBarController?.selectedIndex = 2
+                let workoutVC = self.tabBarController?.viewControllers![2].childViewControllers.first as? WorkoutViewController
+                if workoutVC?.workout == nil {
+                    WorkoutController.shared.createNewWorkoutWith(name: routine.routineName) { (workout) in
+                        if let workout = workout {
+                            DispatchQueue.main.async {
+                                workoutVC?.workout = workout
+                                workoutVC?.workout?.lifts = routine.routineLifts
+                                workoutVC?.newWorkoutFromRoutine(named: routine.routineName)
+                            }
+                        }
+                    }
+                }
+            }
+        }
         let renameRoutineAlert = UIAlertAction(title: "Rename Routine", style: .default) { (_) in
             self.displayRenameAlertController(routine: routine)
         }
@@ -173,21 +191,23 @@ extension RoutineViewController {
                 }
             })
         }
+        
         let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(newWorkoutAction)
         alertController.addAction(renameRoutineAlert)
         alertController.addAction(deleteRoutineAlert)
         alertController.addAction(cancelAlert)
-
+        
         present(alertController, animated: true, completion: nil)
     }
     func displayRenameAlertController(routine: Routine) {
-
+        
         let alertController = UIAlertController(title: "Rename The Routine", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
             textField.placeholder = "Rename routine"
         }
         let doneAlert = UIAlertAction(title: "Done", style: .default) { (_) in
-
+            
             let newName = alertController.textFields?.first?.text ?? ""
             if newName != "" {
                 RoutineController.shared.modifyRoutine(routine: routine, name: newName, completion: { (success) in
@@ -201,10 +221,9 @@ extension RoutineViewController {
             }
         }
         let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
+        
         alertController.addAction(doneAlert)
         alertController.addAction(cancelAlert)
         present(alertController, animated: true)
     }
-
 }
