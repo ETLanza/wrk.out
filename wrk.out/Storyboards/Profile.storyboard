@@ -122,8 +122,15 @@
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <segue destination="zpP-TS-iMa" kind="show" identifier="previousWorkoutSegue" id="znn-jb-uPa"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="UdR-uW-kGj" id="wvu-h4-nES"/>
+                                            <outlet property="delegate" destination="UdR-uW-kGj" id="L6I-Pf-aGH"/>
+                                        </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zt0-v0-Ism">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
@@ -267,6 +274,7 @@
                         <outlet property="genderLabel" destination="GDZ-fb-Bdi" id="5aM-TF-b9u"/>
                         <outlet property="heightLabel" destination="fgo-8p-18v" id="e61-Ed-BMK"/>
                         <outlet property="nameLabel" destination="p74-49-Fcs" id="0V9-J7-Kz7"/>
+                        <outlet property="previousWorkoutTableView" destination="2o7-qD-DYj" id="eyw-Gc-8pi"/>
                         <outlet property="profileImage" destination="fsT-xs-pLz" id="f94-Lc-Mq4"/>
                         <outlet property="weightLabel" destination="Adu-Hs-Ybt" id="auU-e9-UCK"/>
                     </connections>
@@ -274,6 +282,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wre-Hw-iw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-360.86956521739131" y="135.32608695652175"/>
+        </scene>
+        <!--previousWorkoutVC-->
+        <scene sceneID="9eu-yM-26J">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Workouts" referencedIdentifier="previousWorkoutVC" id="zpP-TS-iMa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z1a-xg-FI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="-186"/>
         </scene>
         <!--Edit Info Popup View Controller-->
         <scene sceneID="zzM-0o-jSq">
@@ -517,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSE-Dv-5sU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372.46376811594206" y="127.17391304347827"/>
+            <point key="canvasLocation" x="808" y="544"/>
         </scene>
         <!--Profile-->
         <scene sceneID="GUv-d9-cmY">

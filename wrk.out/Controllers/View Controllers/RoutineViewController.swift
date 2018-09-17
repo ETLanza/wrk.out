@@ -16,19 +16,6 @@ class RoutineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        RoutineController.shared.fetchRoutines { (success) in
-            if success {
-                RoutineController.shared.routines.forEach({ (routine) in
-                    RoutineController.shared.fetchLiftsFor(routine: routine, completion: { (success) in
-                        if success {
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                            }
-                        }
-                    })
-                })
-            }
-        }
     }
     @IBAction func addButtonTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "New routine", message: "What would you like your routine to be named?", preferredStyle: .alert)
@@ -164,26 +151,27 @@ extension RoutineViewController {
         let alertController = UIAlertController(title: "What would you like to do?", message: nil, preferredStyle: .actionSheet)
         
         let newWorkoutAction = UIAlertAction(title: "Start New Workout", style: .default) { (_) in
-            DispatchQueue.main.async {
-                self.tabBarController?.selectedIndex = 2
-                let workoutVC = self.tabBarController?.viewControllers![2].childViewControllers.first as? WorkoutViewController
-                if workoutVC?.workout == nil {
-                    WorkoutController.shared.createNewWorkoutWith(name: routine.routineName) { (workout) in
-                        if let workout = workout {
-                            DispatchQueue.main.async {
+            let workoutVC = self.tabBarController?.viewControllers![2].childViewControllers.first as? WorkoutViewController
+            if workoutVC?.workout == nil {
+                WorkoutController.shared.createNewWorkoutWith(name: routine.routineName) { (workout) in
+                    if let workout = workout {
+                        LiftController.shared.add(lifts: routine.routineLifts, toWorkout: workout, completion: { (success) in
+                            if success {
+                                DispatchQueue.main.async {
+                                self.tabBarController?.selectedIndex = 2
                                 workoutVC?.workout = workout
-                                workoutVC?.workout?.lifts = routine.routineLifts
                                 workoutVC?.newWorkoutFromRoutine(named: routine.routineName)
+                                }
                             }
-                        }
+                        })
                     }
-                } else {
-                    let okayAlertController = UIAlertController(title: "You already have a workout in progress!", message: nil, preferredStyle: .alert)
-                    
-                    let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-                    okayAlertController.addAction(okayAction)
-                    self.present(okayAlertController, animated: true, completion: nil)
                 }
+            } else {
+                let okayAlertController = UIAlertController(title: "You already have a workout in progress!", message: nil, preferredStyle: .alert)
+                
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                okayAlertController.addAction(okayAction)
+                self.present(okayAlertController, animated: true, completion: nil)
             }
         }
         let renameRoutineAlert = UIAlertAction(title: "Rename Routine", style: .default) { (_) in

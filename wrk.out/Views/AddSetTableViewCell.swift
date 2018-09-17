@@ -12,6 +12,11 @@ class AddSetTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addSetButton: UIButton!
     weak var delegate: AddSetTableViewCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addSetButton.roundCorners()
+    }
 
     @IBAction func addSetButtonPressed(_ sender: UIButton) {
         delegate?.addSetCellButtonTapped(self)
