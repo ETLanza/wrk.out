@@ -22,6 +22,8 @@
 		3C161EF0212F6C4F006BD941 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EEC212F6C4E006BD941 /* ProfileViewController.swift */; };
 		3C161EF6212F6C8B006BD941 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EF5212F6C8B006BD941 /* UserController.swift */; };
 		3C6E8ED9214188F90052FB06 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E8ED8214188F90052FB06 /* UITextField+Extensions.swift */; };
+		3C8BBBBA215195CE00325067 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB9215195CE00325067 /* UISearchBar+Extension.swift */; };
+		3C8BBBBC21519C3F00325067 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBBB21519C3F00325067 /* UITextView+Extension.swift */; };
 		3C918584214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C918583214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift */; };
 		3C918586214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C918585214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift */; };
 		3C918588214F388E0007C284 /* PreviousWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C918587214F388E0007C284 /* PreviousWorkoutViewController.swift */; };
@@ -79,6 +81,8 @@
 		3C161EEC212F6C4E006BD941 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3C161EF5212F6C8B006BD941 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		3C6E8ED8214188F90052FB06 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		3C8BBBB9215195CE00325067 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
+		3C8BBBBB21519C3F00325067 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		3C918583214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousLiftHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		3C918585214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousLiftSetTableViewCell.swift; sourceTree = "<group>"; };
 		3C918587214F388E0007C284 /* PreviousWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousWorkoutViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 			children = (
 				7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */,
 				3C6E8ED8214188F90052FB06 /* UITextField+Extensions.swift */,
+				3C8BBBB9215195CE00325067 /* UISearchBar+Extension.swift */,
+				3C8BBBBB21519C3F00325067 /* UITextView+Extension.swift */,
 				3CF65650214F6E47000A7053 /* UIButton+Extension.swift */,
 			);
 			path = Extentions;
@@ -430,6 +436,7 @@
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
 				90C1515521384E2900509818 /* Routine.swift in Sources */,
 				7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */,
+				3C8BBBBA215195CE00325067 /* UISearchBar+Extension.swift in Sources */,
 				3C918584214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift in Sources */,
 				3CB69464212B7DD000E9F2B1 /* LiftSet.swift in Sources */,
 				3C087429213472E70025FBD8 /* AddSetTableViewCell.swift in Sources */,
@@ -443,6 +450,7 @@
 				3C08742B2134733D0025FBD8 /* LiftsetTableViewCell.swift in Sources */,
 				3C918586214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift in Sources */,
 				90291BC6212E3E4300AD893E /* Search.swift in Sources */,
+				3C8BBBBC21519C3F00325067 /* UITextView+Extension.swift in Sources */,
 				3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */,
 				90A6A8532134632F0047A559 /* SearchController.swift in Sources */,
 				3C6E8ED9214188F90052FB06 /* UITextField+Extensions.swift in Sources */,

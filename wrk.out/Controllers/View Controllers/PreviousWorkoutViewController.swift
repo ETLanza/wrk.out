@@ -11,6 +11,8 @@ import UIKit
 class PreviousWorkoutViewController: UIViewController {
 
     var workout: Workout?
+    
+    @IBOutlet weak var workoutNoteTextView: UITextView!
     @IBOutlet weak var workoutDurationLabel: UILabel!
     
     override func viewDidLoad() {
@@ -19,8 +21,10 @@ class PreviousWorkoutViewController: UIViewController {
     }
     
     func setUpViews() {
+        workoutNoteTextView.addDoneButtonOnKeyboard()
         guard let workout = workout else { return }
         workoutDurationLabel.text = TimeStringFormatter.shared.timeString(time: workout.duration)
+        workoutNoteTextView.text = workout.note
         navigationItem.title = workout.name
     }
 }
@@ -50,6 +54,7 @@ extension PreviousWorkoutViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 55
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "previousLiftSetCell", for: indexPath) as? PreviousLiftSetTableViewCell else { return UITableViewCell() }
         
@@ -63,6 +68,13 @@ extension PreviousWorkoutViewController: UITableViewDelegate, UITableViewDataSou
         
         return cell
     }
-    
-    
+}
+
+extension PreviousWorkoutViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if let text = textView.text, !text.isEmpty, let workout = workout {
+            WorkoutController.shared.modify(workout: workout, withName: workout.name, note: text, duration: workout.duration) { (_) in
+            }
+        }
+    }
 }

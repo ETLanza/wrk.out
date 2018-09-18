@@ -178,13 +178,25 @@ class WorkoutViewController: UIViewController {
     
     func displayAddNoteAlert() {
         let alertTitle = workout?.note == "" ? "Add Note" : "Edit Note"
-        let addNoteAlertController = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
-        addNoteAlertController.addTextField(configurationHandler: nil)
+        let addNoteAlertController = UIAlertController(title: alertTitle + "\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        
+        let rect = CGRect(x: 10, y: 50, width: 250, height: 150)
+        let textView = UITextView(frame: rect)
+        
+        textView.font = UIFont(name: "Helvetica", size: 15)
+        textView.textColor = UIColor.black
+        textView.backgroundColor = UIColor.white
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 1.0
+        textView.text = "Enter note here..."
+        textView.addDoneButtonOnKeyboard()
+        
+        addNoteAlertController.view.addSubview(textView)
         guard let workout = workout else { return }
-        if workout.note != "" { addNoteAlertController.textFields?.first?.text = workout.note }
+        if workout.note != "" { textView.text = workout.note }
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (_) in
             if let workout = self.workout {
-                guard let note = addNoteAlertController.textFields?.first?.text else { return }
+                guard let note = textView.text else { return }
                 WorkoutController.shared.modify(workout: workout, withName: workout.name, note: note, duration: workout.duration, completion: { (success) in
                     if success {
                         workout.note = note
@@ -223,7 +235,7 @@ class WorkoutViewController: UIViewController {
         let alertController = UIAlertController(title: "Are you sure you want to cancel your current workout?", message: nil, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .cancel) { (_) in
             guard let _ = self.workout else { return }
-         self.endWorkout()
+            self.endWorkout()
         }
         let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
         
@@ -514,7 +526,12 @@ extension WorkoutViewController: LiftsetTableViewCellDelegate {
     }
     
     func liftsetCellButtonTapped(_ sender: LiftsetTableViewCell) {
-        if sender.doneButton.titleLabel?.text == "Done" {
+        if restTimer != nil {
+            restTimer?.invalidate()
+            sender.doneButton.setTitle("√", for: .normal)
+            RestTimerController.shared.restTimer.length = RestTimerController.shared.restTimer.startLength
+            restTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(deacreaseTimer), userInfo: nil, repeats: true)
+        } else if sender.doneButton.titleLabel?.text == "Done" {
             sender.doneButton.setTitle("√", for: .normal)
             if RestTimerController.shared.restTimer.isEnabled {
                 let restTimeText = TimeStringFormatter.shared.timeString(time: RestTimerController.shared.restTimer.length)
