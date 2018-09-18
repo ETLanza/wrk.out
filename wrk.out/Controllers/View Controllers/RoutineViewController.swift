@@ -17,6 +17,7 @@ class RoutineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     @IBAction func addButtonTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "New routine", message: "What would you like your routine to be named?", preferredStyle: .alert)
         alertController.addTextField { (textField) in
@@ -178,13 +179,7 @@ extension RoutineViewController {
             self.displayRenameAlertController(routine: routine)
         }
         let deleteRoutineAlert = UIAlertAction(title: "Delete Routine", style: .default) { (_) in
-            RoutineController.shared.remove(routine: routine, completion: { (success) in
-                if success {
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }
-            })
+            self.displayConfirmDeleteRoutineAlert(routine: routine)
         }
         
         let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -195,6 +190,28 @@ extension RoutineViewController {
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    func displayConfirmDeleteRoutineAlert(routine: Routine) {
+        let deleteAlertController = UIAlertController(title: "Are you sure you want to delete this routine?", message: nil, preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            RoutineController.shared.remove(routine: routine, completion: { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        deleteAlertController.addAction(deleteAction)
+        deleteAlertController.addAction(cancelAction)
+        
+        present(deleteAlertController, animated: true, completion: nil)
+    }
+    
     func displayRenameAlertController(routine: Routine) {
         
         let alertController = UIAlertController(title: "Rename The Routine", message: nil, preferredStyle: .alert)

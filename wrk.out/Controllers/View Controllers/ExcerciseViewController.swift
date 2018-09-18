@@ -40,6 +40,7 @@ class ExerciseViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.addDoneButtonOnKeyboard()
     }
 
     // MARK: - Navigation
