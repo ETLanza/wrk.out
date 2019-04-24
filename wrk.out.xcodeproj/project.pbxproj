@@ -52,9 +52,6 @@
 		90291BC6212E3E4300AD893E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90291BC5212E3E4300AD893E /* Search.swift */; };
 		9062072D213DC58300599DE1 /* RoutineHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062072C213DC58300599DE1 /* RoutineHeaderTableViewCell.swift */; };
 		9062072F213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062072E213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift */; };
-		908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AC212BA883007AA946 /* HealthKitModels.swift */; };
-		908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AE212BAC15007AA946 /* HealthKitSetup.swift */; };
-		908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357B0212BB2BB007AA946 /* HealthKitController.swift */; };
 		90A6A8532134632F0047A559 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8522134632F0047A559 /* SearchController.swift */; };
 		90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8542134637F0047A559 /* ExcerciseViewController.swift */; };
 		90C1515521384E2900509818 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C1515421384E2900509818 /* Routine.swift */; };
@@ -114,9 +111,6 @@
 		90291BC5212E3E4300AD893E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		9062072C213DC58300599DE1 /* RoutineHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		9062072E213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineExerciseTableViewCell.swift; sourceTree = "<group>"; };
-		908357AC212BA883007AA946 /* HealthKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModels.swift; sourceTree = "<group>"; };
-		908357AE212BAC15007AA946 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
-		908357B0212BB2BB007AA946 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		90A6A8522134632F0047A559 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		90A6A8542134637F0047A559 /* ExcerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewController.swift; sourceTree = "<group>"; };
 		90C1515421384E2900509818 /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
@@ -204,7 +198,6 @@
 				3C161ED4212F6C37006BD941 /* Storyboards */,
 				3CB69475212B836D00E9F2B1 /* Controllers */,
 				3CB6946B212B817000E9F2B1 /* CloudKit */,
-				90291BC4212E28B500AD893E /* HealthKit */,
 				7D40416D2136178F00F7F3C2 /* Extentions */,
 				3CB6945F212B761D00E9F2B1 /* Resources */,
 			);
@@ -302,16 +295,6 @@
 				3C918585214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		90291BC4212E28B500AD893E /* HealthKit */ = {
-			isa = PBXGroup;
-			children = (
-				908357AC212BA883007AA946 /* HealthKitModels.swift */,
-				908357B0212BB2BB007AA946 /* HealthKitController.swift */,
-				908357AE212BAC15007AA946 /* HealthKitSetup.swift */,
-			);
-			path = HealthKit;
 			sourceTree = "<group>";
 		};
 		90D7D6C421373197008362B1 /* Popups */ = {
@@ -431,7 +414,6 @@
 				90EDE6C8213607BE0057D3AB /* ExerciseViewControllerPopup.swift in Sources */,
 				3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */,
 				3C087427213472CF0025FBD8 /* LiftHeaderTableViewCell.swift in Sources */,
-				908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */,
 				3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */,
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
 				90C1515521384E2900509818 /* Routine.swift in Sources */,
@@ -442,7 +424,6 @@
 				3C087429213472E70025FBD8 /* AddSetTableViewCell.swift in Sources */,
 				3CF65651214F6E47000A7053 /* UIButton+Extension.swift in Sources */,
 				3CBF73E92135B8EC00D99292 /* EditInfoPopupViewController.swift in Sources */,
-				908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */,
 				9062072F213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift in Sources */,
 				3C087425213472B40025FBD8 /* HeaderTableViewCell.swift in Sources */,
 				3CB69473212B835400E9F2B1 /* LiftSetController.swift in Sources */,
@@ -455,7 +436,6 @@
 				90A6A8532134632F0047A559 /* SearchController.swift in Sources */,
 				3C6E8ED9214188F90052FB06 /* UITextField+Extensions.swift in Sources */,
 				3C161ED3212F6C2C006BD941 /* User.swift in Sources */,
-				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
 				3CE3B0C22139D4A000F9BDF6 /* WorkoutExerciseViewController.swift in Sources */,
 				3CE3B0C4213B336200F9BDF6 /* RestTimerController.swift in Sources */,
 				90C1515821385A6000509818 /* RoutineTableViewCell.swift in Sources */,
