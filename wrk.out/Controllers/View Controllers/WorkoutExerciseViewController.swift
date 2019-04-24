@@ -56,6 +56,7 @@ class WorkoutExerciseViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         tableView.layer.cornerRadius = 20
         tableView.layer.masksToBounds = true
+        searchBar.addDoneButtonOnKeyboard()
     }
 
     @IBAction func backgroundViewTapped(_ sender: UITapGestureRecognizer) {

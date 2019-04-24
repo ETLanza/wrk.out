@@ -22,6 +22,11 @@
 		3C161EF0212F6C4F006BD941 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EEC212F6C4E006BD941 /* ProfileViewController.swift */; };
 		3C161EF6212F6C8B006BD941 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C161EF5212F6C8B006BD941 /* UserController.swift */; };
 		3C6E8ED9214188F90052FB06 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E8ED8214188F90052FB06 /* UITextField+Extensions.swift */; };
+		3C8BBBBA215195CE00325067 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB9215195CE00325067 /* UISearchBar+Extension.swift */; };
+		3C8BBBBC21519C3F00325067 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBBB21519C3F00325067 /* UITextView+Extension.swift */; };
+		3C918584214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C918583214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift */; };
+		3C918586214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C918585214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift */; };
+		3C918588214F388E0007C284 /* PreviousWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C918587214F388E0007C284 /* PreviousWorkoutViewController.swift */; };
 		3C9E34C3212DCAA6006B1759 /* LiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9E34C2212DCAA6006B1759 /* LiftController.swift */; };
 		3C9E34C5212DD90B006B1759 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9E34C4212DD90B006B1759 /* WorkoutController.swift */; };
 		3C9E34C9212DF3A2006B1759 /* RestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9E34C8212DF3A2006B1759 /* RestTimer.swift */; };
@@ -39,15 +44,14 @@
 		3CBF73E92135B8EC00D99292 /* EditInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF73E72135B8EC00D99292 /* EditInfoPopupViewController.swift */; };
 		3CE3B0C22139D4A000F9BDF6 /* WorkoutExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */; };
 		3CE3B0C4213B336200F9BDF6 /* RestTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */; };
+		3CF65651214F6E47000A7053 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF65650214F6E47000A7053 /* UIButton+Extension.swift */; };
+		3CFD73A921500A1200A8C8D1 /* TimeStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFD73A821500A1200A8C8D1 /* TimeStringFormatter.swift */; };
 		7D40416F213617C300F7F3C2 /* NotificationNameExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */; };
 		7D76C33B21370EB900BBED97 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */; };
 		7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */; };
 		90291BC6212E3E4300AD893E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90291BC5212E3E4300AD893E /* Search.swift */; };
 		9062072D213DC58300599DE1 /* RoutineHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062072C213DC58300599DE1 /* RoutineHeaderTableViewCell.swift */; };
 		9062072F213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062072E213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift */; };
-		908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AC212BA883007AA946 /* HealthKitModels.swift */; };
-		908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357AE212BAC15007AA946 /* HealthKitSetup.swift */; };
-		908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908357B0212BB2BB007AA946 /* HealthKitController.swift */; };
 		90A6A8532134632F0047A559 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8522134632F0047A559 /* SearchController.swift */; };
 		90A6A8552134637F0047A559 /* ExcerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6A8542134637F0047A559 /* ExcerciseViewController.swift */; };
 		90C1515521384E2900509818 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C1515421384E2900509818 /* Routine.swift */; };
@@ -74,6 +78,11 @@
 		3C161EEC212F6C4E006BD941 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3C161EF5212F6C8B006BD941 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		3C6E8ED8214188F90052FB06 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		3C8BBBB9215195CE00325067 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
+		3C8BBBBB21519C3F00325067 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		3C918583214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousLiftHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		3C918585214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousLiftSetTableViewCell.swift; sourceTree = "<group>"; };
+		3C918587214F388E0007C284 /* PreviousWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousWorkoutViewController.swift; sourceTree = "<group>"; };
 		3C9E34C2212DCAA6006B1759 /* LiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftController.swift; sourceTree = "<group>"; };
 		3C9E34C4212DD90B006B1759 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
 		3C9E34C8212DF3A2006B1759 /* RestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimer.swift; sourceTree = "<group>"; };
@@ -94,15 +103,14 @@
 		3CBF73E72135B8EC00D99292 /* EditInfoPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditInfoPopupViewController.swift; path = "wrk.out/Controllers/View Controllers/New Group/EditInfoPopupViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseViewController.swift; sourceTree = "<group>"; };
 		3CE3B0C3213B336200F9BDF6 /* RestTimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerController.swift; sourceTree = "<group>"; };
+		3CF65650214F6E47000A7053 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		3CFD73A821500A1200A8C8D1 /* TimeStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStringFormatter.swift; sourceTree = "<group>"; };
 		7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtention.swift; sourceTree = "<group>"; };
 		7D76C33A21370EB900BBED97 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadScreenViewController.swift; sourceTree = "<group>"; };
 		7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		90291BC5212E3E4300AD893E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		9062072C213DC58300599DE1 /* RoutineHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		9062072E213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineExerciseTableViewCell.swift; sourceTree = "<group>"; };
-		908357AC212BA883007AA946 /* HealthKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModels.swift; sourceTree = "<group>"; };
-		908357AE212BAC15007AA946 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
-		908357B0212BB2BB007AA946 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		90A6A8522134632F0047A559 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		90A6A8542134637F0047A559 /* ExcerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewController.swift; sourceTree = "<group>"; };
 		90C1515421384E2900509818 /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 				90C1515B21385A9100509818 /* RoutineViewController.swift */,
 				7D80C60D213080ED00F1CD19 /* WorkoutViewController.swift */,
 				3CE3B0C12139D4A000F9BDF6 /* WorkoutExerciseViewController.swift */,
+				3C918587214F388E0007C284 /* PreviousWorkoutViewController.swift */,
 				90A6A8542134637F0047A559 /* ExcerciseViewController.swift */,
 				90C908302130678B003363DB /* MoreViewController.swift */,
 				90D7D6C421373197008362B1 /* Popups */,
@@ -183,12 +192,12 @@
 			children = (
 				3CB6946C212B817A00E9F2B1 /* wrk.out.entitlements */,
 				3CB6944D212B75E600E9F2B1 /* AppDelegate.swift */,
+				3CFD73A821500A1200A8C8D1 /* TimeStringFormatter.swift */,
 				3CB69466212B7DD300E9F2B1 /* Models */,
 				7D80C60F21345D9F00F1CD19 /* Views */,
 				3C161ED4212F6C37006BD941 /* Storyboards */,
 				3CB69475212B836D00E9F2B1 /* Controllers */,
 				3CB6946B212B817000E9F2B1 /* CloudKit */,
-				90291BC4212E28B500AD893E /* HealthKit */,
 				7D40416D2136178F00F7F3C2 /* Extentions */,
 				3CB6945F212B761D00E9F2B1 /* Resources */,
 			);
@@ -265,6 +274,9 @@
 			children = (
 				7D40416E213617C300F7F3C2 /* NotificationNameExtention.swift */,
 				3C6E8ED8214188F90052FB06 /* UITextField+Extensions.swift */,
+				3C8BBBB9215195CE00325067 /* UISearchBar+Extension.swift */,
+				3C8BBBBB21519C3F00325067 /* UITextView+Extension.swift */,
+				3CF65650214F6E47000A7053 /* UIButton+Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -279,18 +291,10 @@
 				9062072C213DC58300599DE1 /* RoutineHeaderTableViewCell.swift */,
 				90C1515721385A6000509818 /* RoutineTableViewCell.swift */,
 				9062072E213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift */,
+				3C918583214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift */,
+				3C918585214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		90291BC4212E28B500AD893E /* HealthKit */ = {
-			isa = PBXGroup;
-			children = (
-				908357AC212BA883007AA946 /* HealthKitModels.swift */,
-				908357B0212BB2BB007AA946 /* HealthKitController.swift */,
-				908357AE212BAC15007AA946 /* HealthKitSetup.swift */,
-			);
-			path = HealthKit;
 			sourceTree = "<group>";
 		};
 		90D7D6C421373197008362B1 /* Popups */ = {
@@ -402,32 +406,36 @@
 				90C1515C21385A9100509818 /* RoutineViewController.swift in Sources */,
 				3C161EE7212F6C46006BD941 /* CustomTabBar.swift in Sources */,
 				90C908312130678B003363DB /* MoreViewController.swift in Sources */,
+				3C918588214F388E0007C284 /* PreviousWorkoutViewController.swift in Sources */,
 				3CB69468212B7DF900E9F2B1 /* Keys.swift in Sources */,
 				3C161EF0212F6C4F006BD941 /* ProfileViewController.swift in Sources */,
+				3CFD73A921500A1200A8C8D1 /* TimeStringFormatter.swift in Sources */,
 				3C161EF6212F6C8B006BD941 /* UserController.swift in Sources */,
 				90EDE6C8213607BE0057D3AB /* ExerciseViewControllerPopup.swift in Sources */,
 				3CB69463212B7DD000E9F2B1 /* Lift.swift in Sources */,
 				3C087427213472CF0025FBD8 /* LiftHeaderTableViewCell.swift in Sources */,
-				908357AD212BA883007AA946 /* HealthKitModels.swift in Sources */,
 				3CB6946A212B816A00E9F2B1 /* CloudKitManager.swift in Sources */,
 				3CB6944E212B75E600E9F2B1 /* AppDelegate.swift in Sources */,
 				90C1515521384E2900509818 /* Routine.swift in Sources */,
 				7D80C60E213080ED00F1CD19 /* WorkoutViewController.swift in Sources */,
+				3C8BBBBA215195CE00325067 /* UISearchBar+Extension.swift in Sources */,
+				3C918584214F36DA0007C284 /* PreviousLiftHeaderTableViewCell.swift in Sources */,
 				3CB69464212B7DD000E9F2B1 /* LiftSet.swift in Sources */,
 				3C087429213472E70025FBD8 /* AddSetTableViewCell.swift in Sources */,
+				3CF65651214F6E47000A7053 /* UIButton+Extension.swift in Sources */,
 				3CBF73E92135B8EC00D99292 /* EditInfoPopupViewController.swift in Sources */,
-				908357B1212BB2BB007AA946 /* HealthKitController.swift in Sources */,
 				9062072F213DFC8F00599DE1 /* AddRoutineExerciseTableViewCell.swift in Sources */,
 				3C087425213472B40025FBD8 /* HeaderTableViewCell.swift in Sources */,
 				3CB69473212B835400E9F2B1 /* LiftSetController.swift in Sources */,
 				7D76C33B21370EB900BBED97 /* LoadScreenViewController.swift in Sources */,
 				3C08742B2134733D0025FBD8 /* LiftsetTableViewCell.swift in Sources */,
+				3C918586214F36EB0007C284 /* PreviousLiftSetTableViewCell.swift in Sources */,
 				90291BC6212E3E4300AD893E /* Search.swift in Sources */,
+				3C8BBBBC21519C3F00325067 /* UITextView+Extension.swift in Sources */,
 				3CB69465212B7DD000E9F2B1 /* Workout.swift in Sources */,
 				90A6A8532134632F0047A559 /* SearchController.swift in Sources */,
 				3C6E8ED9214188F90052FB06 /* UITextField+Extensions.swift in Sources */,
 				3C161ED3212F6C2C006BD941 /* User.swift in Sources */,
-				908357AF212BAC16007AA946 /* HealthKitSetup.swift in Sources */,
 				3CE3B0C22139D4A000F9BDF6 /* WorkoutExerciseViewController.swift in Sources */,
 				3CE3B0C4213B336200F9BDF6 /* RestTimerController.swift in Sources */,
 				90C1515821385A6000509818 /* RoutineTableViewCell.swift in Sources */,

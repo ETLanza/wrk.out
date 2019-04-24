@@ -18,6 +18,8 @@ class LiftsetTableViewCell: UITableViewCell {
         repTextField.delegate = self
         doneButton.titleLabel?.adjustsFontSizeToFitWidth = true
         liftNameCell.adjustsFontSizeToFitWidth = true
+        weightTextField.addDoneButtonOnKeyboard()
+        repTextField.addDoneButtonOnKeyboard()
     }
 
     @IBOutlet weak var setNumberLabel: UILabel!

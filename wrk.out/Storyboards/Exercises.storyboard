@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +29,6 @@
                                         <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="searchTest" layoutMarginsFollowReadableWidth="YES" text="" placeholder="Search Exercises" scopeBarBackgroundImage="ExercisesIcon" id="Zux-zp-0k5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
                                                 <outlet property="delegate" destination="mjb-G8-qOh" id="I4C-uD-7Ex"/>
@@ -48,14 +46,12 @@
                                                             <rect key="frame" x="15.000000000000004" y="5" width="35.333333333333336" height="20.333333333333332"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="OBc-qa-sNe">
                                                             <rect key="frame" x="14.999999999999996" y="25.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -74,7 +70,7 @@
                                         </connections>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="x0f-83-E0R" secondAttribute="bottom" id="4KJ-8L-r8Y"/>
                                     <constraint firstAttribute="trailing" secondItem="x0f-83-E0R" secondAttribute="trailing" id="5kD-oo-LM3"/>
@@ -113,20 +109,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88U-bI-sGe">
-                                <rect key="frame" x="18.666666666666657" y="237.33333333333334" width="337.66666666666674" height="337.33333333333326"/>
+                                <rect key="frame" x="18.666666666666657" y="132.33333333333337" width="337.66666666666674" height="548"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4r8-nJ-sjS">
-                                        <rect key="frame" x="20" y="19.999999999999972" width="297.66666666666669" height="297.33333333333326"/>
+                                        <rect key="frame" x="20" y="20" width="297.66666666666669" height="508"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="4r8-nJ-sjS" secondAttribute="bottom" constant="20" symbolic="YES" id="2aY-dq-sal"/>
                                     <constraint firstAttribute="trailing" secondItem="4r8-nJ-sjS" secondAttribute="trailing" constant="20" symbolic="YES" id="7rc-2z-KHS"/>
-                                    <constraint firstAttribute="width" secondItem="88U-bI-sGe" secondAttribute="height" multiplier="1:1" id="EsX-jl-llR"/>
                                     <constraint firstItem="4r8-nJ-sjS" firstAttribute="leading" secondItem="88U-bI-sGe" secondAttribute="leading" constant="20" symbolic="YES" id="UBt-JB-agz"/>
                                     <constraint firstItem="4r8-nJ-sjS" firstAttribute="top" secondItem="88U-bI-sGe" secondAttribute="top" constant="20" symbolic="YES" id="cpd-35-gO7"/>
                                 </constraints>
@@ -140,13 +134,14 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="0.20118995949074073" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="0.39534505208333331" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="88U-bI-sGe" firstAttribute="centerX" secondItem="g3G-zh-GfO" secondAttribute="centerX" id="7Vk-cE-8ee"/>
                             <constraint firstItem="sWL-8T-ytD" firstAttribute="top" secondItem="9zB-W8-0ny" secondAttribute="top" id="dAr-Qh-O21"/>
                             <constraint firstItem="sWL-8T-ytD" firstAttribute="bottom" secondItem="9zB-W8-0ny" secondAttribute="bottom" id="gQI-tG-1CQ"/>
                             <constraint firstItem="sWL-8T-ytD" firstAttribute="trailing" secondItem="9zB-W8-0ny" secondAttribute="trailing" id="kKO-4J-EFv"/>
+                            <constraint firstItem="88U-bI-sGe" firstAttribute="height" secondItem="sWL-8T-ytD" secondAttribute="height" multiplier="0.8" id="nMU-52-pyr"/>
                             <constraint firstItem="88U-bI-sGe" firstAttribute="centerY" secondItem="g3G-zh-GfO" secondAttribute="centerY" id="o31-bP-7uK"/>
                             <constraint firstItem="sWL-8T-ytD" firstAttribute="leading" secondItem="9zB-W8-0ny" secondAttribute="leading" id="uja-gv-449"/>
                             <constraint firstItem="88U-bI-sGe" firstAttribute="width" secondItem="g3G-zh-GfO" secondAttribute="width" multiplier="0.9" id="xAh-TN-j0F"/>
@@ -172,12 +167,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="P5M-Ql-2vp">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    //TF Outlets
+    //Outlets
     @IBOutlet weak fileprivate var nameTF: UITextField!
     @IBOutlet weak public var ageTF: UITextField!
     @IBOutlet weak public var weightTF: UITextField!
@@ -18,14 +18,16 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak public var genderTF: UITextField!
     @IBOutlet weak var profileImagePopupView: UIImageView!
     @IBOutlet weak var changePhotoButton: UIButton!
-
+    @IBOutlet weak var saveChangesButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var backgroundView: UIView!
+    
+    
     var user: User?
     var profileImageAsData: Data?
     //popup outlets
 
-    @IBOutlet var editInfoPopupView: UIView!
-    @IBOutlet weak var saveChangesButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
 
     //actions
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
@@ -87,6 +89,11 @@ class EditInfoPopupViewController: UIViewController, UIImagePickerControllerDele
         heightTF.addDoneButtonOnKeyboard()
         weightTF.addDoneButtonOnKeyboard()
         genderTF.addDoneButtonOnKeyboard()
+        saveChangesButton.roundCorners()
+        scrollView.layer.cornerRadius = 20
+        scrollView.layer.masksToBounds = true
+        backgroundView.layer.cornerRadius = 20
+        backgroundView.layer.masksToBounds = true
 
         guard let loggedInUser = UserController.shared.loggedInUser,
             let profileImage = loggedInUser.profileImage else { return }
